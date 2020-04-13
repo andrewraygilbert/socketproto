@@ -9,5 +9,25 @@
   </head>
   <body>
     <sockets-root></sockets-root>
+
+    <script src='./assets/socket.io.js'></script>
+    <script>
+      const socket = io.connect('http://localhost:3333?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRvbXMiLCJfaWQiOiI1ZTkxZGEwZmY2ZjM0YTFiYTlhNTAwMDUiLCJpYXQiOjE1ODY3ODk1OTgsImV4cCI6MTU4Njc5MzE5OH0.DmIYUb8V0WJj2Bzowhgsj7NdjAV8jefgQXgweRdL_ao');
+
+      socket.on('connect', () => {
+        console.log('connected to socket');
+      });
+      socket.on('exception', function(data) {
+        console.log('event', data);
+      });
+      socket.on('disconnect', function() {
+        console.log('Disconnected');
+      });
+      socket.on('user', (data) => {
+        console.log(data);
+      })
+
+    </script>
+
   </body>
 </html>

@@ -136,12 +136,27 @@
             {
               "file": "libs/api-interfaces/src/index.ts",
               "ext": ".ts",
-              "mtime": 1586538981727.4922
+              "mtime": 1586711729619.2456
             },
             {
               "file": "libs/api-interfaces/src/lib/api-interfaces.ts",
               "ext": ".ts",
               "mtime": 1586538981727.8794
+            },
+            {
+              "file": "libs/api-interfaces/src/lib/credentials.interface.ts",
+              "ext": ".ts",
+              "mtime": 1586711692276.995
+            },
+            {
+              "file": "libs/api-interfaces/src/lib/room.interface.ts",
+              "ext": ".ts",
+              "mtime": 1586619221083.715
+            },
+            {
+              "file": "libs/api-interfaces/src/lib/user.interface.ts",
+              "ext": ".ts",
+              "mtime": 1586617115951.8418
             },
             {
               "file": "libs/api-interfaces/tsconfig.json",
@@ -314,6 +329,11 @@
               "mtime": 1586538981715.811
             },
             {
+              "file": "apps/socketproto/src/assets/socket.io.js",
+              "ext": ".js",
+              "mtime": 1586721664023.8552
+            },
+            {
               "file": "apps/socketproto/src/environments/environment.prod.ts",
               "ext": ".ts",
               "mtime": 1586538981716.139
@@ -331,7 +351,7 @@
             {
               "file": "apps/socketproto/src/index.html",
               "ext": ".html",
-              "mtime": 1586538981714.8486
+              "mtime": 1586785158420.5183
             },
             {
               "file": "apps/socketproto/src/main.ts",
@@ -463,7 +483,7 @@
             {
               "file": "apps/api/src/app/app.module.ts",
               "ext": ".ts",
-              "mtime": 1586558775447.5903
+              "mtime": 1586719527590.4292
             },
             {
               "file": "apps/api/src/app/app.service.spec.ts",
@@ -483,12 +503,12 @@
             {
               "file": "apps/api/src/app/auth/auth.controller.ts",
               "ext": ".ts",
-              "mtime": 1586560193328.5388
+              "mtime": 1586714737778.8223
             },
             {
               "file": "apps/api/src/app/auth/auth.module.ts",
               "ext": ".ts",
-              "mtime": 1586560222983.0708
+              "mtime": 1586723857309.1245
             },
             {
               "file": "apps/api/src/app/auth/auth.service.spec.ts",
@@ -498,12 +518,12 @@
             {
               "file": "apps/api/src/app/auth/auth.service.ts",
               "ext": ".ts",
-              "mtime": 1586560173817.9668
+              "mtime": 1586724921468.5698
             },
             {
-              "file": "apps/api/src/app/auth/jwt/jwt.module.ts",
+              "file": "apps/api/src/app/auth/constants.ts",
               "ext": ".ts",
-              "mtime": 1586560257219.3755
+              "mtime": 1586714411994.5168
             },
             {
               "file": "apps/api/src/app/auth/jwt/jwt.service.spec.ts",
@@ -513,12 +533,42 @@
             {
               "file": "apps/api/src/app/auth/jwt/jwt.service.ts",
               "ext": ".ts",
-              "mtime": 1586560257219.1025
+              "mtime": 1586724944748.0696
+            },
+            {
+              "file": "apps/api/src/app/auth/jwt-auth.guard.ts",
+              "ext": ".ts",
+              "mtime": 1586715053458.7302
+            },
+            {
+              "file": "apps/api/src/app/auth/jwt.strategy.ts",
+              "ext": ".ts",
+              "mtime": 1586714921954.101
+            },
+            {
+              "file": "apps/api/src/app/auth/local-auth.guard.ts",
+              "ext": ".ts",
+              "mtime": 1586714067176.708
+            },
+            {
+              "file": "apps/api/src/app/auth/local.strategy.ts",
+              "ext": ".ts",
+              "mtime": 1586713149375.1868
+            },
+            {
+              "file": "apps/api/src/app/chat/chat.gateway.spec.ts",
+              "ext": ".ts",
+              "mtime": 1586719566731.6448
+            },
+            {
+              "file": "apps/api/src/app/chat/chat.gateway.ts",
+              "ext": ".ts",
+              "mtime": 1586724867788.712
             },
             {
               "file": "apps/api/src/app/chat/chat.module.ts",
               "ext": ".ts",
-              "mtime": 1586558032548.5571
+              "mtime": 1586721525326.9001
             },
             {
               "file": "apps/api/src/app/rooms/rooms.controller.spec.ts",
@@ -528,12 +578,12 @@
             {
               "file": "apps/api/src/app/rooms/rooms.controller.ts",
               "ext": ".ts",
-              "mtime": 1586560130511.7534
+              "mtime": 1586644132355.2695
             },
             {
               "file": "apps/api/src/app/rooms/rooms.module.ts",
               "ext": ".ts",
-              "mtime": 1586560419077.5312
+              "mtime": 1586719869253.885
             },
             {
               "file": "apps/api/src/app/rooms/rooms.service.spec.ts",
@@ -543,17 +593,17 @@
             {
               "file": "apps/api/src/app/rooms/rooms.service.ts",
               "ext": ".ts",
-              "mtime": 1586560148040.3555
+              "mtime": 1586643817302.3357
             },
             {
-              "file": "apps/api/src/app/users/interfaces/users.interface.ts",
+              "file": "apps/api/src/app/rooms/schemas/room.schema.ts",
               "ext": ".ts",
-              "mtime": 1586560519223.6743
+              "mtime": 1586619223566.1394
             },
             {
               "file": "apps/api/src/app/users/schemas/user.schema.ts",
               "ext": ".ts",
-              "mtime": 1586559445687.3594
+              "mtime": 1586617124669.6013
             },
             {
               "file": "apps/api/src/app/users/users.controller.spec.ts",
@@ -563,12 +613,12 @@
             {
               "file": "apps/api/src/app/users/users.controller.ts",
               "ext": ".ts",
-              "mtime": 1586559735976.307
+              "mtime": 1586715697136.5137
             },
             {
               "file": "apps/api/src/app/users/users.module.ts",
               "ext": ".ts",
-              "mtime": 1586560489743.233
+              "mtime": 1586642455851.8618
             },
             {
               "file": "apps/api/src/app/users/users.service.spec.ts",
@@ -578,7 +628,7 @@
             {
               "file": "apps/api/src/app/users/users.service.ts",
               "ext": ".ts",
-              "mtime": 1586559827531.9043
+              "mtime": 1586617701993.551
             },
             {
               "file": "apps/api/src/assets/.gitkeep",
@@ -609,11 +659,6 @@
               "file": "apps/api/tsconfig.json",
               "ext": ".json",
               "mtime": 1586538981722.1628
-            },
-            {
-              "file": "apps/api/tsconfig.nx-tmp",
-              "ext": ".nx-tmp",
-              "mtime": 1586558874405.7954
             },
             {
               "file": "apps/api/tsconfig.spec.json",
@@ -696,7 +741,7 @@
         "type": "npm",
         "name": "@nestjs/common",
         "data": {
-          "version": "^6.8.3",
+          "version": "^7.0.7",
           "files": []
         }
       },
@@ -704,7 +749,15 @@
         "type": "npm",
         "name": "@nestjs/core",
         "data": {
-          "version": "^6.8.3",
+          "version": "^7.0.7",
+          "files": []
+        }
+      },
+      "@nestjs/jwt": {
+        "type": "npm",
+        "name": "@nestjs/jwt",
+        "data": {
+          "version": "^7.0.0",
           "files": []
         }
       },
@@ -713,6 +766,14 @@
         "name": "@nestjs/mongoose",
         "data": {
           "version": "^6.4.0",
+          "files": []
+        }
+      },
+      "@nestjs/passport": {
+        "type": "npm",
+        "name": "@nestjs/passport",
+        "data": {
+          "version": "^7.0.0",
           "files": []
         }
       },
@@ -764,11 +825,43 @@
           "files": []
         }
       },
+      "jsonwebtoken": {
+        "type": "npm",
+        "name": "jsonwebtoken",
+        "data": {
+          "version": "^8.5.1",
+          "files": []
+        }
+      },
       "mongoose": {
         "type": "npm",
         "name": "mongoose",
         "data": {
           "version": "^5.9.7",
+          "files": []
+        }
+      },
+      "passport": {
+        "type": "npm",
+        "name": "passport",
+        "data": {
+          "version": "^0.4.1",
+          "files": []
+        }
+      },
+      "passport-jwt": {
+        "type": "npm",
+        "name": "passport-jwt",
+        "data": {
+          "version": "^4.0.0",
+          "files": []
+        }
+      },
+      "passport-local": {
+        "type": "npm",
+        "name": "passport-local",
+        "data": {
+          "version": "^1.0.0",
           "files": []
         }
       },
@@ -908,6 +1001,14 @@
           "files": []
         }
       },
+      "@types/passport-jwt": {
+        "type": "npm",
+        "name": "@types/passport-jwt",
+        "data": {
+          "version": "^3.0.3",
+          "files": []
+        }
+      },
       "@types/socket.io": {
         "type": "npm",
         "name": "@types/socket.io",
@@ -1013,7 +1114,13 @@
           "target": "socketproto"
         }
       ],
-      "api-interfaces": [],
+      "api-interfaces": [
+        {
+          "type": "static",
+          "source": "api-interfaces",
+          "target": "mongoose"
+        }
+      ],
       "socketproto": [
         {
           "type": "static",
@@ -1080,7 +1187,37 @@
         {
           "type": "static",
           "source": "api",
+          "target": "@nestjs/passport"
+        },
+        {
+          "type": "static",
+          "source": "api",
+          "target": "@nestjs/jwt"
+        },
+        {
+          "type": "static",
+          "source": "api",
+          "target": "jsonwebtoken"
+        },
+        {
+          "type": "static",
+          "source": "api",
           "target": "mongoose"
+        },
+        {
+          "type": "static",
+          "source": "api",
+          "target": "@nestjs/websockets"
+        },
+        {
+          "type": "static",
+          "source": "api",
+          "target": "passport-jwt"
+        },
+        {
+          "type": "static",
+          "source": "api",
+          "target": "passport-local"
         },
         {
           "type": "static",
@@ -1098,14 +1235,20 @@
       "@angular/router": [],
       "@nestjs/common": [],
       "@nestjs/core": [],
+      "@nestjs/jwt": [],
       "@nestjs/mongoose": [],
+      "@nestjs/passport": [],
       "@nestjs/platform-express": [],
       "@nestjs/platform-socket.io": [],
       "@nestjs/serve-static": [],
       "@nestjs/websockets": [],
       "@nrwl/angular": [],
       "core-js": [],
+      "jsonwebtoken": [],
       "mongoose": [],
+      "passport": [],
+      "passport-jwt": [],
+      "passport-local": [],
       "reflect-metadata": [],
       "rxjs": [],
       "zone.js": [],
@@ -1123,6 +1266,7 @@
       "@types/jest": [],
       "@types/mongoose": [],
       "@types/node": [],
+      "@types/passport-jwt": [],
       "@types/socket.io": [],
       "codelyzer": [],
       "cypress": [],
@@ -1204,12 +1348,27 @@
       {
         "file": "libs/api-interfaces/src/index.ts",
         "ext": ".ts",
-        "mtime": 1586538981727.4922
+        "mtime": 1586711729619.2456
       },
       {
         "file": "libs/api-interfaces/src/lib/api-interfaces.ts",
         "ext": ".ts",
         "mtime": 1586538981727.8794
+      },
+      {
+        "file": "libs/api-interfaces/src/lib/credentials.interface.ts",
+        "ext": ".ts",
+        "mtime": 1586711692276.995
+      },
+      {
+        "file": "libs/api-interfaces/src/lib/room.interface.ts",
+        "ext": ".ts",
+        "mtime": 1586619221083.715
+      },
+      {
+        "file": "libs/api-interfaces/src/lib/user.interface.ts",
+        "ext": ".ts",
+        "mtime": 1586617115951.8418
       },
       {
         "file": "libs/api-interfaces/tsconfig.json",
@@ -1279,6 +1438,11 @@
         "mtime": 1586538981715.811
       },
       {
+        "file": "apps/socketproto/src/assets/socket.io.js",
+        "ext": ".js",
+        "mtime": 1586721664023.8552
+      },
+      {
         "file": "apps/socketproto/src/environments/environment.prod.ts",
         "ext": ".ts",
         "mtime": 1586538981716.139
@@ -1296,7 +1460,7 @@
       {
         "file": "apps/socketproto/src/index.html",
         "ext": ".html",
-        "mtime": 1586538981714.8486
+        "mtime": 1586785158420.5183
       },
       {
         "file": "apps/socketproto/src/main.ts",
@@ -1363,7 +1527,7 @@
       {
         "file": "apps/api/src/app/app.module.ts",
         "ext": ".ts",
-        "mtime": 1586558775447.5903
+        "mtime": 1586719527590.4292
       },
       {
         "file": "apps/api/src/app/app.service.spec.ts",
@@ -1383,12 +1547,12 @@
       {
         "file": "apps/api/src/app/auth/auth.controller.ts",
         "ext": ".ts",
-        "mtime": 1586560193328.5388
+        "mtime": 1586714737778.8223
       },
       {
         "file": "apps/api/src/app/auth/auth.module.ts",
         "ext": ".ts",
-        "mtime": 1586560222983.0708
+        "mtime": 1586723857309.1245
       },
       {
         "file": "apps/api/src/app/auth/auth.service.spec.ts",
@@ -1398,12 +1562,12 @@
       {
         "file": "apps/api/src/app/auth/auth.service.ts",
         "ext": ".ts",
-        "mtime": 1586560173817.9668
+        "mtime": 1586724921468.5698
       },
       {
-        "file": "apps/api/src/app/auth/jwt/jwt.module.ts",
+        "file": "apps/api/src/app/auth/constants.ts",
         "ext": ".ts",
-        "mtime": 1586560257219.3755
+        "mtime": 1586714411994.5168
       },
       {
         "file": "apps/api/src/app/auth/jwt/jwt.service.spec.ts",
@@ -1413,12 +1577,42 @@
       {
         "file": "apps/api/src/app/auth/jwt/jwt.service.ts",
         "ext": ".ts",
-        "mtime": 1586560257219.1025
+        "mtime": 1586724944748.0696
+      },
+      {
+        "file": "apps/api/src/app/auth/jwt-auth.guard.ts",
+        "ext": ".ts",
+        "mtime": 1586715053458.7302
+      },
+      {
+        "file": "apps/api/src/app/auth/jwt.strategy.ts",
+        "ext": ".ts",
+        "mtime": 1586714921954.101
+      },
+      {
+        "file": "apps/api/src/app/auth/local-auth.guard.ts",
+        "ext": ".ts",
+        "mtime": 1586714067176.708
+      },
+      {
+        "file": "apps/api/src/app/auth/local.strategy.ts",
+        "ext": ".ts",
+        "mtime": 1586713149375.1868
+      },
+      {
+        "file": "apps/api/src/app/chat/chat.gateway.spec.ts",
+        "ext": ".ts",
+        "mtime": 1586719566731.6448
+      },
+      {
+        "file": "apps/api/src/app/chat/chat.gateway.ts",
+        "ext": ".ts",
+        "mtime": 1586724867788.712
       },
       {
         "file": "apps/api/src/app/chat/chat.module.ts",
         "ext": ".ts",
-        "mtime": 1586558032548.5571
+        "mtime": 1586721525326.9001
       },
       {
         "file": "apps/api/src/app/rooms/rooms.controller.spec.ts",
@@ -1428,12 +1622,12 @@
       {
         "file": "apps/api/src/app/rooms/rooms.controller.ts",
         "ext": ".ts",
-        "mtime": 1586560130511.7534
+        "mtime": 1586644132355.2695
       },
       {
         "file": "apps/api/src/app/rooms/rooms.module.ts",
         "ext": ".ts",
-        "mtime": 1586560419077.5312
+        "mtime": 1586719869253.885
       },
       {
         "file": "apps/api/src/app/rooms/rooms.service.spec.ts",
@@ -1443,17 +1637,17 @@
       {
         "file": "apps/api/src/app/rooms/rooms.service.ts",
         "ext": ".ts",
-        "mtime": 1586560148040.3555
+        "mtime": 1586643817302.3357
       },
       {
-        "file": "apps/api/src/app/users/interfaces/users.interface.ts",
+        "file": "apps/api/src/app/rooms/schemas/room.schema.ts",
         "ext": ".ts",
-        "mtime": 1586560519223.6743
+        "mtime": 1586619223566.1394
       },
       {
         "file": "apps/api/src/app/users/schemas/user.schema.ts",
         "ext": ".ts",
-        "mtime": 1586559445687.3594
+        "mtime": 1586617124669.6013
       },
       {
         "file": "apps/api/src/app/users/users.controller.spec.ts",
@@ -1463,12 +1657,12 @@
       {
         "file": "apps/api/src/app/users/users.controller.ts",
         "ext": ".ts",
-        "mtime": 1586559735976.307
+        "mtime": 1586715697136.5137
       },
       {
         "file": "apps/api/src/app/users/users.module.ts",
         "ext": ".ts",
-        "mtime": 1586560489743.233
+        "mtime": 1586642455851.8618
       },
       {
         "file": "apps/api/src/app/users/users.service.spec.ts",
@@ -1478,7 +1672,7 @@
       {
         "file": "apps/api/src/app/users/users.service.ts",
         "ext": ".ts",
-        "mtime": 1586559827531.9043
+        "mtime": 1586617701993.551
       },
       {
         "file": "apps/api/src/assets/.gitkeep",
@@ -1509,11 +1703,6 @@
         "file": "apps/api/tsconfig.json",
         "ext": ".json",
         "mtime": 1586538981722.1628
-      },
-      {
-        "file": "apps/api/tsconfig.nx-tmp",
-        "ext": ".nx-tmp",
-        "mtime": 1586558874405.7954
       },
       {
         "file": "apps/api/tsconfig.spec.json",

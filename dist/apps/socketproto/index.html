@@ -9,5 +9,25 @@
   <link rel="stylesheet" href="styles.3ff695c00d717f2d2a11.css"></head>
   <body>
     <sockets-root></sockets-root>
-  <script src="runtime-es2015.c9afb3256f2870e161de.js" type="module"></script><script src="runtime-es5.c9afb3256f2870e161de.js" nomodule defer></script><script src="polyfills-es5.d3a542967357d82fca49.js" nomodule defer></script><script src="polyfills-es2015.6add0b345a094d8b0a10.js" type="module"></script><script src="main-es2015.8e0f55a9f9f79280f0a4.js" type="module"></script><script src="main-es5.8e0f55a9f9f79280f0a4.js" nomodule defer></script></body>
+
+    <script src='./assets/socket.io.js'></script>
+    <script>
+      const socket = io.connect('http://localhost:3333?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRvbXMiLCJfaWQiOiI1ZTkxZGEwZmY2ZjM0YTFiYTlhNTAwMDUiLCJpYXQiOjE1ODY3ODUxMDcsImV4cCI6MTU4Njc4ODcwN30.jFpmAUptyXgL2eED6p_YnxQ-Gkyth71XbmmCz9H2ML4');
+
+      socket.on('connect', () => {
+        console.log('connected to socket');
+      });
+      socket.on('exception', function(data) {
+        console.log('event', data);
+      });
+      socket.on('disconnect', function() {
+        console.log('Disconnected');
+      });
+      socket.on('user', (data) => {
+        console.log(data);
+      })
+
+    </script>
+
+  <script src="runtime-es2015.c9afb3256f2870e161de.js" type="module"></script><script src="runtime-es5.c9afb3256f2870e161de.js" nomodule defer></script><script src="polyfills-es5.6638f72b6c535c999f48.js" nomodule defer></script><script src="polyfills-es2015.6add0b345a094d8b0a10.js" type="module"></script><script src="main-es2015.8e0f55a9f9f79280f0a4.js" type="module"></script><script src="main-es5.8e0f55a9f9f79280f0a4.js" nomodule defer></script></body>
 </html>

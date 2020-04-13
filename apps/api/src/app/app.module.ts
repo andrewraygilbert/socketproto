@@ -8,9 +8,11 @@ import { ChatModule } from './chat/chat.module';
 import { RoomsModule } from './rooms/rooms.module';
 import { UsersModule } from './users/users.module';
 import { MongooseModule } from '@nestjs/mongoose';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @Module({
   imports: [
+    ReactiveFormsModule,
     MongooseModule.forRoot('mongodb://localhost/sockets'),
     ServeStaticModule.forRoot({
       rootPath: join(__dirname, '..', 'socketproto'),

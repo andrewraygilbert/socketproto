@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Message } from '@sockets/api-interfaces';
+import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'sockets-root',
@@ -8,6 +9,10 @@ import { Message } from '@sockets/api-interfaces';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  hello$ = this.http.get<Message>('/api/hello');
-  constructor(private http: HttpClient) {}
+
+  constructor(
+    private http: HttpClient,
+    private fb: FormBuilder
+    ) {}
+
 }
