@@ -573,7 +573,7 @@
             {
               "file": "apps/api/src/app/app.module.ts",
               "ext": ".ts",
-              "mtime": 1586896978998.0066
+              "mtime": 1586900447984.133
             },
             {
               "file": "apps/api/src/app/app.service.spec.ts",
@@ -1755,7 +1755,7 @@
       {
         "file": "apps/api/src/app/app.module.ts",
         "ext": ".ts",
-        "mtime": 1586896978998.0066
+        "mtime": 1586900447984.133
       },
       {
         "file": "apps/api/src/app/app.service.spec.ts",

@@ -657,13 +657,14 @@ module.exports = require("@nestjs/core");
 
 
 
+const dbURI =  true ? process.env.MONGODB_URI : undefined;
 let AppModule = class AppModule {
 };
 AppModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__["Module"])({
         imports: [
             _angular_forms__WEBPACK_IMPORTED_MODULE_11__["ReactiveFormsModule"],
-            _nestjs_mongoose__WEBPACK_IMPORTED_MODULE_10__["MongooseModule"].forRoot('mongodb://localhost/sockets'),
+            _nestjs_mongoose__WEBPACK_IMPORTED_MODULE_10__["MongooseModule"].forRoot(dbURI),
             _nestjs_serve_static__WEBPACK_IMPORTED_MODULE_4__["ServeStaticModule"].forRoot({
                 rootPath: Object(path__WEBPACK_IMPORTED_MODULE_5__["join"])(__dirname, '..', 'socketproto'),
                 exclude: ['/api*']

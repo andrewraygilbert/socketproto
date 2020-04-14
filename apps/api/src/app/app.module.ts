@@ -10,10 +10,12 @@ import { UsersModule } from './users/users.module';
 import { MongooseModule } from '@nestjs/mongoose';
 import { ReactiveFormsModule } from '@angular/forms';
 
+const dbURI = process.env.NODE_ENV === 'production' ? process.env.MONGODB_URI : 'mongodb://localhost/sockets';
+
 @Module({
   imports: [
     ReactiveFormsModule,
-    MongooseModule.forRoot('mongodb://localhost/sockets'),
+    MongooseModule.forRoot(dbURI),
     ServeStaticModule.forRoot({
       rootPath: join(__dirname, '..', 'socketproto'),
       exclude: ['/api*']
