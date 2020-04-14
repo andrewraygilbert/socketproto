@@ -6,13 +6,15 @@
     <base href="/" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <link rel='stylesheet' href='assets/bootstrap.min.css'>
   </head>
   <body>
     <sockets-root></sockets-root>
 
+    <!--
     <script src='./assets/socket.io.js'></script>
     <script>
-      const socket = io.connect('http://localhost:3333?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRvbXMiLCJfaWQiOiI1ZTkxZGEwZmY2ZjM0YTFiYTlhNTAwMDUiLCJpYXQiOjE1ODY3ODk1OTgsImV4cCI6MTU4Njc5MzE5OH0.DmIYUb8V0WJj2Bzowhgsj7NdjAV8jefgQXgweRdL_ao');
+      const socket = io.connect('http://localhost:3333');
 
       socket.on('connect', () => {
         console.log('connected to socket');
@@ -28,6 +30,9 @@
       })
 
     </script>
+  -->
+
+  <script src='assets/bootstrap.min.js'></script>
 
   </body>
 </html>

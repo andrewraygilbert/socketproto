@@ -1,5 +1,5 @@
 import { UseGuards } from '@nestjs/common';
-import { SubscribeMessage, WebSocketGateway, WsResponse, WebSocketServer, OnGatewayConnection, OnGatewayDisconnect, WsException } from '@nestjs/websockets';
+import { SubscribeMessage, WebSocketGateway, WsResponse, WebSocketServer, OnGatewayConnection, OnGatewayDisconnect, WsException, MessageBody, ConnectedSocket } from '@nestjs/websockets';
 import { User } from '@sockets/api-interfaces';
 import { RoomsService } from './../rooms/rooms.service';
 import { JwtServicer } from './../auth/jwt/jwt.service';
@@ -24,17 +24,46 @@ export class ChatGateway implements OnGatewayConnection, OnGatewayDisconnect {
     const user: User = await this.jwtServicer.verify(
       socket.handshake.query.token
     );
-    console.log('a socket connected');
-    socket.emit('user', {user: user});
+
+
+    console.log('*** SOCKET CONNECTED ***')
+    console.log({"user" : user});
+    socket.emit('testmessage', {
+      testing: 'Here is the test information'
+    });
   }
 
   async handleDisconnect(socket) {
-    console.log('a socket disconnected');
+    console.log('~~~ SOCKET DISCONNECTED ~~~');
   }
 
 
-  @SubscribeMessage('message')
-  handleMessage(client: any, payload: any): string {
-    return 'Hello world!';
+  @SubscribeMessage('chatmsg')
+  handleMessage(@MessageBody() body: any, @ConnectedSocket() client: any): any {
+    console.log(body);
+    for (const room of Object.keys(client.rooms)) {
+      client.broadcast.to(room).emit('chatmsg', { 'message' : body });
+    }
+    // client.broadcast.to('5e923b1494ec4e1d389cab80').emit('chatmsg', {'message' : body});
   }
+
+  @SubscribeMessage('leave_room')
+  async leaveRoom(@MessageBody() data: any, @ConnectedSocket() client: any): Promise<any> {
+    console.log('leave room');
+    console.log(client.rooms);
+  }
+
+  @SubscribeMessage('joinroom')
+  async joinRoom(@MessageBody() data: any, @ConnectedSocket() client: any): Promise<any> {
+    if (Object.keys(client.rooms).length > 1) {
+      console.log('in keys', client.rooms);
+      client.leave(Object.keys(client.rooms)[1]);
+    }
+    const requestedRoom = await this.roomsService.getRoomById(data._id);
+    client.join(requestedRoom._id);
+    console.log('joining room: ', requestedRoom._id);
+    client.broadcast.to(requestedRoom._id).emit('roomjoined', {'message' : 'Someone has joined'});
+    console.log('rooms', client.rooms);
+  }
+
 }

@@ -306,7 +306,7 @@
             {
               "file": "apps/socketproto/src/app/app.component.html",
               "ext": ".html",
-              "mtime": 1586538981717.2136
+              "mtime": 1586790120686.852
             },
             {
               "file": "apps/socketproto/src/app/app.component.spec.ts",
@@ -316,12 +316,87 @@
             {
               "file": "apps/socketproto/src/app/app.component.ts",
               "ext": ".ts",
-              "mtime": 1586538981717.6729
+              "mtime": 1586882445635.2603
             },
             {
               "file": "apps/socketproto/src/app/app.module.ts",
               "ext": ".ts",
-              "mtime": 1586538981716.6777
+              "mtime": 1586882298250.4792
+            },
+            {
+              "file": "apps/socketproto/src/app/chat/chat.component.css",
+              "ext": ".css",
+              "mtime": 1586816163941.5647
+            },
+            {
+              "file": "apps/socketproto/src/app/chat/chat.component.html",
+              "ext": ".html",
+              "mtime": 1586895196435.1216
+            },
+            {
+              "file": "apps/socketproto/src/app/chat/chat.component.spec.ts",
+              "ext": ".ts",
+              "mtime": 1586816163942.1038
+            },
+            {
+              "file": "apps/socketproto/src/app/chat/chat.component.ts",
+              "ext": ".ts",
+              "mtime": 1586894029212.371
+            },
+            {
+              "file": "apps/socketproto/src/app/constants/api-base-url.constant.ts",
+              "ext": ".ts",
+              "mtime": 1586899431996.3784
+            },
+            {
+              "file": "apps/socketproto/src/app/customsocket/customsocket.service.spec.ts",
+              "ext": ".ts",
+              "mtime": 1586879403518.7688
+            },
+            {
+              "file": "apps/socketproto/src/app/customsocket/customsocket.service.ts",
+              "ext": ".ts",
+              "mtime": 1586899467876.404
+            },
+            {
+              "file": "apps/socketproto/src/app/data-service.service.spec.ts",
+              "ext": ".ts",
+              "mtime": 1586790683064.2747
+            },
+            {
+              "file": "apps/socketproto/src/app/data-service.service.ts",
+              "ext": ".ts",
+              "mtime": 1586899197614.6863
+            },
+            {
+              "file": "apps/socketproto/src/app/login/login.component.css",
+              "ext": ".css",
+              "mtime": 1586787890555.1328
+            },
+            {
+              "file": "apps/socketproto/src/app/login/login.component.html",
+              "ext": ".html",
+              "mtime": 1586874436188.253
+            },
+            {
+              "file": "apps/socketproto/src/app/login/login.component.spec.ts",
+              "ext": ".ts",
+              "mtime": 1586787890555.7122
+            },
+            {
+              "file": "apps/socketproto/src/app/login/login.component.ts",
+              "ext": ".ts",
+              "mtime": 1586816571594.3533
+            },
+            {
+              "file": "apps/socketproto/src/app/sockets/sockets.service.spec.ts",
+              "ext": ".ts",
+              "mtime": 1586798300725.2703
+            },
+            {
+              "file": "apps/socketproto/src/app/sockets/sockets.service.ts",
+              "ext": ".ts",
+              "mtime": 1586886328399.8267
             },
             {
               "file": "apps/socketproto/src/assets/.gitkeep",
@@ -329,9 +404,24 @@
               "mtime": 1586538981715.811
             },
             {
-              "file": "apps/socketproto/src/assets/socket.io.js",
+              "file": "apps/socketproto/src/assets/bootstrap.min.css",
+              "ext": ".css",
+              "mtime": 1532396248000
+            },
+            {
+              "file": "apps/socketproto/src/assets/bootstrap.min.css.map",
+              "ext": ".map",
+              "mtime": 1532396248000
+            },
+            {
+              "file": "apps/socketproto/src/assets/bootstrap.min.js",
               "ext": ".js",
-              "mtime": 1586721664023.8552
+              "mtime": 1532396262000
+            },
+            {
+              "file": "apps/socketproto/src/assets/bootstrap.min.js.map",
+              "ext": ".map",
+              "mtime": 1532396262000
             },
             {
               "file": "apps/socketproto/src/environments/environment.prod.ts",
@@ -351,7 +441,7 @@
             {
               "file": "apps/socketproto/src/index.html",
               "ext": ".html",
-              "mtime": 1586785158420.5183
+              "mtime": 1586873574767.375
             },
             {
               "file": "apps/socketproto/src/main.ts",
@@ -483,7 +573,7 @@
             {
               "file": "apps/api/src/app/app.module.ts",
               "ext": ".ts",
-              "mtime": 1586719527590.4292
+              "mtime": 1586896978998.0066
             },
             {
               "file": "apps/api/src/app/app.service.spec.ts",
@@ -508,7 +598,7 @@
             {
               "file": "apps/api/src/app/auth/auth.module.ts",
               "ext": ".ts",
-              "mtime": 1586723857309.1245
+              "mtime": 1586812382653.0186
             },
             {
               "file": "apps/api/src/app/auth/auth.service.spec.ts",
@@ -563,7 +653,7 @@
             {
               "file": "apps/api/src/app/chat/chat.gateway.ts",
               "ext": ".ts",
-              "mtime": 1586724867788.712
+              "mtime": 1586898721173.089
             },
             {
               "file": "apps/api/src/app/chat/chat.module.ts",
@@ -578,7 +668,7 @@
             {
               "file": "apps/api/src/app/rooms/rooms.controller.ts",
               "ext": ".ts",
-              "mtime": 1586644132355.2695
+              "mtime": 1586876741131.7705
             },
             {
               "file": "apps/api/src/app/rooms/rooms.module.ts",
@@ -593,7 +683,7 @@
             {
               "file": "apps/api/src/app/rooms/rooms.service.ts",
               "ext": ".ts",
-              "mtime": 1586643817302.3357
+              "mtime": 1586876616588.326
             },
             {
               "file": "apps/api/src/app/rooms/schemas/room.schema.ts",
@@ -648,7 +738,7 @@
             {
               "file": "apps/api/src/main.ts",
               "ext": ".ts",
-              "mtime": 1586539727536.1846
+              "mtime": 1586794047200.3186
             },
             {
               "file": "apps/api/tsconfig.app.json",
@@ -841,6 +931,14 @@
           "files": []
         }
       },
+      "ngx-socket-io": {
+        "type": "npm",
+        "name": "ngx-socket-io",
+        "data": {
+          "version": "^3.0.1",
+          "files": []
+        }
+      },
       "passport": {
         "type": "npm",
         "name": "passport",
@@ -878,6 +976,14 @@
         "name": "rxjs",
         "data": {
           "version": "~6.5.4",
+          "files": []
+        }
+      },
+      "socket.io-client": {
+        "type": "npm",
+        "name": "socket.io-client",
+        "data": {
+          "version": "^2.3.0",
           "files": []
         }
       },
@@ -1140,7 +1246,32 @@
         {
           "type": "static",
           "source": "socketproto",
+          "target": "@angular/forms"
+        },
+        {
+          "type": "static",
+          "source": "socketproto",
           "target": "@angular/platform-browser"
+        },
+        {
+          "type": "static",
+          "source": "socketproto",
+          "target": "@angular/router"
+        },
+        {
+          "type": "static",
+          "source": "socketproto",
+          "target": "ngx-socket-io"
+        },
+        {
+          "type": "static",
+          "source": "socketproto",
+          "target": "socket.io-client"
+        },
+        {
+          "type": "static",
+          "source": "socketproto",
+          "target": "rxjs"
         },
         {
           "type": "static",
@@ -1183,6 +1314,11 @@
           "type": "static",
           "source": "api",
           "target": "@nestjs/mongoose"
+        },
+        {
+          "type": "static",
+          "source": "api",
+          "target": "@angular/forms"
         },
         {
           "type": "static",
@@ -1246,11 +1382,13 @@
       "core-js": [],
       "jsonwebtoken": [],
       "mongoose": [],
+      "ngx-socket-io": [],
       "passport": [],
       "passport-jwt": [],
       "passport-local": [],
       "reflect-metadata": [],
       "rxjs": [],
+      "socket.io-client": [],
       "zone.js": [],
       "@angular-devkit/build-angular": [],
       "@angular/cli": [],
@@ -1415,7 +1553,7 @@
       {
         "file": "apps/socketproto/src/app/app.component.html",
         "ext": ".html",
-        "mtime": 1586538981717.2136
+        "mtime": 1586790120686.852
       },
       {
         "file": "apps/socketproto/src/app/app.component.spec.ts",
@@ -1425,12 +1563,87 @@
       {
         "file": "apps/socketproto/src/app/app.component.ts",
         "ext": ".ts",
-        "mtime": 1586538981717.6729
+        "mtime": 1586882445635.2603
       },
       {
         "file": "apps/socketproto/src/app/app.module.ts",
         "ext": ".ts",
-        "mtime": 1586538981716.6777
+        "mtime": 1586882298250.4792
+      },
+      {
+        "file": "apps/socketproto/src/app/chat/chat.component.css",
+        "ext": ".css",
+        "mtime": 1586816163941.5647
+      },
+      {
+        "file": "apps/socketproto/src/app/chat/chat.component.html",
+        "ext": ".html",
+        "mtime": 1586895196435.1216
+      },
+      {
+        "file": "apps/socketproto/src/app/chat/chat.component.spec.ts",
+        "ext": ".ts",
+        "mtime": 1586816163942.1038
+      },
+      {
+        "file": "apps/socketproto/src/app/chat/chat.component.ts",
+        "ext": ".ts",
+        "mtime": 1586894029212.371
+      },
+      {
+        "file": "apps/socketproto/src/app/constants/api-base-url.constant.ts",
+        "ext": ".ts",
+        "mtime": 1586899431996.3784
+      },
+      {
+        "file": "apps/socketproto/src/app/customsocket/customsocket.service.spec.ts",
+        "ext": ".ts",
+        "mtime": 1586879403518.7688
+      },
+      {
+        "file": "apps/socketproto/src/app/customsocket/customsocket.service.ts",
+        "ext": ".ts",
+        "mtime": 1586899467876.404
+      },
+      {
+        "file": "apps/socketproto/src/app/data-service.service.spec.ts",
+        "ext": ".ts",
+        "mtime": 1586790683064.2747
+      },
+      {
+        "file": "apps/socketproto/src/app/data-service.service.ts",
+        "ext": ".ts",
+        "mtime": 1586899197614.6863
+      },
+      {
+        "file": "apps/socketproto/src/app/login/login.component.css",
+        "ext": ".css",
+        "mtime": 1586787890555.1328
+      },
+      {
+        "file": "apps/socketproto/src/app/login/login.component.html",
+        "ext": ".html",
+        "mtime": 1586874436188.253
+      },
+      {
+        "file": "apps/socketproto/src/app/login/login.component.spec.ts",
+        "ext": ".ts",
+        "mtime": 1586787890555.7122
+      },
+      {
+        "file": "apps/socketproto/src/app/login/login.component.ts",
+        "ext": ".ts",
+        "mtime": 1586816571594.3533
+      },
+      {
+        "file": "apps/socketproto/src/app/sockets/sockets.service.spec.ts",
+        "ext": ".ts",
+        "mtime": 1586798300725.2703
+      },
+      {
+        "file": "apps/socketproto/src/app/sockets/sockets.service.ts",
+        "ext": ".ts",
+        "mtime": 1586886328399.8267
       },
       {
         "file": "apps/socketproto/src/assets/.gitkeep",
@@ -1438,9 +1651,24 @@
         "mtime": 1586538981715.811
       },
       {
-        "file": "apps/socketproto/src/assets/socket.io.js",
+        "file": "apps/socketproto/src/assets/bootstrap.min.css",
+        "ext": ".css",
+        "mtime": 1532396248000
+      },
+      {
+        "file": "apps/socketproto/src/assets/bootstrap.min.css.map",
+        "ext": ".map",
+        "mtime": 1532396248000
+      },
+      {
+        "file": "apps/socketproto/src/assets/bootstrap.min.js",
         "ext": ".js",
-        "mtime": 1586721664023.8552
+        "mtime": 1532396262000
+      },
+      {
+        "file": "apps/socketproto/src/assets/bootstrap.min.js.map",
+        "ext": ".map",
+        "mtime": 1532396262000
       },
       {
         "file": "apps/socketproto/src/environments/environment.prod.ts",
@@ -1460,7 +1688,7 @@
       {
         "file": "apps/socketproto/src/index.html",
         "ext": ".html",
-        "mtime": 1586785158420.5183
+        "mtime": 1586873574767.375
       },
       {
         "file": "apps/socketproto/src/main.ts",
@@ -1527,7 +1755,7 @@
       {
         "file": "apps/api/src/app/app.module.ts",
         "ext": ".ts",
-        "mtime": 1586719527590.4292
+        "mtime": 1586896978998.0066
       },
       {
         "file": "apps/api/src/app/app.service.spec.ts",
@@ -1552,7 +1780,7 @@
       {
         "file": "apps/api/src/app/auth/auth.module.ts",
         "ext": ".ts",
-        "mtime": 1586723857309.1245
+        "mtime": 1586812382653.0186
       },
       {
         "file": "apps/api/src/app/auth/auth.service.spec.ts",
@@ -1607,7 +1835,7 @@
       {
         "file": "apps/api/src/app/chat/chat.gateway.ts",
         "ext": ".ts",
-        "mtime": 1586724867788.712
+        "mtime": 1586898721173.089
       },
       {
         "file": "apps/api/src/app/chat/chat.module.ts",
@@ -1622,7 +1850,7 @@
       {
         "file": "apps/api/src/app/rooms/rooms.controller.ts",
         "ext": ".ts",
-        "mtime": 1586644132355.2695
+        "mtime": 1586876741131.7705
       },
       {
         "file": "apps/api/src/app/rooms/rooms.module.ts",
@@ -1637,7 +1865,7 @@
       {
         "file": "apps/api/src/app/rooms/rooms.service.ts",
         "ext": ".ts",
-        "mtime": 1586643817302.3357
+        "mtime": 1586876616588.326
       },
       {
         "file": "apps/api/src/app/rooms/schemas/room.schema.ts",
@@ -1692,7 +1920,7 @@
       {
         "file": "apps/api/src/main.ts",
         "ext": ".ts",
-        "mtime": 1586539727536.1846
+        "mtime": 1586794047200.3186
       },
       {
         "file": "apps/api/tsconfig.app.json",

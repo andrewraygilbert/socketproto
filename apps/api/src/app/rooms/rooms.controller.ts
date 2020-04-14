@@ -9,6 +9,11 @@ export class RoomsController {
     private roomsService: RoomsService
   ) {}
 
+  @Get('all')
+  async getRooms(): Promise<Room[]> {
+    return this.roomsService.getRooms();
+  }
+
   @Get(':id')
   async roomById(@Param() params): Promise<Room> {
     return this.roomsService.getRoomById(params.id);

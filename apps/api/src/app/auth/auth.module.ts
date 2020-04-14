@@ -17,7 +17,7 @@ import { JwtServicer } from './jwt/jwt.service';
     UsersModule,
     JwtModule.register({
       secret: jwtConstants.secret,
-      signOptions: { expiresIn: '3600s' }
+      signOptions: { expiresIn: '7d' }
     })
   ],
   exports: [JwtServicer]

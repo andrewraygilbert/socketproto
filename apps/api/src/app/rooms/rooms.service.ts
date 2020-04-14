@@ -14,6 +14,11 @@ export class RoomsService {
     private readonly usersService: UsersService
   ) {}
 
+  async getRooms(): Promise<Room[]> {
+    const rooms = this.RoomModel.find().exec();
+    return rooms;
+  }
+
   async create(room: Room): Promise<Room> {
     const createdRoom = new this.RoomModel(room);
     return createdRoom.save();
