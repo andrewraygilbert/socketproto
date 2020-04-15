@@ -24,8 +24,24 @@ export class CustomsocketService {
     return fromEvent(this.socket.on(), 'chatmsg');
   }
 
-  public async joinRoom(room) {
-    this.socket.emit('joinroom', room);
+  public getErrors(): Observable<any> {
+    return fromEvent(this.socket.on(), 'error');
+  }
+
+  public participantJoined(): Observable<any> {
+    return fromEvent(this.socket.on(), 'participant_joined');
+  }
+
+  public onConnect(): Observable<any> {
+    return fromEvent(this.socket.on(), 'connect');
+  }
+
+  public onDisconnect(): Observable<any> {
+    return fromEvent(this.socket.on(), 'disconnect');
+  }
+
+  public async joinRoom(room): Promise<any> {
+    await this.socket.emit('joinroom', room, (msg) => { console.log('room has been joined per ack', msg)});
   }
 
   public async leaveRoom(room) {

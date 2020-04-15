@@ -301,7 +301,7 @@
             {
               "file": "apps/socketproto/src/app/app.component.css",
               "ext": ".css",
-              "mtime": 1586538981716.981
+              "mtime": 1586962778513.185
             },
             {
               "file": "apps/socketproto/src/app/app.component.html",
@@ -331,7 +331,7 @@
             {
               "file": "apps/socketproto/src/app/chat/chat.component.html",
               "ext": ".html",
-              "mtime": 1586895196435.1216
+              "mtime": 1586964944943.454
             },
             {
               "file": "apps/socketproto/src/app/chat/chat.component.spec.ts",
@@ -341,12 +341,12 @@
             {
               "file": "apps/socketproto/src/app/chat/chat.component.ts",
               "ext": ".ts",
-              "mtime": 1586894029212.371
+              "mtime": 1586968315408.5813
             },
             {
               "file": "apps/socketproto/src/app/constants/api-base-url.constant.ts",
               "ext": ".ts",
-              "mtime": 1586900948804.336
+              "mtime": 1586902096462.0388
             },
             {
               "file": "apps/socketproto/src/app/customsocket/customsocket.service.spec.ts",
@@ -356,7 +356,7 @@
             {
               "file": "apps/socketproto/src/app/customsocket/customsocket.service.ts",
               "ext": ".ts",
-              "mtime": 1586899467876.404
+              "mtime": 1586968569347.713
             },
             {
               "file": "apps/socketproto/src/app/data-service.service.spec.ts",
@@ -633,7 +633,7 @@
             {
               "file": "apps/api/src/app/auth/jwt.strategy.ts",
               "ext": ".ts",
-              "mtime": 1586714921954.101
+              "mtime": 1586961283765.1797
             },
             {
               "file": "apps/api/src/app/auth/local-auth.guard.ts",
@@ -653,7 +653,7 @@
             {
               "file": "apps/api/src/app/chat/chat.gateway.ts",
               "ext": ".ts",
-              "mtime": 1586898721173.089
+              "mtime": 1586969068312.6797
             },
             {
               "file": "apps/api/src/app/chat/chat.module.ts",
@@ -1548,7 +1548,7 @@
       {
         "file": "apps/socketproto/src/app/app.component.css",
         "ext": ".css",
-        "mtime": 1586538981716.981
+        "mtime": 1586962778513.185
       },
       {
         "file": "apps/socketproto/src/app/app.component.html",
@@ -1578,7 +1578,7 @@
       {
         "file": "apps/socketproto/src/app/chat/chat.component.html",
         "ext": ".html",
-        "mtime": 1586895196435.1216
+        "mtime": 1586964944943.454
       },
       {
         "file": "apps/socketproto/src/app/chat/chat.component.spec.ts",
@@ -1588,12 +1588,12 @@
       {
         "file": "apps/socketproto/src/app/chat/chat.component.ts",
         "ext": ".ts",
-        "mtime": 1586894029212.371
+        "mtime": 1586968315408.5813
       },
       {
         "file": "apps/socketproto/src/app/constants/api-base-url.constant.ts",
         "ext": ".ts",
-        "mtime": 1586900948804.336
+        "mtime": 1586902096462.0388
       },
       {
         "file": "apps/socketproto/src/app/customsocket/customsocket.service.spec.ts",
@@ -1603,7 +1603,7 @@
       {
         "file": "apps/socketproto/src/app/customsocket/customsocket.service.ts",
         "ext": ".ts",
-        "mtime": 1586899467876.404
+        "mtime": 1586968569347.713
       },
       {
         "file": "apps/socketproto/src/app/data-service.service.spec.ts",
@@ -1815,7 +1815,7 @@
       {
         "file": "apps/api/src/app/auth/jwt.strategy.ts",
         "ext": ".ts",
-        "mtime": 1586714921954.101
+        "mtime": 1586961283765.1797
       },
       {
         "file": "apps/api/src/app/auth/local-auth.guard.ts",
@@ -1835,7 +1835,7 @@
       {
         "file": "apps/api/src/app/chat/chat.gateway.ts",
         "ext": ".ts",
-        "mtime": 1586898721173.089
+        "mtime": 1586969068312.6797
       },
       {
         "file": "apps/api/src/app/chat/chat.module.ts",

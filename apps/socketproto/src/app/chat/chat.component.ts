@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { DataService } from './../data-service.service';
 import { CustomsocketService } from '../customsocket/customsocket.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'sockets-chat',
@@ -11,6 +12,7 @@ import { CustomsocketService } from '../customsocket/customsocket.service';
 export class ChatComponent implements OnInit {
 
   constructor(
+    private router: Router,
     private fb: FormBuilder,
     private dataService: DataService,
     private customSocket: CustomsocketService
@@ -19,6 +21,7 @@ export class ChatComponent implements OnInit {
   public rooms = [];
   public activeRoom;
   public chatMessages: string[] = [];
+  public newJoin = false;
 
 
   chatForm = this.fb.group({
@@ -34,25 +37,60 @@ export class ChatComponent implements OnInit {
 
   public joinRoom(room) {
     console.log(room);
-    this.customSocket.joinRoom(room);
-    this.activeRoom = room;
+    this.customSocket.joinRoom(room)
+      .then(() => {
+        this.activeRoom = room;
+      })
+      .catch(err => console.log(err));
   }
 
   public leaveRoom() {
     this.customSocket.leaveRoom(this.activeRoom);
   }
 
+  public notifyJoin() {
+    this.newJoin = true;
+    setTimeout(() => { this.newJoin = false}, 5000);
+  }
+
+  private isLoggedIn() {
+    const token = this.dataService.getToken();
+    if (!token) {
+      this.router.navigateByUrl('login');
+    }
+  }
+
   ngOnInit(): void {
+
+    this.isLoggedIn();
+
+    this.customSocket.getErrors()
+      .subscribe(err => {
+        console.log(err);
+      });
+
+    this.customSocket.onConnect()
+      .subscribe(() => {
+        console.log('connected');
+      });
+
+    this.customSocket.onDisconnect()
+      .subscribe(() => {
+        console.log('disconnect');
+      });
+
+    this.customSocket.participantJoined()
+      .subscribe(data => {
+        this.notifyJoin();
+      });
 
     this.customSocket.getChats()
       .subscribe((data) => {
-        console.log(data);
         this.chatMessages.push(data.message);
       });
 
     this.dataService.getRooms()
       .then((rooms) => {
-        console.log(rooms);
         this.rooms = rooms;
       })
       .catch(err => console.log(err));

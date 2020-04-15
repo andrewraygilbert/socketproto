@@ -18,19 +18,7 @@ export class ChatGateway implements OnGatewayConnection, OnGatewayDisconnect {
 
 
   async handleConnection(socket) {
-    if (!socket.handshake.query.token) {
-      throw new WsException('missing token');
-    }
-    const user: User = await this.jwtServicer.verify(
-      socket.handshake.query.token
-    );
-
-
     console.log('*** SOCKET CONNECTED ***')
-    console.log({"user" : user});
-    socket.emit('testmessage', {
-      testing: 'Here is the test information'
-    });
   }
 
   async handleDisconnect(socket) {
@@ -44,26 +32,29 @@ export class ChatGateway implements OnGatewayConnection, OnGatewayDisconnect {
     for (const room of Object.keys(client.rooms)) {
       client.broadcast.to(room).emit('chatmsg', { 'message' : body });
     }
-    // client.broadcast.to('5e923b1494ec4e1d389cab80').emit('chatmsg', {'message' : body});
   }
 
-  @SubscribeMessage('leave_room')
-  async leaveRoom(@MessageBody() data: any, @ConnectedSocket() client: any): Promise<any> {
-    console.log('leave room');
-    console.log(client.rooms);
-  }
-
-  @SubscribeMessage('joinroom')
-  async joinRoom(@MessageBody() data: any, @ConnectedSocket() client: any): Promise<any> {
+  private doLeaveRoom(client: any) {
     if (Object.keys(client.rooms).length > 1) {
       console.log('in keys', client.rooms);
       client.leave(Object.keys(client.rooms)[1]);
     }
+  }
+
+  @SubscribeMessage('joinroom')
+  async joinRoom(@MessageBody() data: any, @ConnectedSocket() client: any): Promise<any> {
+    this.doLeaveRoom(client);
+    const user = await this.jwtServicer.verify(client.handshake.query.token);
     const requestedRoom = await this.roomsService.getRoomById(data._id);
-    client.join(requestedRoom._id);
-    console.log('joining room: ', requestedRoom._id);
-    client.broadcast.to(requestedRoom._id).emit('roomjoined', {'message' : 'Someone has joined'});
-    console.log('rooms', client.rooms);
+    const isCollaborator = requestedRoom.collaborators.find(person => person.userId == user._id);
+    if (isCollaborator) {
+      client.join(requestedRoom._id);
+      client.broadcast.to(requestedRoom._id).emit('participant_joined', { 'message' : 'Someone has joined.' });
+    } else {
+      console.log('user is not allowed to access room');
+      return {'msg' : 'cant do that'};
+    }
+    return {'msg' : 'success'};
   }
 
 }

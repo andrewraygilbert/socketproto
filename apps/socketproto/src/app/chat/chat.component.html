@@ -1,34 +1,33 @@
 <div class='container-fluid'>
   <div class='row'>
-    <h1>SOCKETPROTO CHAT</h1>
+    <h1>SOCKETPROTO</h1>
   </div>
   <div class='row'>
     <div class='col-12'>
-      <div class='row' style='margin-bottom: 10px;'>
-        Available Rooms
-      </div>
       <div class='row'>
-        <span *ngFor='let room of rooms' class='badge badge-dark badge-pill' style='margin-right: 2px;' (click)='joinRoom(room)'>
+        <span *ngFor='let room of rooms' class='badge badge-dark badge-pill' style='margin-right: 2px; cursor: pointer;' (click)='joinRoom(room)'>
           {{room.name}}
         </span>
       </div>
     </div>
   </div>
-  <div class='row' style='margin-top: 50px;'>
+  <div class='row' style='margin-top: 24px;'>
     <h3>Active Room: {{activeRoom ? activeRoom.name : ''}} </h3>
   </div>
-  <div class='row' style='margin-top: 50px;'>
-    <div class='col-12' style='height: 300px; overflow: scroll; border: 1px solid rgba(0,0,0,.1);'>
+  <div class='row' style='height: 18px;'>
+    <span *ngIf='newJoin' style='color: #08a802'>Someone has joined</span>
+  </div>
+  <div class='row' style='margin-top: 8px;'>
+    <div class='col-12' style='height: 220px; overflow: scroll; border: 1px solid rgba(0,0,0,.1);'>
       <p *ngFor='let msg of chatMessages'>
         {{ msg }}
       </p>
     </div>
   </div>
-  <div class='row'>
-    <div class='col-12'>
+  <div class='row' style='margin-top: 16px;'>
+    <div class='col-12 p-0'>
       <form [formGroup]='chatForm' (ngSubmit)='submitMsg()'>
         <div class='form-group'>
-          <label for='newMsg'></label>
           <input type='text' class='form-control' id='newMsg' name='newMsg' formControlName='newMsg' placeholder='New Message' required>
         </div>
         <button type='submit' class='btn btn-primary'>Send</button>
@@ -36,4 +35,3 @@
     </div>
   </div>
 </div>
-<button (click)='leaveRoom()'>Leave</button>
