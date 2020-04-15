@@ -1,4 +1,4 @@
-import { Injectable, HttpException } from '@nestjs/common';
+import { Injectable, HttpException, UnauthorizedException } from '@nestjs/common';
 import { UsersService } from './../users/users.service';
 import { Credentials } from '@sockets/api-interfaces';
 import { User } from '@sockets/api-interfaces';
@@ -20,9 +20,9 @@ export class AuthService {
 
   async validateUser(username: string, password: string): Promise<User> {
     const user: User = await this.usersService.findByUsername(username);
-    const validPassword = this.verifyPassword(user, password);
+    const validPassword = await this.verifyPassword(user, password);
     if (!validPassword) {
-      return null;
+      throw new UnauthorizedException();
     }
     return user;
   }

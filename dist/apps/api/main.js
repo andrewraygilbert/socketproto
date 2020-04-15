@@ -289,9 +289,9 @@ let AuthService = class AuthService {
     validateUser(username, password) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
             const user = yield this.usersService.findByUsername(username);
-            const validPassword = this.verifyPassword(user, password);
+            const validPassword = yield this.verifyPassword(user, password);
             if (!validPassword) {
-                return null;
+                throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_1__["UnauthorizedException"]();
             }
             return user;
         });

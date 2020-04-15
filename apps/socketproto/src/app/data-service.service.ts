@@ -48,11 +48,11 @@ export class DataService {
   }
 
   public getToken(): string {
-    return this.storage.getItem('writility_access_token');
+    return this.storage.getItem('proto_access_token');
   }
 
   public saveToken(token: string): void {
-    this.storage.setItem('writility_access_token', token);
+    this.storage.setItem('proto_access_token', token);
   }
 
   public async login(credentials: Credentials): Promise<any> {
