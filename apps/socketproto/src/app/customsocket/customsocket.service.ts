@@ -34,7 +34,7 @@ export class CustomsocketService {
   }
 
   public initializeSocket() {
-    this.socket = io('http://localhost:3333', { query: {
+    this.socket = io(this.baseUrl, { query: {
       token: this.getToken()
     }});
     this.initializeSocketMethods();
