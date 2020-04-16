@@ -366,7 +366,7 @@
             {
               "file": "apps/socketproto/src/app/data-service.service.ts",
               "ext": ".ts",
-              "mtime": 1586990846661.7615
+              "mtime": 1587047604734.1743
             },
             {
               "file": "apps/socketproto/src/app/login/login.component.css",
@@ -608,7 +608,7 @@
             {
               "file": "apps/api/src/app/auth/auth.service.ts",
               "ext": ".ts",
-              "mtime": 1586992990268.132
+              "mtime": 1587047966491.8728
             },
             {
               "file": "apps/api/src/app/auth/constants.ts",
@@ -643,7 +643,7 @@
             {
               "file": "apps/api/src/app/auth/local.strategy.ts",
               "ext": ".ts",
-              "mtime": 1586713149375.1868
+              "mtime": 1587046373052.5474
             },
             {
               "file": "apps/api/src/app/chat/chat.gateway.spec.ts",
@@ -718,7 +718,7 @@
             {
               "file": "apps/api/src/app/users/users.service.ts",
               "ext": ".ts",
-              "mtime": 1586617701993.551
+              "mtime": 1587048281536.3635
             },
             {
               "file": "apps/api/src/assets/.gitkeep",
@@ -753,7 +753,7 @@
             {
               "file": "apps/api/tsconfig.nx-tmp",
               "ext": ".nx-tmp",
-              "mtime": 1586991843670.8591
+              "mtime": 1587046759581.3347
             },
             {
               "file": "apps/api/tsconfig.spec.json",
@@ -1618,7 +1618,7 @@
       {
         "file": "apps/socketproto/src/app/data-service.service.ts",
         "ext": ".ts",
-        "mtime": 1586990846661.7615
+        "mtime": 1587047604734.1743
       },
       {
         "file": "apps/socketproto/src/app/login/login.component.css",
@@ -1795,7 +1795,7 @@
       {
         "file": "apps/api/src/app/auth/auth.service.ts",
         "ext": ".ts",
-        "mtime": 1586992990268.132
+        "mtime": 1587047966491.8728
       },
       {
         "file": "apps/api/src/app/auth/constants.ts",
@@ -1830,7 +1830,7 @@
       {
         "file": "apps/api/src/app/auth/local.strategy.ts",
         "ext": ".ts",
-        "mtime": 1586713149375.1868
+        "mtime": 1587046373052.5474
       },
       {
         "file": "apps/api/src/app/chat/chat.gateway.spec.ts",
@@ -1905,7 +1905,7 @@
       {
         "file": "apps/api/src/app/users/users.service.ts",
         "ext": ".ts",
-        "mtime": 1586617701993.551
+        "mtime": 1587048281536.3635
       },
       {
         "file": "apps/api/src/assets/.gitkeep",
@@ -1940,7 +1940,7 @@
       {
         "file": "apps/api/tsconfig.nx-tmp",
         "ext": ".nx-tmp",
-        "mtime": 1586991843670.8591
+        "mtime": 1587046759581.3347
       },
       {
         "file": "apps/api/tsconfig.spec.json",

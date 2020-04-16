@@ -121,24 +121,24 @@ let UsersService = class UsersService {
     }
     create(user) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
-            const createdUser = new this.UserModel(user);
+            const createdUser = yield new this.UserModel(user);
             return createdUser.save();
         });
     }
     findUserById(_id) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
-            const user = this.UserModel.findById(_id).exec();
+            const user = yield this.UserModel.findById(_id).exec();
             if (!user) {
-                throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_1__["HttpException"]('Could not find user', null);
+                throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_1__["HttpException"]('Could not find user', 401);
             }
             return user;
         });
     }
     findByUsername(username) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
-            const user = this.UserModel.findOne({ username: username }).exec();
+            const user = yield this.UserModel.findOne({ username: username }).exec();
             if (!user) {
-                throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_1__["HttpException"]('Could not locate user.', null);
+                throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_1__["HttpException"]('Could not locate user.', 401);
             }
             return user;
         });

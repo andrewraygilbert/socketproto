@@ -10,22 +10,22 @@ export class UsersService {
   ) {}
 
   async create(user: User): Promise<User> {
-    const createdUser = new this.UserModel(user);
+    const createdUser = await new this.UserModel(user);
     return createdUser.save();
   }
 
   async findUserById(_id: string): Promise<User> {
-    const user = this.UserModel.findById(_id).exec();
+    const user = await this.UserModel.findById(_id).exec();
     if (!user) {
-      throw new HttpException('Could not find user', null);
+      throw new HttpException('Could not find user', 401);
     }
     return user;
   }
 
   async findByUsername(username: string): Promise<User> {
-    const user = this.UserModel.findOne({username: username}).exec();
+    const user = await this.UserModel.findOne({username: username}).exec();
     if (!user) {
-      throw new HttpException('Could not locate user.', null);
+      throw new HttpException('Could not locate user.', 401);
     }
     return user;
   }

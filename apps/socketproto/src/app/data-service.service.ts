@@ -62,8 +62,7 @@ export class DataService {
       .toPromise()
       .then(response => response as AuthResponse)
       .catch((err) => {
-        console.log(err);
-        Promise.reject(err);
+        return Promise.reject(err);
       })
   }
 
@@ -74,8 +73,7 @@ export class DataService {
       .toPromise()
       .then(response => response as any)
       .catch(err => {
-        console.log(err);
-        Promise.reject(err);
+        return Promise.reject(err);
       });
   }
 
