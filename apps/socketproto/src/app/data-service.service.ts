@@ -38,7 +38,6 @@ export class DataService {
 
   private refreshHttpOptions() {
     this.access_token = this.getToken();
-    this.customSocket.resetToken(this.access_token);
     this.httpOptions = {
       headers: new HttpHeaders({
         'Authorization' : `Bearer ${this.access_token}`

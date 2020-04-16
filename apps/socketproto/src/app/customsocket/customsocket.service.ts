@@ -26,10 +26,6 @@ export class CustomsocketService {
     this.socket = io(`${this.baseUrl}?token=${token}`);
   }
 
-  public resetToken(token: string) {
-    this.socket = io(`${this.baseUrl}?token=${token}`)
-  }
-
   public getToken(): string {
     return this.storage.getItem('proto_access_token');
   }

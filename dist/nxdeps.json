@@ -356,7 +356,7 @@
             {
               "file": "apps/socketproto/src/app/customsocket/customsocket.service.ts",
               "ext": ".ts",
-              "mtime": 1587051679682.7092
+              "mtime": 1587062139776.5757
             },
             {
               "file": "apps/socketproto/src/app/data-service.service.spec.ts",
@@ -366,7 +366,7 @@
             {
               "file": "apps/socketproto/src/app/data-service.service.ts",
               "ext": ".ts",
-              "mtime": 1587051944806.4639
+              "mtime": 1587062231024.66
             },
             {
               "file": "apps/socketproto/src/app/login/login.component.css",
@@ -753,7 +753,7 @@
             {
               "file": "apps/api/tsconfig.nx-tmp",
               "ext": ".nx-tmp",
-              "mtime": 1587053612360.767
+              "mtime": 1587061159086.8875
             },
             {
               "file": "apps/api/tsconfig.spec.json",
@@ -1608,7 +1608,7 @@
       {
         "file": "apps/socketproto/src/app/customsocket/customsocket.service.ts",
         "ext": ".ts",
-        "mtime": 1587051679682.7092
+        "mtime": 1587062139776.5757
       },
       {
         "file": "apps/socketproto/src/app/data-service.service.spec.ts",
@@ -1618,7 +1618,7 @@
       {
         "file": "apps/socketproto/src/app/data-service.service.ts",
         "ext": ".ts",
-        "mtime": 1587051944806.4639
+        "mtime": 1587062231024.66
       },
       {
         "file": "apps/socketproto/src/app/login/login.component.css",
@@ -1940,7 +1940,7 @@
       {
         "file": "apps/api/tsconfig.nx-tmp",
         "ext": ".nx-tmp",
-        "mtime": 1587053612360.767
+        "mtime": 1587061159086.8875
       },
       {
         "file": "apps/api/tsconfig.spec.json",
