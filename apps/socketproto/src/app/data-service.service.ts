@@ -1,12 +1,9 @@
 import { Injectable, Inject } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { InjectionToken } from '@angular/core';
 import { API_BASE_URL } from './constants/api-base-url.constant';
-
-const BROWSER_STORAGE = new InjectionToken<Storage>('Browser Storage', {
-  providedIn: 'root',
-  factory: () => localStorage
-});
+import { Observable } from 'rxjs';
+import { BROWSER_STORAGE } from './customsocket/customsocket.service';
+import { CustomsocketService } from './customsocket/customsocket.service';
 
 interface HttpOptions {
   headers: HttpHeaders;
@@ -35,6 +32,7 @@ export class DataService {
 
   constructor(
     private http: HttpClient,
+    private customSocket: CustomsocketService,
     @Inject(BROWSER_STORAGE) private storage: Storage,
   ) { }
 
@@ -67,6 +65,7 @@ export class DataService {
   }
 
   public async getRooms() {
+    this.refreshHttpOptions();
     const url = `${this.apiBaseUrl}rooms/all`;
     return this.http
       .get(url, this.httpOptions)

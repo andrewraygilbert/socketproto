@@ -44,7 +44,13 @@ export class ChatGateway implements OnGatewayConnection, OnGatewayDisconnect {
   @SubscribeMessage('joinroom')
   async joinRoom(@MessageBody() data: any, @ConnectedSocket() client: any): Promise<any> {
     this.doLeaveRoom(client);
+    console.log('token', client.handshake.query.token);
+    if (client.handshake.query.token === 'null') {
+      console.log('in excpetion for null token');
+      return {'msg' : 'no token set'};
+    }
     const user = await this.jwtServicer.verify(client.handshake.query.token);
+    console.log('user returned', user);
     const requestedRoom = await this.roomsService.getRoomById(data._id);
     const isCollaborator = requestedRoom.collaborators.find(person => person.userId == user._id);
     if (isCollaborator) {

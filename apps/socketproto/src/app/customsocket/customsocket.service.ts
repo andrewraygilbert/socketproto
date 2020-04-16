@@ -1,8 +1,14 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Inject } from '@angular/core';
 import * as io from 'socket.io-client';
 import { DataService } from './../data-service.service';
 import { Observable, from, fromEvent } from 'rxjs';
+import { InjectionToken } from '@angular/core';
 import { BASE_URL } from './../constants/api-base-url.constant';
+
+export const BROWSER_STORAGE = new InjectionToken<Storage>('Browser Storage', {
+  providedIn: 'root',
+  factory: () => localStorage
+});
 
 @Injectable({
   providedIn: 'root'
@@ -14,10 +20,14 @@ export class CustomsocketService {
   private baseUrl = BASE_URL;
 
   constructor(
-    private dataService: DataService
+    @Inject(BROWSER_STORAGE) private storage: Storage,
   ) {
-    const token = this.dataService.getToken();
+    const token = this.getToken();
     this.socket = io(`${this.baseUrl}?token=${token}`);
+  }
+
+  public getToken(): string {
+    return this.storage.getItem('proto_access_token');
   }
 
   public getChats(): Observable<any> {

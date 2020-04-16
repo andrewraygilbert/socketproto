@@ -341,7 +341,7 @@
             {
               "file": "apps/socketproto/src/app/chat/chat.component.ts",
               "ext": ".ts",
-              "mtime": 1586968315408.5813
+              "mtime": 1587054262598.8738
             },
             {
               "file": "apps/socketproto/src/app/constants/api-base-url.constant.ts",
@@ -356,7 +356,7 @@
             {
               "file": "apps/socketproto/src/app/customsocket/customsocket.service.ts",
               "ext": ".ts",
-              "mtime": 1586968569347.713
+              "mtime": 1587051679682.7092
             },
             {
               "file": "apps/socketproto/src/app/data-service.service.spec.ts",
@@ -366,7 +366,7 @@
             {
               "file": "apps/socketproto/src/app/data-service.service.ts",
               "ext": ".ts",
-              "mtime": 1587047604734.1743
+              "mtime": 1587051944806.4639
             },
             {
               "file": "apps/socketproto/src/app/login/login.component.css",
@@ -386,7 +386,7 @@
             {
               "file": "apps/socketproto/src/app/login/login.component.ts",
               "ext": ".ts",
-              "mtime": 1586816571594.3533
+              "mtime": 1587050511759.633
             },
             {
               "file": "apps/socketproto/src/app/sockets/sockets.service.spec.ts",
@@ -623,7 +623,7 @@
             {
               "file": "apps/api/src/app/auth/jwt/jwt.service.ts",
               "ext": ".ts",
-              "mtime": 1586724944748.0696
+              "mtime": 1587053212992.3423
             },
             {
               "file": "apps/api/src/app/auth/jwt-auth.guard.ts",
@@ -653,7 +653,7 @@
             {
               "file": "apps/api/src/app/chat/chat.gateway.ts",
               "ext": ".ts",
-              "mtime": 1586969068312.6797
+              "mtime": 1587054289619.3982
             },
             {
               "file": "apps/api/src/app/chat/chat.module.ts",
@@ -753,7 +753,7 @@
             {
               "file": "apps/api/tsconfig.nx-tmp",
               "ext": ".nx-tmp",
-              "mtime": 1587046759581.3347
+              "mtime": 1587053612360.767
             },
             {
               "file": "apps/api/tsconfig.spec.json",
@@ -1593,7 +1593,7 @@
       {
         "file": "apps/socketproto/src/app/chat/chat.component.ts",
         "ext": ".ts",
-        "mtime": 1586968315408.5813
+        "mtime": 1587054262598.8738
       },
       {
         "file": "apps/socketproto/src/app/constants/api-base-url.constant.ts",
@@ -1608,7 +1608,7 @@
       {
         "file": "apps/socketproto/src/app/customsocket/customsocket.service.ts",
         "ext": ".ts",
-        "mtime": 1586968569347.713
+        "mtime": 1587051679682.7092
       },
       {
         "file": "apps/socketproto/src/app/data-service.service.spec.ts",
@@ -1618,7 +1618,7 @@
       {
         "file": "apps/socketproto/src/app/data-service.service.ts",
         "ext": ".ts",
-        "mtime": 1587047604734.1743
+        "mtime": 1587051944806.4639
       },
       {
         "file": "apps/socketproto/src/app/login/login.component.css",
@@ -1638,7 +1638,7 @@
       {
         "file": "apps/socketproto/src/app/login/login.component.ts",
         "ext": ".ts",
-        "mtime": 1586816571594.3533
+        "mtime": 1587050511759.633
       },
       {
         "file": "apps/socketproto/src/app/sockets/sockets.service.spec.ts",
@@ -1810,7 +1810,7 @@
       {
         "file": "apps/api/src/app/auth/jwt/jwt.service.ts",
         "ext": ".ts",
-        "mtime": 1586724944748.0696
+        "mtime": 1587053212992.3423
       },
       {
         "file": "apps/api/src/app/auth/jwt-auth.guard.ts",
@@ -1840,7 +1840,7 @@
       {
         "file": "apps/api/src/app/chat/chat.gateway.ts",
         "ext": ".ts",
-        "mtime": 1586969068312.6797
+        "mtime": 1587054289619.3982
       },
       {
         "file": "apps/api/src/app/chat/chat.module.ts",
@@ -1940,7 +1940,7 @@
       {
         "file": "apps/api/tsconfig.nx-tmp",
         "ext": ".nx-tmp",
-        "mtime": 1587046759581.3347
+        "mtime": 1587053612360.767
       },
       {
         "file": "apps/api/tsconfig.spec.json",

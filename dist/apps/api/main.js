@@ -392,9 +392,13 @@ let JwtServicer = class JwtServicer {
     verify(token) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
             try {
+                console.log('in the verify');
                 const payload = jsonwebtoken__WEBPACK_IMPORTED_MODULE_2__["verify"](token, _constants__WEBPACK_IMPORTED_MODULE_5__[/* jwtConstants */ "a"].secret);
+                console.log('after the payload', payload);
                 const user = yield this.usersService.findUserById(payload._id);
+                console.log('here ia m ');
                 if (!user) {
+                    console.log('in no user err', user);
                     throw new _nestjs_websockets__WEBPACK_IMPORTED_MODULE_3__["WsException"]('Unauthorized.');
                 }
                 return user;
@@ -1052,7 +1056,13 @@ let ChatGateway = class ChatGateway {
     joinRoom(data, client) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
             this.doLeaveRoom(client);
+            console.log('token', client.handshake.query.token);
+            if (client.handshake.query.token === 'null') {
+                console.log('in excpetion for null token');
+                return { 'msg': 'no token set' };
+            }
             const user = yield this.jwtServicer.verify(client.handshake.query.token);
+            console.log('user returned', user);
             const requestedRoom = yield this.roomsService.getRoomById(data._id);
             const isCollaborator = requestedRoom.collaborators.find(person => person.userId == user._id);
             if (isCollaborator) {

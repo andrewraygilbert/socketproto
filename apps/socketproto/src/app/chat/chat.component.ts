@@ -36,7 +36,6 @@ export class ChatComponent implements OnInit {
   }
 
   public joinRoom(room) {
-    console.log(room);
     this.customSocket.joinRoom(room)
       .then(() => {
         this.activeRoom = room;
