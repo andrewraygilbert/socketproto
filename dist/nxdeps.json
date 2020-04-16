@@ -331,7 +331,7 @@
             {
               "file": "apps/socketproto/src/app/chat/chat.component.html",
               "ext": ".html",
-              "mtime": 1586964944943.454
+              "mtime": 1587068446113.058
             },
             {
               "file": "apps/socketproto/src/app/chat/chat.component.spec.ts",
@@ -341,7 +341,7 @@
             {
               "file": "apps/socketproto/src/app/chat/chat.component.ts",
               "ext": ".ts",
-              "mtime": 1587054262598.8738
+              "mtime": 1587068355660.9905
             },
             {
               "file": "apps/socketproto/src/app/constants/api-base-url.constant.ts",
@@ -356,7 +356,7 @@
             {
               "file": "apps/socketproto/src/app/customsocket/customsocket.service.ts",
               "ext": ".ts",
-              "mtime": 1587062139776.5757
+              "mtime": 1587067982074.6536
             },
             {
               "file": "apps/socketproto/src/app/data-service.service.spec.ts",
@@ -753,7 +753,7 @@
             {
               "file": "apps/api/tsconfig.nx-tmp",
               "ext": ".nx-tmp",
-              "mtime": 1587061159086.8875
+              "mtime": 1587067759023.41
             },
             {
               "file": "apps/api/tsconfig.spec.json",
@@ -1583,7 +1583,7 @@
       {
         "file": "apps/socketproto/src/app/chat/chat.component.html",
         "ext": ".html",
-        "mtime": 1586964944943.454
+        "mtime": 1587068446113.058
       },
       {
         "file": "apps/socketproto/src/app/chat/chat.component.spec.ts",
@@ -1593,7 +1593,7 @@
       {
         "file": "apps/socketproto/src/app/chat/chat.component.ts",
         "ext": ".ts",
-        "mtime": 1587054262598.8738
+        "mtime": 1587068355660.9905
       },
       {
         "file": "apps/socketproto/src/app/constants/api-base-url.constant.ts",
@@ -1608,7 +1608,7 @@
       {
         "file": "apps/socketproto/src/app/customsocket/customsocket.service.ts",
         "ext": ".ts",
-        "mtime": 1587062139776.5757
+        "mtime": 1587067982074.6536
       },
       {
         "file": "apps/socketproto/src/app/data-service.service.spec.ts",
@@ -1940,7 +1940,7 @@
       {
         "file": "apps/api/tsconfig.nx-tmp",
         "ext": ".nx-tmp",
-        "mtime": 1587061159086.8875
+        "mtime": 1587067759023.41
       },
       {
         "file": "apps/api/tsconfig.spec.json",

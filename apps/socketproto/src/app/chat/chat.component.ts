@@ -28,6 +28,34 @@ export class ChatComponent implements OnInit {
     newMsg: ['', Validators.required]
   });
 
+  public initializeSocket() {
+    this.customSocket.initializeSocket();
+    this.initializeSubscriptions();
+  }
+
+  private initializeSubscriptions() {
+    this.customSocket.getChats()
+      .subscribe((msg) => {
+        this.chatMessages.push(msg.message);
+      });
+    this.customSocket.getErrors()
+      .subscribe((err) => console.log(err));
+    this.customSocket.participantJoined()
+      .subscribe(() => this.notifyJoin());
+    this.customSocket.onConnect()
+      .subscribe(() => console.log('connected'));
+    this.customSocket.onDisconnect()
+      .subscribe(()=> console.log('disconnected'));
+  }
+
+  public closeSocket() {
+    this.customSocket.closeSocket();
+  }
+
+  public openSocket() {
+    this.customSocket.openSocket();
+  }
+
   public submitMsg() {
     const newMsg = this.chatForm.get('newMsg').value;
     this.customSocket.sendMsg(newMsg);
@@ -63,6 +91,9 @@ export class ChatComponent implements OnInit {
 
     this.isLoggedIn();
 
+    this.initializeSocket();
+
+    /*
     this.customSocket.getErrors()
       .subscribe(err => {
         console.log(err);
@@ -88,11 +119,14 @@ export class ChatComponent implements OnInit {
         this.chatMessages.push(data.message);
       });
 
+    */
+
     this.dataService.getRooms()
       .then((rooms) => {
         this.rooms = rooms;
       })
       .catch(err => console.log(err));
+
   }
 
 }

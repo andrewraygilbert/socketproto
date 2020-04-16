@@ -16,20 +16,60 @@ export const BROWSER_STORAGE = new InjectionToken<Storage>('Browser Storage', {
 export class CustomsocketService {
 
   public socket;
+  public getChats: Function;
+  public getErrors: Function;
+  public participantJoined: Function;
+  public onConnect: Function;
+  public onDisconnect: Function;
+
 
   private baseUrl = BASE_URL;
 
   constructor(
     @Inject(BROWSER_STORAGE) private storage: Storage,
-  ) {
-    const token = this.getToken();
-    this.socket = io(`${this.baseUrl}?token=${token}`);
-  }
+  ) {}
 
   public getToken(): string {
     return this.storage.getItem('proto_access_token');
   }
 
+  public initializeSocket() {
+    this.socket = io('http://localhost:3333', { query: {
+      token: this.getToken()
+    }});
+    this.initializeSocketMethods();
+  }
+
+  private initializeSocketMethods() {
+    this.getChats = (): Observable<any> => {
+      return fromEvent(this.socket.on(), 'chatmsg');
+    };
+    this.getErrors = (): Observable<any> => {
+      return fromEvent(this.socket.on(), 'error');
+    };
+    this.participantJoined = (): Observable<any> => {
+      return fromEvent(this.socket.on(), 'participant_joined');
+    };
+    this.onConnect = (): Observable<any> => {
+      return fromEvent(this.socket.on(), 'connect');
+    };
+    this.onDisconnect = (): Observable<any> => {
+      return fromEvent(this.socket.on(), 'disconnect');
+    };
+  }
+
+  public closeSocket() {
+    console.log('closing the socket', this.socket);
+    this.socket.close();
+  }
+
+  public openSocket() {
+    console.log('the token now', this.getToken());
+    console.log('opening the socket', this.socket);
+    this.socket.open(`${this.baseUrl}?token=${this.getToken()}`);
+  }
+
+  /*
   public getChats(): Observable<any> {
     return fromEvent(this.socket.on(), 'chatmsg');
   }
@@ -49,6 +89,7 @@ export class CustomsocketService {
   public onDisconnect(): Observable<any> {
     return fromEvent(this.socket.on(), 'disconnect');
   }
+  */
 
   public async joinRoom(room): Promise<any> {
     await this.socket.emit('joinroom', room, (msg) => { console.log('room has been joined per ack', msg)});
