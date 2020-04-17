@@ -20,7 +20,7 @@ export class ChatComponent implements OnInit {
 
   public rooms = [];
   public activeRoom;
-  public chatMessages: string[] = [];
+  public chatMessages = [];
   public newJoin = false;
   public displayError = false;
   public errorMessage: string;
@@ -46,6 +46,9 @@ export class ChatComponent implements OnInit {
   private initializeSubscriptions() {
     this.customSocket.getChats()
       .subscribe((msg) => {
+        if (this.chatMessages.length > 3) {
+          this.chatMessages.shift();
+        }
         this.chatMessages.push(msg.message);
       });
     this.customSocket.getErrors()
@@ -77,6 +80,9 @@ export class ChatComponent implements OnInit {
   public submitMsg() {
     const newMsg = this.chatForm.get('newMsg').value;
     this.customSocket.sendMsg(newMsg);
+    if (this.chatMessages.length > 3) {
+      this.chatMessages.shift();
+    }
     this.chatMessages.push(newMsg);
     this.chatForm.get('newMsg').setValue('');
   }

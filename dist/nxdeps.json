@@ -331,7 +331,7 @@
             {
               "file": "apps/socketproto/src/app/chat/chat.component.html",
               "ext": ".html",
-              "mtime": 1587131613279.332
+              "mtime": 1587137304008.4656
             },
             {
               "file": "apps/socketproto/src/app/chat/chat.component.spec.ts",
@@ -341,7 +341,7 @@
             {
               "file": "apps/socketproto/src/app/chat/chat.component.ts",
               "ext": ".ts",
-              "mtime": 1587131442860.4692
+              "mtime": 1587138216655.1726
             },
             {
               "file": "apps/socketproto/src/app/constants/api-base-url.constant.ts",
@@ -1583,7 +1583,7 @@
       {
         "file": "apps/socketproto/src/app/chat/chat.component.html",
         "ext": ".html",
-        "mtime": 1587131613279.332
+        "mtime": 1587137304008.4656
       },
       {
         "file": "apps/socketproto/src/app/chat/chat.component.spec.ts",
@@ -1593,7 +1593,7 @@
       {
         "file": "apps/socketproto/src/app/chat/chat.component.ts",
         "ext": ".ts",
-        "mtime": 1587131442860.4692
+        "mtime": 1587138216655.1726
       },
       {
         "file": "apps/socketproto/src/app/constants/api-base-url.constant.ts",
