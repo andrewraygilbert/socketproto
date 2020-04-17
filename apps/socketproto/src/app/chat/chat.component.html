@@ -1,4 +1,7 @@
 <div class='container-fluid'>
+  <div style='position: absolute; top: 16px;'>
+    <div *ngIf='displayError' class='alert alert-danger'>{{ errorMessage }}</div>
+  </div>
   <div class='row'>
     <h1>SOCKETPROTO</h1>
   </div>

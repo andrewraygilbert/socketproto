@@ -5,6 +5,8 @@ import { Observable, from, fromEvent } from 'rxjs';
 import { InjectionToken } from '@angular/core';
 import { BASE_URL } from './../constants/api-base-url.constant';
 
+type ObservableFx = () => Observable<any>;
+
 export const BROWSER_STORAGE = new InjectionToken<Storage>('Browser Storage', {
   providedIn: 'root',
   factory: () => localStorage
@@ -16,12 +18,12 @@ export const BROWSER_STORAGE = new InjectionToken<Storage>('Browser Storage', {
 export class CustomsocketService {
 
   public socket;
-  public getChats: Function;
-  public getErrors: Function;
-  public participantJoined: Function;
-  public onConnect: Function;
-  public onDisconnect: Function;
-
+  public getChats: ObservableFx;
+  public getErrors: ObservableFx;
+  public participantJoined: ObservableFx;
+  public onConnect: ObservableFx;
+  public onDisconnect: ObservableFx;
+  public roomJoined: ObservableFx;
 
   private baseUrl = BASE_URL;
 
@@ -45,7 +47,7 @@ export class CustomsocketService {
       return fromEvent(this.socket.on(), 'chatmsg');
     };
     this.getErrors = (): Observable<any> => {
-      return fromEvent(this.socket.on(), 'error');
+      return fromEvent(this.socket.on(), 'err');
     };
     this.participantJoined = (): Observable<any> => {
       return fromEvent(this.socket.on(), 'participant_joined');
@@ -55,6 +57,9 @@ export class CustomsocketService {
     };
     this.onDisconnect = (): Observable<any> => {
       return fromEvent(this.socket.on(), 'disconnect');
+    };
+    this.roomJoined = (): Observable<any> => {
+      return fromEvent(this.socket.on(), 'room_joined');
     };
   }
 
@@ -69,30 +74,8 @@ export class CustomsocketService {
     this.socket.open(`${this.baseUrl}?token=${this.getToken()}`);
   }
 
-  /*
-  public getChats(): Observable<any> {
-    return fromEvent(this.socket.on(), 'chatmsg');
-  }
-
-  public getErrors(): Observable<any> {
-    return fromEvent(this.socket.on(), 'error');
-  }
-
-  public participantJoined(): Observable<any> {
-    return fromEvent(this.socket.on(), 'participant_joined');
-  }
-
-  public onConnect(): Observable<any> {
-    return fromEvent(this.socket.on(), 'connect');
-  }
-
-  public onDisconnect(): Observable<any> {
-    return fromEvent(this.socket.on(), 'disconnect');
-  }
-  */
-
-  public async joinRoom(room): Promise<any> {
-    await this.socket.emit('joinroom', room, (msg) => { console.log('room has been joined per ack', msg)});
+  public joinRoom(room): void {
+    this.socket.emit('joinroom', room);
   }
 
   public async leaveRoom(room) {

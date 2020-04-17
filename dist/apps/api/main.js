@@ -1034,6 +1034,11 @@ let ChatGateway = class ChatGateway {
     handleConnection(socket) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
             console.log('*** SOCKET CONNECTED ***');
+            /*
+            socket.on('error', (err) => {
+              socket.emit('err', {'message' : err});
+            });
+            */
         });
     }
     handleDisconnect(socket) {
@@ -1068,12 +1073,15 @@ let ChatGateway = class ChatGateway {
             if (isCollaborator) {
                 client.join(requestedRoom._id);
                 client.broadcast.to(requestedRoom._id).emit('participant_joined', { 'message': 'Someone has joined.' });
+                client.emit('room_joined', {
+                    'msg': 'You joined the room.',
+                    'room': requestedRoom
+                });
             }
             else {
                 console.log('user is not allowed to access room');
-                return { 'msg': 'cant do that' };
+                client.emit('err', { 'err': 'You cannot join this room.' });
             }
-            return { 'msg': 'success' };
         });
     }
 };
@@ -1096,7 +1104,7 @@ Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:returntype", typeof (_a = typeof Promise !== "undefined" && Promise) === "function" ? _a : Object)
 ], ChatGateway.prototype, "joinRoom", null);
 ChatGateway = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_nestjs_websockets__WEBPACK_IMPORTED_MODULE_1__["WebSocketGateway"])(),
+    Object(_nestjs_websockets__WEBPACK_IMPORTED_MODULE_1__["WebSocketGateway"])({ pingTimeout: 30000 }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [typeof (_b = typeof _rooms_rooms_service__WEBPACK_IMPORTED_MODULE_2__[/* RoomsService */ "a"] !== "undefined" && _rooms_rooms_service__WEBPACK_IMPORTED_MODULE_2__[/* RoomsService */ "a"]) === "function" ? _b : Object, typeof (_c = typeof _auth_jwt_jwt_service__WEBPACK_IMPORTED_MODULE_3__[/* JwtServicer */ "a"] !== "undefined" && _auth_jwt_jwt_service__WEBPACK_IMPORTED_MODULE_3__[/* JwtServicer */ "a"]) === "function" ? _c : Object])
 ], ChatGateway);
 

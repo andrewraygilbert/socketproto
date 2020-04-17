@@ -1,11 +1,11 @@
-import { UseGuards } from '@nestjs/common';
-import { SubscribeMessage, WebSocketGateway, WsResponse, WebSocketServer, OnGatewayConnection, OnGatewayDisconnect, WsException, MessageBody, ConnectedSocket } from '@nestjs/websockets';
+import { UseGuards, UseFilters } from '@nestjs/common';
+import { SubscribeMessage, WebSocketGateway, WsResponse, WebSocketServer, OnGatewayConnection, OnGatewayDisconnect, WsException, MessageBody, ConnectedSocket, BaseWsExceptionFilter } from '@nestjs/websockets';
 import { User } from '@sockets/api-interfaces';
 import { RoomsService } from './../rooms/rooms.service';
 import { JwtServicer } from './../auth/jwt/jwt.service';
+import { Socket } from 'net';
 
-
-@WebSocketGateway()
+@WebSocketGateway({ pingTimeout: 30000})
 export class ChatGateway implements OnGatewayConnection, OnGatewayDisconnect {
 
   @WebSocketServer()
@@ -19,6 +19,11 @@ export class ChatGateway implements OnGatewayConnection, OnGatewayDisconnect {
 
   async handleConnection(socket) {
     console.log('*** SOCKET CONNECTED ***')
+    /*
+    socket.on('error', (err) => {
+      socket.emit('err', {'message' : err});
+    });
+    */
   }
 
   async handleDisconnect(socket) {
@@ -56,11 +61,15 @@ export class ChatGateway implements OnGatewayConnection, OnGatewayDisconnect {
     if (isCollaborator) {
       client.join(requestedRoom._id);
       client.broadcast.to(requestedRoom._id).emit('participant_joined', { 'message' : 'Someone has joined.' });
+      client.emit('room_joined', {
+        'msg' : 'You joined the room.',
+        'room' : requestedRoom
+      });
     } else {
       console.log('user is not allowed to access room');
-      return {'msg' : 'cant do that'};
+      client.emit('err', {'err' : 'You cannot join this room.'});
     }
-    return {'msg' : 'success'};
+
   }
 
 }

@@ -331,7 +331,7 @@
             {
               "file": "apps/socketproto/src/app/chat/chat.component.html",
               "ext": ".html",
-              "mtime": 1587068446113.058
+              "mtime": 1587131613279.332
             },
             {
               "file": "apps/socketproto/src/app/chat/chat.component.spec.ts",
@@ -341,7 +341,7 @@
             {
               "file": "apps/socketproto/src/app/chat/chat.component.ts",
               "ext": ".ts",
-              "mtime": 1587068355660.9905
+              "mtime": 1587131442860.4692
             },
             {
               "file": "apps/socketproto/src/app/constants/api-base-url.constant.ts",
@@ -356,7 +356,7 @@
             {
               "file": "apps/socketproto/src/app/customsocket/customsocket.service.ts",
               "ext": ".ts",
-              "mtime": 1587069543637.2673
+              "mtime": 1587130162963.2722
             },
             {
               "file": "apps/socketproto/src/app/data-service.service.spec.ts",
@@ -653,7 +653,7 @@
             {
               "file": "apps/api/src/app/chat/chat.gateway.ts",
               "ext": ".ts",
-              "mtime": 1587054289619.3982
+              "mtime": 1587132879721.0483
             },
             {
               "file": "apps/api/src/app/chat/chat.module.ts",
@@ -751,6 +751,11 @@
               "mtime": 1586538981722.1628
             },
             {
+              "file": "apps/api/tsconfig.nx-tmp",
+              "ext": ".nx-tmp",
+              "mtime": 1587129013111.4324
+            },
+            {
               "file": "apps/api/tsconfig.spec.json",
               "ext": ".json",
               "mtime": 1586538981724.1555
@@ -767,7 +772,7 @@
         "type": "npm",
         "name": "@angular/animations",
         "data": {
-          "version": "^9.1.0",
+          "version": "^9.1.2",
           "files": []
         }
       },
@@ -775,7 +780,7 @@
         "type": "npm",
         "name": "@angular/common",
         "data": {
-          "version": "^9.1.0",
+          "version": "^9.1.2",
           "files": []
         }
       },
@@ -783,7 +788,7 @@
         "type": "npm",
         "name": "@angular/compiler",
         "data": {
-          "version": "^9.1.0",
+          "version": "^9.1.2",
           "files": []
         }
       },
@@ -791,7 +796,7 @@
         "type": "npm",
         "name": "@angular/core",
         "data": {
-          "version": "^9.1.0",
+          "version": "^9.1.2",
           "files": []
         }
       },
@@ -799,7 +804,7 @@
         "type": "npm",
         "name": "@angular/forms",
         "data": {
-          "version": "^9.1.0",
+          "version": "^9.1.2",
           "files": []
         }
       },
@@ -807,7 +812,7 @@
         "type": "npm",
         "name": "@angular/platform-browser",
         "data": {
-          "version": "^9.1.0",
+          "version": "^9.1.2",
           "files": []
         }
       },
@@ -815,7 +820,7 @@
         "type": "npm",
         "name": "@angular/platform-browser-dynamic",
         "data": {
-          "version": "^9.1.0",
+          "version": "^9.1.2",
           "files": []
         }
       },
@@ -823,7 +828,7 @@
         "type": "npm",
         "name": "@angular/router",
         "data": {
-          "version": "^9.1.0",
+          "version": "^9.1.2",
           "files": []
         }
       },
@@ -831,7 +836,7 @@
         "type": "npm",
         "name": "@nestjs/common",
         "data": {
-          "version": "^7.0.7",
+          "version": "^7.0.8",
           "files": []
         }
       },
@@ -839,7 +844,7 @@
         "type": "npm",
         "name": "@nestjs/core",
         "data": {
-          "version": "^7.0.7",
+          "version": "^7.0.8",
           "files": []
         }
       },
@@ -879,7 +884,7 @@
         "type": "npm",
         "name": "@nestjs/platform-socket.io",
         "data": {
-          "version": "^7.0.7",
+          "version": "^7.0.8",
           "files": []
         }
       },
@@ -895,7 +900,7 @@
         "type": "npm",
         "name": "@nestjs/websockets",
         "data": {
-          "version": "^7.0.7",
+          "version": "^7.0.8",
           "files": []
         }
       },
@@ -927,7 +932,7 @@
         "type": "npm",
         "name": "mongoose",
         "data": {
-          "version": "^5.9.7",
+          "version": "^5.9.9",
           "files": []
         }
       },
@@ -975,7 +980,7 @@
         "type": "npm",
         "name": "rxjs",
         "data": {
-          "version": "~6.5.4",
+          "version": "^6.5.5",
           "files": []
         }
       },
@@ -1015,7 +1020,7 @@
         "type": "npm",
         "name": "@angular/compiler-cli",
         "data": {
-          "version": "^9.1.0",
+          "version": "^9.1.2",
           "files": []
         }
       },
@@ -1023,7 +1028,7 @@
         "type": "npm",
         "name": "@angular/language-service",
         "data": {
-          "version": "^9.1.0",
+          "version": "^9.1.2",
           "files": []
         }
       },
@@ -1095,7 +1100,7 @@
         "type": "npm",
         "name": "@types/mongoose",
         "data": {
-          "version": "^5.7.10",
+          "version": "^5.7.11",
           "files": []
         }
       },
@@ -1135,7 +1140,7 @@
         "type": "npm",
         "name": "cypress",
         "data": {
-          "version": "^4.1.0",
+          "version": "^4.4.0",
           "files": []
         }
       },
@@ -1578,7 +1583,7 @@
       {
         "file": "apps/socketproto/src/app/chat/chat.component.html",
         "ext": ".html",
-        "mtime": 1587068446113.058
+        "mtime": 1587131613279.332
       },
       {
         "file": "apps/socketproto/src/app/chat/chat.component.spec.ts",
@@ -1588,7 +1593,7 @@
       {
         "file": "apps/socketproto/src/app/chat/chat.component.ts",
         "ext": ".ts",
-        "mtime": 1587068355660.9905
+        "mtime": 1587131442860.4692
       },
       {
         "file": "apps/socketproto/src/app/constants/api-base-url.constant.ts",
@@ -1603,7 +1608,7 @@
       {
         "file": "apps/socketproto/src/app/customsocket/customsocket.service.ts",
         "ext": ".ts",
-        "mtime": 1587069543637.2673
+        "mtime": 1587130162963.2722
       },
       {
         "file": "apps/socketproto/src/app/data-service.service.spec.ts",
@@ -1835,7 +1840,7 @@
       {
         "file": "apps/api/src/app/chat/chat.gateway.ts",
         "ext": ".ts",
-        "mtime": 1587054289619.3982
+        "mtime": 1587132879721.0483
       },
       {
         "file": "apps/api/src/app/chat/chat.module.ts",
@@ -1931,6 +1936,11 @@
         "file": "apps/api/tsconfig.json",
         "ext": ".json",
         "mtime": 1586538981722.1628
+      },
+      {
+        "file": "apps/api/tsconfig.nx-tmp",
+        "ext": ".nx-tmp",
+        "mtime": 1587129013111.4324
       },
       {
         "file": "apps/api/tsconfig.spec.json",

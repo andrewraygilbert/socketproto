@@ -22,6 +22,8 @@ export class ChatComponent implements OnInit {
   public activeRoom;
   public chatMessages: string[] = [];
   public newJoin = false;
+  public displayError = false;
+  public errorMessage: string;
 
 
   chatForm = this.fb.group({
@@ -33,19 +35,35 @@ export class ChatComponent implements OnInit {
     this.initializeSubscriptions();
   }
 
+  public displayErrors(err) {
+    this.errorMessage = err;
+    this.displayError = true;
+    setTimeout(() => {
+      this.displayError = false
+    }, 5000);
+  }
+
   private initializeSubscriptions() {
     this.customSocket.getChats()
       .subscribe((msg) => {
         this.chatMessages.push(msg.message);
       });
     this.customSocket.getErrors()
-      .subscribe((err) => console.log(err));
+      .subscribe((response) => {
+        console.log(response);
+        this.displayErrors(response.err);
+      });
     this.customSocket.participantJoined()
       .subscribe(() => this.notifyJoin());
     this.customSocket.onConnect()
       .subscribe(() => console.log('connected'));
     this.customSocket.onDisconnect()
       .subscribe(()=> console.log('disconnected'));
+    this.customSocket.roomJoined()
+      .subscribe((response) => {
+        console.log(response.msg);
+        this.activeRoom = response.room;
+      });
   }
 
   public closeSocket() {
@@ -64,11 +82,7 @@ export class ChatComponent implements OnInit {
   }
 
   public joinRoom(room) {
-    this.customSocket.joinRoom(room)
-      .then(() => {
-        this.activeRoom = room;
-      })
-      .catch(err => console.log(err));
+    this.customSocket.joinRoom(room);
   }
 
   public leaveRoom() {
@@ -92,34 +106,6 @@ export class ChatComponent implements OnInit {
     this.isLoggedIn();
 
     this.initializeSocket();
-
-    /*
-    this.customSocket.getErrors()
-      .subscribe(err => {
-        console.log(err);
-      });
-
-    this.customSocket.onConnect()
-      .subscribe(() => {
-        console.log('connected');
-      });
-
-    this.customSocket.onDisconnect()
-      .subscribe(() => {
-        console.log('disconnect');
-      });
-
-    this.customSocket.participantJoined()
-      .subscribe(data => {
-        this.notifyJoin();
-      });
-
-    this.customSocket.getChats()
-      .subscribe((data) => {
-        this.chatMessages.push(data.message);
-      });
-
-    */
 
     this.dataService.getRooms()
       .then((rooms) => {
