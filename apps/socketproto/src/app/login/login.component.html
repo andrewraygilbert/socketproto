@@ -1,21 +1,29 @@
 <div class='container-fluid'>
   <div class='row' style='font-weight: bolder;'>
     <div class='col-6'>
-      Username
+      <div class='row justify-content-center'>
+        Username
+      </div>
     </div>
     <div class='col-6'>
-      Password
+      <div class='row justify-content-center'>
+        Password
+      </div>
     </div>
   </div>
   <div *ngFor='let user of userArray' class='row'>
     <div class='col-6'>
-      {{ user.username }}
+      <div class='row justify-content-center'>
+        {{ user.username }}
+      </div>
     </div>
     <div class='col-6'>
-      {{ user.password }}
+      <div class='row justify-content-center'>
+        {{ user.password }}
+      </div>
     </div>
   </div>
-  <form [formGroup]='loginForm' (ngSubmit)='onSubmitLogin()' style='margin-top: 24px;'>
+  <form [formGroup]='loginForm' (ngSubmit)='onSubmitLogin()' style='margin-top: 32px;'>
     <div class='form-group'>
       <label for='username'>Username</label>
       <input type='text' class='form-control' id='username' name='username' formControlName='username' required>
