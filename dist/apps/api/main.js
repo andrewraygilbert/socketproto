@@ -134,6 +134,16 @@ let UsersService = class UsersService {
             return user;
         });
     }
+    findAllUsers() {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+            const users = yield this.UserModel.find();
+            console.log(users);
+            if (!users) {
+                throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_1__["HttpException"]('Could not find users', 400);
+            }
+            return users;
+        });
+    }
     findByUsername(username) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
             const user = yield this.UserModel.findOne({ username: username }).exec();
@@ -875,6 +885,11 @@ let UsersController = class UsersController {
             return this.usersService.create(body);
         });
     }
+    findAll() {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+            return this.usersService.findAllUsers();
+        });
+    }
     getUser(body) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
             return this.usersService.findByUsername(body.username);
@@ -893,6 +908,12 @@ Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [Object]),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:returntype", Promise)
 ], UsersController.prototype, "createUser", null);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__["Get"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Function),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", []),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:returntype", Promise)
+], UsersController.prototype, "findAll", null);
 Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__["UseGuards"])(_auth_jwt_auth_guard__WEBPACK_IMPORTED_MODULE_3__[/* JwtAuthGuard */ "a"]),
     Object(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__["Post"])('findone'),

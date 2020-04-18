@@ -76,5 +76,16 @@ export class DataService {
       });
   }
 
+  public async getAllUsers() {
+    const url = `${this.apiBaseUrl}users`;
+    return this.http
+      .get(url)
+      .toPromise()
+      .then(response => response as any)
+      .catch(err => {
+        return Promise.reject(err);
+      });
+  }
+
 
 }

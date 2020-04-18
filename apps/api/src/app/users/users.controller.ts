@@ -13,6 +13,11 @@ export class UsersController {
     return this.usersService.create(body);
   }
 
+  @Get()
+  async findAll() {
+    return this.usersService.findAllUsers();
+  }
+
   @UseGuards(JwtAuthGuard)
   @Post('findone')
   async getUser(@Body() body) {

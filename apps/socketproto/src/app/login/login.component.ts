@@ -10,6 +10,8 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
+  public userArray;
+
   constructor(
     private fb: FormBuilder,
     private dataService: DataService,
@@ -38,6 +40,14 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.dataService.getAllUsers()
+      .then(response => {
+        console.log(response);
+        this.userArray = response;
+      })
+      .catch(err => {
+        console.log(err);
+      });
   }
 
 }

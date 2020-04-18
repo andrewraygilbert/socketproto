@@ -1,7 +1,21 @@
 <div class='container-fluid'>
-
-  <h1>SOCKETPROTO</h1>
-  <form [formGroup]='loginForm' (ngSubmit)='onSubmitLogin()'>
+  <div class='row' style='font-weight: bolder;'>
+    <div class='col-6'>
+      Username
+    </div>
+    <div class='col-6'>
+      Password
+    </div>
+  </div>
+  <div *ngFor='let user of userArray' class='row'>
+    <div class='col-6'>
+      {{ user.username }}
+    </div>
+    <div class='col-6'>
+      {{ user.password }}
+    </div>
+  </div>
+  <form [formGroup]='loginForm' (ngSubmit)='onSubmitLogin()' style='margin-top: 24px;'>
     <div class='form-group'>
       <label for='username'>Username</label>
       <input type='text' class='form-control' id='username' name='username' formControlName='username' required>
