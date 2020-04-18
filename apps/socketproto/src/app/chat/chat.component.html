@@ -2,26 +2,23 @@
   <div style='position: absolute; top: 16px; z-index: 100;'>
     <div *ngIf='displayError' class='alert alert-danger'>{{ errorMessage }}</div>
   </div>
-  <div class='row' style='margin-bottom: 12px;'>
+  <div class='row' style='margin-bottom: 12px; font-size: 18px;'>
     Hi, {{ getActiveUsername() }}
   </div>
   <div class='row'>
     <div class='col-12'>
       <div class='row'>
-        <span *ngFor='let room of rooms' class='badge badge-dark badge-pill' style='margin-right: 2px; cursor: pointer;' (click)='joinRoom(room)'>
+        <span [ngClass]='{"badge-success" : activeRoom && room._id === activeRoom._id, "badge-secondary" : !activeRoom || (room._id !== activeRoom._id)}' *ngFor='let room of rooms' class='badge badge-pill' style='margin-right: 2px; cursor: pointer; font-size: 15px;' (click)='joinRoom(room)'>
           {{room.name}}
         </span>
       </div>
     </div>
   </div>
-  <div class='row' style='margin-top: 24px;'>
-    <h5>Active Room: {{activeRoom ? activeRoom.name : ''}} </h5>
-  </div>
-  <div class='row' style='height: 18px;'>
-    <span *ngIf='newJoin' style='color: #08a802'>Someone has joined</span>
+  <div class='row' style='height: 50px; padding-top: 16px;'>
+    <span *ngIf='newJoin' style='color: #08a802'>Someone has joined!</span>
   </div>
   <div class='row' style='margin-top: 8px;'>
-    <div class='col-12' style='height: 220px; overflow: scroll; border: 1px solid rgba(0,0,0,.1);'>
+    <div class='col-12' style='height: 300px; overflow: scroll; border: 1px solid rgba(0,0,0,.1); padding: 16px;'>
       <p *ngFor='let msg of chatMessages'>
         {{ msg }}
       </p>
@@ -33,7 +30,7 @@
         <div class='form-group'>
           <input type='text' class='form-control' id='newMsg' name='newMsg' formControlName='newMsg' placeholder='New Message' required>
         </div>
-        <button type='submit' class='btn btn-primary'>Send</button>
+        <button type='submit' class='btn btn-info btn-block' [disabled]='chatForm.invalid || !activeRoom'>Send</button>
       </form>
     </div>
   </div>

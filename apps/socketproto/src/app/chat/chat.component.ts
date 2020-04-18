@@ -114,6 +114,8 @@ export class ChatComponent implements OnInit {
 
   ngOnInit(): void {
 
+    this.dataService.getUserInfo();
+
     this.isLoggedIn();
 
     this.initializeSocket();

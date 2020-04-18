@@ -25,11 +25,8 @@ interface AuthResponse {
 export class DataService {
 
   private apiBaseUrl = API_BASE_URL;
-
   private access_token = '';
-
   private httpOptions: HttpOptions;
-  public activeUsername: string;
 
   constructor(
     private http: HttpClient,
@@ -47,7 +44,14 @@ export class DataService {
   }
 
   public getActiveUsername() {
-    return this.activeUsername;
+    const user = this.getUserInfo();
+    return user.username;
+  }
+
+  public getUserInfo() {
+    const token = this.getToken();
+    const userInfo = JSON.parse(atob(token.split('.')[1]));
+    return userInfo;
   }
 
   public getToken(): string {
@@ -64,7 +68,6 @@ export class DataService {
       .post(url, credentials)
       .toPromise()
       .then(response => {
-        this.activeUsername = credentials.username;
         return response;
       })
       .catch((err) => {
