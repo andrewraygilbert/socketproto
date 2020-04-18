@@ -25,6 +25,9 @@ export class ChatComponent implements OnInit {
   public displayError = false;
   public errorMessage: string;
   public activeUsername: string;
+  public newLeave = false;
+  public leaver = '';
+  public joiner = '';
 
 
   chatForm = this.fb.group({
@@ -58,7 +61,7 @@ export class ChatComponent implements OnInit {
         this.displayErrors(response.err);
       });
     this.customSocket.participantJoined()
-      .subscribe(() => this.notifyJoin());
+      .subscribe((response) => this.notifyJoin(response.username));
     this.customSocket.onConnect()
       .subscribe(() => console.log('connected'));
     this.customSocket.onDisconnect()
@@ -68,6 +71,11 @@ export class ChatComponent implements OnInit {
         console.log(response.msg);
         this.activeRoom = response.room;
       });
+    this.customSocket.roomLeft()
+      .subscribe(response => {
+        console.log(response);
+        this.notifyLeft(response.username);
+      })
   }
 
   public closeSocket() {
@@ -96,9 +104,16 @@ export class ChatComponent implements OnInit {
     this.customSocket.leaveRoom(this.activeRoom);
   }
 
-  public notifyJoin() {
+  public notifyJoin(username) {
+    this.joiner = username;
     this.newJoin = true;
     setTimeout(() => { this.newJoin = false}, 5000);
+  }
+
+  public notifyLeft(username) {
+    this.leaver = username;
+    this.newLeave = true;
+    setTimeout(() => { this.newLeave = false }, 5000);
   }
 
   private isLoggedIn() {

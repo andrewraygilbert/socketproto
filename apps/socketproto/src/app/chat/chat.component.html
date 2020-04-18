@@ -15,7 +15,8 @@
     </div>
   </div>
   <div class='row' style='height: 50px; padding-top: 16px;'>
-    <span *ngIf='newJoin' style='color: #08a802'>Someone has joined!</span>
+    <span *ngIf='newJoin' style='color: #08a802'> {{ joiner }} has joined :)</span>&nbsp;&nbsp;
+    <span *ngIf='newLeave' style='color: #df9814'>{{ leaver }} has left :(</span>
   </div>
   <div class='row' style='margin-top: 8px;'>
     <div class='col-12' style='height: 300px; overflow: scroll; border: 1px solid rgba(0,0,0,.1); padding: 16px;'>

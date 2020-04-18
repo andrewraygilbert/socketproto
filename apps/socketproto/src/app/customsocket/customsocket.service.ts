@@ -23,6 +23,7 @@ export class CustomsocketService {
   public onConnect: ObservableFx;
   public onDisconnect: ObservableFx;
   public roomJoined: ObservableFx;
+  public roomLeft: ObservableFx;
   private baseUrl = BASE_URL;
 
 
@@ -44,6 +45,9 @@ export class CustomsocketService {
   },{
     methodName: 'roomJoined',
     eventName: 'room_joined'
+  },{
+    methodName: 'roomLeft',
+    eventName: 'left_room'
   }];
 
   constructor(

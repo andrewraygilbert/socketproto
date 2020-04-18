@@ -38,9 +38,11 @@ export class ChatGateway implements OnGatewayConnection, OnGatewayDisconnect {
     }
   }
 
-  private doLeaveRoom(client: any) {
+  private doLeaveRoom(client: any, user: User) {
     if (Object.keys(client.rooms).length > 1) {
-      client.leave(Object.keys(client.rooms)[1]);
+      const roomId = Object.keys(client.rooms)[1];
+      client.broadcast.to(roomId).emit('left_room', { 'message' : 'someone left', 'username' : user.username });
+      client.leave(roomId);
     }
   }
 
@@ -53,9 +55,9 @@ export class ChatGateway implements OnGatewayConnection, OnGatewayDisconnect {
     const requestedRoom = await this.roomsService.getRoomById(data._id);
     const isCollaborator = requestedRoom.collaborators.find(person => person.userId == user._id);
     if (isCollaborator) {
-      this.doLeaveRoom(client);
+      this.doLeaveRoom(client, user);
       client.join(requestedRoom._id);
-      client.broadcast.to(requestedRoom._id).emit('participant_joined', { 'message' : 'Someone has joined.' });
+      client.broadcast.to(requestedRoom._id).emit('participant_joined', { 'message' : 'Someone has joined.', 'username' : user.username });
       client.emit('room_joined', {
         'msg' : 'You joined the room.',
         'room' : requestedRoom
