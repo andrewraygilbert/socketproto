@@ -331,7 +331,7 @@
             {
               "file": "apps/socketproto/src/app/chat/chat.component.html",
               "ext": ".html",
-              "mtime": 1587137304008.4656
+              "mtime": 1587227454626.4966
             },
             {
               "file": "apps/socketproto/src/app/chat/chat.component.spec.ts",
@@ -341,7 +341,7 @@
             {
               "file": "apps/socketproto/src/app/chat/chat.component.ts",
               "ext": ".ts",
-              "mtime": 1587138216655.1726
+              "mtime": 1587227262382.441
             },
             {
               "file": "apps/socketproto/src/app/constants/api-base-url.constant.ts",
@@ -366,7 +366,7 @@
             {
               "file": "apps/socketproto/src/app/data-service.service.ts",
               "ext": ".ts",
-              "mtime": 1587223425121.9119
+              "mtime": 1587227174888.263
             },
             {
               "file": "apps/socketproto/src/app/login/login.component.css",
@@ -376,7 +376,7 @@
             {
               "file": "apps/socketproto/src/app/login/login.component.html",
               "ext": ".html",
-              "mtime": 1587223948118.733
+              "mtime": 1587225149986.749
             },
             {
               "file": "apps/socketproto/src/app/login/login.component.spec.ts",
@@ -1583,7 +1583,7 @@
       {
         "file": "apps/socketproto/src/app/chat/chat.component.html",
         "ext": ".html",
-        "mtime": 1587137304008.4656
+        "mtime": 1587227454626.4966
       },
       {
         "file": "apps/socketproto/src/app/chat/chat.component.spec.ts",
@@ -1593,7 +1593,7 @@
       {
         "file": "apps/socketproto/src/app/chat/chat.component.ts",
         "ext": ".ts",
-        "mtime": 1587138216655.1726
+        "mtime": 1587227262382.441
       },
       {
         "file": "apps/socketproto/src/app/constants/api-base-url.constant.ts",
@@ -1618,7 +1618,7 @@
       {
         "file": "apps/socketproto/src/app/data-service.service.ts",
         "ext": ".ts",
-        "mtime": 1587223425121.9119
+        "mtime": 1587227174888.263
       },
       {
         "file": "apps/socketproto/src/app/login/login.component.css",
@@ -1628,7 +1628,7 @@
       {
         "file": "apps/socketproto/src/app/login/login.component.html",
         "ext": ".html",
-        "mtime": 1587223948118.733
+        "mtime": 1587225149986.749
       },
       {
         "file": "apps/socketproto/src/app/login/login.component.spec.ts",
@@ -1936,11 +1936,6 @@
         "file": "apps/api/tsconfig.json",
         "ext": ".json",
         "mtime": 1586538981722.1628
-      },
-      {
-        "file": "apps/api/tsconfig.nx-tmp",
-        "ext": ".nx-tmp",
-        "mtime": 1587223217899.4868
       },
       {
         "file": "apps/api/tsconfig.spec.json",

@@ -24,6 +24,7 @@ export class ChatComponent implements OnInit {
   public newJoin = false;
   public displayError = false;
   public errorMessage: string;
+  public activeUsername: string;
 
 
   chatForm = this.fb.group({
@@ -105,6 +106,10 @@ export class ChatComponent implements OnInit {
     if (!token) {
       this.router.navigateByUrl('login');
     }
+  }
+
+  public getActiveUsername(): string {
+    return this.dataService.getActiveUsername();
   }
 
   ngOnInit(): void {

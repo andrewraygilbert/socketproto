@@ -29,6 +29,7 @@ export class DataService {
   private access_token = '';
 
   private httpOptions: HttpOptions;
+  public activeUsername: string;
 
   constructor(
     private http: HttpClient,
@@ -45,6 +46,10 @@ export class DataService {
     }
   }
 
+  public getActiveUsername() {
+    return this.activeUsername;
+  }
+
   public getToken(): string {
     return this.storage.getItem('proto_access_token');
   }
@@ -58,7 +63,10 @@ export class DataService {
     return this.http
       .post(url, credentials)
       .toPromise()
-      .then(response => response as AuthResponse)
+      .then(response => {
+        this.activeUsername = credentials.username;
+        return response;
+      })
       .catch((err) => {
         return Promise.reject(err);
       })

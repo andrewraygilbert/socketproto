@@ -1,6 +1,9 @@
-<div class='container-fluid' style='padding-top: 24px;'>
+<div class='container-fluid' style='padding-top: 32px;'>
   <div style='position: absolute; top: 16px; z-index: 100;'>
     <div *ngIf='displayError' class='alert alert-danger'>{{ errorMessage }}</div>
+  </div>
+  <div class='row' style='margin-bottom: 12px;'>
+    Hi, {{ getActiveUsername() }}
   </div>
   <div class='row'>
     <div class='col-12'>
@@ -12,7 +15,7 @@
     </div>
   </div>
   <div class='row' style='margin-top: 24px;'>
-    <h3>Active Room: {{activeRoom ? activeRoom.name : ''}} </h3>
+    <h5>Active Room: {{activeRoom ? activeRoom.name : ''}} </h5>
   </div>
   <div class='row' style='height: 18px;'>
     <span *ngIf='newJoin' style='color: #08a802'>Someone has joined</span>
