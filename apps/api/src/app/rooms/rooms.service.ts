@@ -1,9 +1,10 @@
 import { Injectable, HttpException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
-import { Room, User } from '@sockets/api-interfaces';
+import { Room, User, Collaborator } from '@sockets/api-interfaces';
 import { Model } from 'mongoose';
 import { Message } from '@sockets/api-interfaces';
 import { UsersService } from './../users/users.service';
+import { WsException } from '@nestjs/websockets';
 
 @Injectable()
 export class RoomsService {
@@ -50,6 +51,45 @@ export class RoomsService {
       throw new HttpException('could not find room', 400);
     }
     return room;
+  }
+
+  async addActiveUser(user: User, roomId: string) {
+    const room = await this.RoomModel.findById(roomId).exec();
+    if (!room) {
+      throw new WsException('could not find room');
+    }
+    const alreadyJoined = room.activeUsers.find((eachUser) => eachUser.userId == user._id);
+    if (alreadyJoined) {
+      return {'msg' : 'user already in room'};
+    }
+    const newActiveUser = {
+      username: user.username,
+      firstName: user.firstName,
+      lastName: user.lastName,
+      userId: user._id
+    };
+    room.activeUsers.push(newActiveUser);
+    await room.save();
+    console.log('active user added');
+  }
+
+  async removeActiveUser(userId: string, roomId: string) {
+    const room = await this.RoomModel.findById(roomId).exec();
+    if (!room) {
+      throw new WsException('could not find room');
+    }
+    const index = room.activeUsers.findIndex((eachUser) => eachUser.userId == userId);
+    room.activeUsers.splice(index, 1);
+    await room.save();
+    console.log('active user removed');
+  }
+
+  async getActiveUsers(roomId: string) {
+    const room = await this.RoomModel.findById(roomId).exec();
+    if (!room) {
+      throw new WsException('could not locate room');
+    }
+    return room.activeUsers;
   }
 
 }

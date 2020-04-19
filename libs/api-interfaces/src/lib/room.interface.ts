@@ -1,6 +1,6 @@
 import { Document } from 'mongoose';
 
-interface Collaborators {
+export interface Collaborator {
   firstName: string;
   lastName: string;
   username: string;
@@ -10,5 +10,6 @@ interface Collaborators {
 export interface Room extends Document {
   name: string;
   specId: string;
-  collaborators: [Collaborators]
+  collaborators: [Collaborator];
+  activeUsers: [Collaborator];
 }

@@ -10,5 +10,6 @@ const CollaboratorSchema = new mongoose.Schema({
 export const RoomSchema = new mongoose.Schema({
   name: String,
   specId: String,
-  collaborators: [CollaboratorSchema]
+  collaborators: [CollaboratorSchema],
+  activeUsers: [CollaboratorSchema]
 })

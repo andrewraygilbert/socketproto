@@ -28,6 +28,7 @@ export class ChatComponent implements OnInit {
   public newLeave = false;
   public leaver = '';
   public joiner = '';
+  public activeUsers = [];
 
 
   chatForm = this.fb.group({
@@ -61,20 +62,26 @@ export class ChatComponent implements OnInit {
         this.displayErrors(response.err);
       });
     this.customSocket.participantJoined()
-      .subscribe((response) => this.notifyJoin(response.username));
+      .subscribe((response) => {
+        this.notifyJoin(response.user.username);
+        this.activeUsers.push(response.user);
+      });
     this.customSocket.onConnect()
       .subscribe(() => console.log('connected'));
     this.customSocket.onDisconnect()
       .subscribe(()=> console.log('disconnected'));
     this.customSocket.roomJoined()
       .subscribe((response) => {
-        console.log(response.msg);
+        console.log(response);
         this.activeRoom = response.room;
+        this.activeUsers = response.activeUsers;
       });
     this.customSocket.roomLeft()
       .subscribe(response => {
         console.log(response);
-        this.notifyLeft(response.username);
+        this.notifyLeft(response.user.username);
+        const index = this.activeUsers.findIndex(eachUser => eachUser.userId == response.user._id);
+        this.activeUsers.splice(index, 1);
       })
   }
 

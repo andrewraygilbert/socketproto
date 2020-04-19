@@ -14,27 +14,40 @@
       </div>
     </div>
   </div>
-  <div class='row' style='height: 50px; padding-top: 16px;'>
-    <span *ngIf='newJoin' style='color: #08a802'> {{ joiner }} has joined :)</span>&nbsp;&nbsp;
-    <span *ngIf='newLeave' style='color: #df9814'>{{ leaver }} has left :(</span>
-  </div>
-  <div class='row' style='margin-top: 8px;'>
-    <div class='col-12' style='height: 300px; overflow: scroll; border: 1px solid rgba(0,0,0,.1); padding: 16px;'>
-      <p *ngFor='let msg of chatMessages'>
-        {{ msg }}
-      </p>
-    </div>
-  </div>
-  <div class='row' style='margin-top: 16px;'>
-    <div class='col-12 p-0'>
-      <form [formGroup]='chatForm' (ngSubmit)='submitMsg()'>
-        <div class='form-group'>
-          <input type='text' class='form-control' id='newMsg' name='newMsg' formControlName='newMsg' placeholder='New Message' required>
+  <div class='row'>
+    <div class='col-8'>
+      <div class='row' style='height: 50px; padding-top: 16px;'>
+        <span *ngIf='newJoin' style='color: #08a802'> {{ joiner }} has joined :)</span>&nbsp;&nbsp;
+        <span *ngIf='newLeave' style='color: #df9814'>{{ leaver }} has left :(</span>
+      </div>
+      <div class='row' style='margin-top: 8px;'>
+        <div class='col-12' style='height: 300px; overflow: scroll; border: 1px solid rgba(0,0,0,.1); padding: 16px;'>
+          <p *ngFor='let msg of chatMessages'>
+            {{ msg }}
+          </p>
         </div>
-        <button type='submit' class='btn btn-info btn-block' [disabled]='chatForm.invalid || !activeRoom'>Send</button>
-      </form>
+      </div>
+      <div class='row' style='margin-top: 16px;'>
+        <div class='col-12 p-0'>
+          <form [formGroup]='chatForm' (ngSubmit)='submitMsg()'>
+            <div class='form-group'>
+              <input type='text' class='form-control' id='newMsg' name='newMsg' formControlName='newMsg' placeholder='New Message' required>
+            </div>
+            <button type='submit' class='btn btn-info btn-block' [disabled]='chatForm.invalid || !activeRoom'>Send</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class='col-4'>
+      <div class='row justify-content-center'>
+        <strong>Active Users</strong>
+      </div>
+      <div *ngFor='let activeUser of activeUsers' class='row justify-content-center'>
+        {{activeUser.username}}
+      </div>
     </div>
   </div>
+
 </div>
 
 <!--

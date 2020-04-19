@@ -151,7 +151,7 @@
             {
               "file": "libs/api-interfaces/src/lib/room.interface.ts",
               "ext": ".ts",
-              "mtime": 1586619221083.715
+              "mtime": 1587306433660.1921
             },
             {
               "file": "libs/api-interfaces/src/lib/user.interface.ts",
@@ -301,7 +301,7 @@
             {
               "file": "apps/socketproto/src/app/app.component.css",
               "ext": ".css",
-              "mtime": 1586962778513.185
+              "mtime": 1587308255688.5955
             },
             {
               "file": "apps/socketproto/src/app/app.component.html",
@@ -331,7 +331,7 @@
             {
               "file": "apps/socketproto/src/app/chat/chat.component.html",
               "ext": ".html",
-              "mtime": 1587250451574.1982
+              "mtime": 1587308496693.0186
             },
             {
               "file": "apps/socketproto/src/app/chat/chat.component.spec.ts",
@@ -341,7 +341,7 @@
             {
               "file": "apps/socketproto/src/app/chat/chat.component.ts",
               "ext": ".ts",
-              "mtime": 1587250442440.8987
+              "mtime": 1587309833252.6064
             },
             {
               "file": "apps/socketproto/src/app/constants/api-base-url.constant.ts",
@@ -623,7 +623,7 @@
             {
               "file": "apps/api/src/app/auth/jwt/jwt.service.ts",
               "ext": ".ts",
-              "mtime": 1587053212992.3423
+              "mtime": 1587307691013.4075
             },
             {
               "file": "apps/api/src/app/auth/jwt-auth.guard.ts",
@@ -653,7 +653,7 @@
             {
               "file": "apps/api/src/app/chat/chat.gateway.ts",
               "ext": ".ts",
-              "mtime": 1587250396112.8608
+              "mtime": 1587309848643.8274
             },
             {
               "file": "apps/api/src/app/chat/chat.module.ts",
@@ -683,12 +683,12 @@
             {
               "file": "apps/api/src/app/rooms/rooms.service.ts",
               "ext": ".ts",
-              "mtime": 1586876616588.326
+              "mtime": 1587309212771.2747
             },
             {
               "file": "apps/api/src/app/rooms/schemas/room.schema.ts",
               "ext": ".ts",
-              "mtime": 1586619223566.1394
+              "mtime": 1587306043141.3303
             },
             {
               "file": "apps/api/src/app/users/schemas/user.schema.ts",
@@ -749,6 +749,11 @@
               "file": "apps/api/tsconfig.json",
               "ext": ".json",
               "mtime": 1586538981722.1628
+            },
+            {
+              "file": "apps/api/tsconfig.nx-tmp",
+              "ext": ".nx-tmp",
+              "mtime": 1587305000109.1958
             },
             {
               "file": "apps/api/tsconfig.spec.json",
@@ -1501,7 +1506,7 @@
       {
         "file": "libs/api-interfaces/src/lib/room.interface.ts",
         "ext": ".ts",
-        "mtime": 1586619221083.715
+        "mtime": 1587306433660.1921
       },
       {
         "file": "libs/api-interfaces/src/lib/user.interface.ts",
@@ -1548,7 +1553,7 @@
       {
         "file": "apps/socketproto/src/app/app.component.css",
         "ext": ".css",
-        "mtime": 1586962778513.185
+        "mtime": 1587308255688.5955
       },
       {
         "file": "apps/socketproto/src/app/app.component.html",
@@ -1578,7 +1583,7 @@
       {
         "file": "apps/socketproto/src/app/chat/chat.component.html",
         "ext": ".html",
-        "mtime": 1587250451574.1982
+        "mtime": 1587308496693.0186
       },
       {
         "file": "apps/socketproto/src/app/chat/chat.component.spec.ts",
@@ -1588,7 +1593,7 @@
       {
         "file": "apps/socketproto/src/app/chat/chat.component.ts",
         "ext": ".ts",
-        "mtime": 1587250442440.8987
+        "mtime": 1587309833252.6064
       },
       {
         "file": "apps/socketproto/src/app/constants/api-base-url.constant.ts",
@@ -1805,7 +1810,7 @@
       {
         "file": "apps/api/src/app/auth/jwt/jwt.service.ts",
         "ext": ".ts",
-        "mtime": 1587053212992.3423
+        "mtime": 1587307691013.4075
       },
       {
         "file": "apps/api/src/app/auth/jwt-auth.guard.ts",
@@ -1835,7 +1840,7 @@
       {
         "file": "apps/api/src/app/chat/chat.gateway.ts",
         "ext": ".ts",
-        "mtime": 1587250396112.8608
+        "mtime": 1587309848643.8274
       },
       {
         "file": "apps/api/src/app/chat/chat.module.ts",
@@ -1865,12 +1870,12 @@
       {
         "file": "apps/api/src/app/rooms/rooms.service.ts",
         "ext": ".ts",
-        "mtime": 1586876616588.326
+        "mtime": 1587309212771.2747
       },
       {
         "file": "apps/api/src/app/rooms/schemas/room.schema.ts",
         "ext": ".ts",
-        "mtime": 1586619223566.1394
+        "mtime": 1587306043141.3303
       },
       {
         "file": "apps/api/src/app/users/schemas/user.schema.ts",
@@ -1931,6 +1936,11 @@
         "file": "apps/api/tsconfig.json",
         "ext": ".json",
         "mtime": 1586538981722.1628
+      },
+      {
+        "file": "apps/api/tsconfig.nx-tmp",
+        "ext": ".nx-tmp",
+        "mtime": 1587305000109.1958
       },
       {
         "file": "apps/api/tsconfig.spec.json",
