@@ -99,4 +99,9 @@ export class CustomsocketService {
     this.socket.emit('chatmsg', msg);
   }
 
+  public alertDisconnect() {
+    console.log('in alert disconnect on socket');
+    this.socket.emit('user_disconnect', {});
+  }
+
 }

@@ -143,7 +143,6 @@ let UsersService = class UsersService {
     findAllUsers() {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
             const users = yield this.UserModel.find();
-            console.log(users);
             if (!users) {
                 throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_1__["HttpException"]('Could not find users', 400);
             }
@@ -1096,6 +1095,13 @@ let ChatGateway = class ChatGateway {
     handleConnection(socket) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
             console.log('*** SOCKET CONNECTED ***');
+            socket.on('disconnecting', (reason) => Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+                const roomId = Object.keys(socket.rooms)[1];
+                const user = yield this.jwtServicer.verify(socket.handshake.query.token);
+                console.log(user);
+                socket.broadcast.to(roomId).emit('left_room', { 'message': 'someone left', 'user': user });
+                this.leaveRoom(user._id, roomId);
+            }));
             /*
             socket.on('error', (err) => {
               socket.emit('err', {'message' : err});
@@ -1103,12 +1109,14 @@ let ChatGateway = class ChatGateway {
             */
         });
     }
+    leaveRoom(userId, roomId) {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+            yield this.roomsService.removeActiveUser(userId, roomId);
+        });
+    }
     handleDisconnect(client) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
-            this.checkForToken(client);
-            const user = yield this.jwtServicer.verify(client.handshake.query.token);
             console.log('~~~ SOCKET DISCONNECTED ~~~');
-            this.doLeaveRoom(client, user);
         });
     }
     handleMessage(body, client) {
@@ -1118,7 +1126,9 @@ let ChatGateway = class ChatGateway {
     }
     doLeaveRoom(client, user) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+            console.log('in do leave room');
             if (Object.keys(client.rooms).length > 1) {
+                console.log('in conditional');
                 const roomId = Object.keys(client.rooms)[1];
                 client.broadcast.to(roomId).emit('left_room', { 'message': 'someone left', 'user': user });
                 client.leave(roomId);

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { DataService } from './../data-service.service';
 import { CustomsocketService } from '../customsocket/customsocket.service';
@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   templateUrl: './chat.component.html',
   styleUrls: ['./chat.component.css']
 })
-export class ChatComponent implements OnInit {
+export class ChatComponent implements OnInit, OnDestroy {
 
   constructor(
     private router: Router,
@@ -148,6 +148,9 @@ export class ChatComponent implements OnInit {
       })
       .catch(err => console.log(err));
 
+  }
+
+  ngOnDestroy(): void {
   }
 
 }

@@ -3,8 +3,6 @@ import { SubscribeMessage, WebSocketGateway, WsResponse, WebSocketServer, OnGate
 import { User } from '@sockets/api-interfaces';
 import { RoomsService } from './../rooms/rooms.service';
 import { JwtServicer } from './../auth/jwt/jwt.service';
-import { Socket } from 'net';
-import { request } from 'http';
 
 @WebSocketGateway({ pingTimeout: 30000})
 export class ChatGateway implements OnGatewayConnection, OnGatewayDisconnect {
@@ -19,7 +17,14 @@ export class ChatGateway implements OnGatewayConnection, OnGatewayDisconnect {
 
 
   async handleConnection(socket) {
-    console.log('*** SOCKET CONNECTED ***')
+    console.log('*** SOCKET CONNECTED ***');
+    socket.on('disconnecting', async (reason) => {
+      const roomId = Object.keys(socket.rooms)[1];
+      const user = await this.jwtServicer.verify(socket.handshake.query.token);
+      console.log(user);
+      socket.broadcast.to(roomId).emit('left_room', { 'message' : 'someone left', 'user' : user });
+      this.leaveRoom(user._id, roomId);
+    });
     /*
     socket.on('error', (err) => {
       socket.emit('err', {'message' : err});
@@ -27,13 +32,13 @@ export class ChatGateway implements OnGatewayConnection, OnGatewayDisconnect {
     */
   }
 
-  async handleDisconnect(client: any) {
-    this.checkForToken(client);
-    const user = await this.jwtServicer.verify(client.handshake.query.token);
-    console.log('~~~ SOCKET DISCONNECTED ~~~');
-    this.doLeaveRoom(client, user);
+  async leaveRoom(userId: string, roomId: string) {
+    await this.roomsService.removeActiveUser(userId, roomId);
   }
 
+  async handleDisconnect(client: any) {
+    console.log('~~~ SOCKET DISCONNECTED ~~~');
+  }
 
   @SubscribeMessage('chatmsg')
   handleMessage(@MessageBody() body: any, @ConnectedSocket() client: any): any {
@@ -43,7 +48,9 @@ export class ChatGateway implements OnGatewayConnection, OnGatewayDisconnect {
   }
 
   private async doLeaveRoom(client: any, user?: User) {
+    console.log('in do leave room');
     if (Object.keys(client.rooms).length > 1) {
+      console.log('in conditional');
       const roomId = Object.keys(client.rooms)[1];
       client.broadcast.to(roomId).emit('left_room', { 'message' : 'someone left', 'user' : user });
       client.leave(roomId);

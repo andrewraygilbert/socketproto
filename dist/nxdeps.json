@@ -331,7 +331,7 @@
             {
               "file": "apps/socketproto/src/app/chat/chat.component.html",
               "ext": ".html",
-              "mtime": 1587308496693.0186
+              "mtime": 1587311860319.2512
             },
             {
               "file": "apps/socketproto/src/app/chat/chat.component.spec.ts",
@@ -341,7 +341,7 @@
             {
               "file": "apps/socketproto/src/app/chat/chat.component.ts",
               "ext": ".ts",
-              "mtime": 1587309833252.6064
+              "mtime": 1587332794947.3198
             },
             {
               "file": "apps/socketproto/src/app/constants/api-base-url.constant.ts",
@@ -356,7 +356,7 @@
             {
               "file": "apps/socketproto/src/app/customsocket/customsocket.service.ts",
               "ext": ".ts",
-              "mtime": 1587249635729.1133
+              "mtime": 1587332435976.2632
             },
             {
               "file": "apps/socketproto/src/app/data-service.service.spec.ts",
@@ -653,7 +653,7 @@
             {
               "file": "apps/api/src/app/chat/chat.gateway.ts",
               "ext": ".ts",
-              "mtime": 1587309848643.8274
+              "mtime": 1587334966007.8867
             },
             {
               "file": "apps/api/src/app/chat/chat.module.ts",
@@ -718,7 +718,7 @@
             {
               "file": "apps/api/src/app/users/users.service.ts",
               "ext": ".ts",
-              "mtime": 1587222757627.6853
+              "mtime": 1587332204779.6294
             },
             {
               "file": "apps/api/src/assets/.gitkeep",
@@ -749,11 +749,6 @@
               "file": "apps/api/tsconfig.json",
               "ext": ".json",
               "mtime": 1586538981722.1628
-            },
-            {
-              "file": "apps/api/tsconfig.nx-tmp",
-              "ext": ".nx-tmp",
-              "mtime": 1587305000109.1958
             },
             {
               "file": "apps/api/tsconfig.spec.json",
@@ -1583,7 +1578,7 @@
       {
         "file": "apps/socketproto/src/app/chat/chat.component.html",
         "ext": ".html",
-        "mtime": 1587308496693.0186
+        "mtime": 1587311860319.2512
       },
       {
         "file": "apps/socketproto/src/app/chat/chat.component.spec.ts",
@@ -1593,7 +1588,7 @@
       {
         "file": "apps/socketproto/src/app/chat/chat.component.ts",
         "ext": ".ts",
-        "mtime": 1587309833252.6064
+        "mtime": 1587332794947.3198
       },
       {
         "file": "apps/socketproto/src/app/constants/api-base-url.constant.ts",
@@ -1608,7 +1603,7 @@
       {
         "file": "apps/socketproto/src/app/customsocket/customsocket.service.ts",
         "ext": ".ts",
-        "mtime": 1587249635729.1133
+        "mtime": 1587332435976.2632
       },
       {
         "file": "apps/socketproto/src/app/data-service.service.spec.ts",
@@ -1840,7 +1835,7 @@
       {
         "file": "apps/api/src/app/chat/chat.gateway.ts",
         "ext": ".ts",
-        "mtime": 1587309848643.8274
+        "mtime": 1587334966007.8867
       },
       {
         "file": "apps/api/src/app/chat/chat.module.ts",
@@ -1905,7 +1900,7 @@
       {
         "file": "apps/api/src/app/users/users.service.ts",
         "ext": ".ts",
-        "mtime": 1587222757627.6853
+        "mtime": 1587332204779.6294
       },
       {
         "file": "apps/api/src/assets/.gitkeep",
@@ -1936,11 +1931,6 @@
         "file": "apps/api/tsconfig.json",
         "ext": ".json",
         "mtime": 1586538981722.1628
-      },
-      {
-        "file": "apps/api/tsconfig.nx-tmp",
-        "ext": ".nx-tmp",
-        "mtime": 1587305000109.1958
       },
       {
         "file": "apps/api/tsconfig.spec.json",

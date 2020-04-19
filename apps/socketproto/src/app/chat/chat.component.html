@@ -38,9 +38,9 @@
         </div>
       </div>
     </div>
-    <div class='col-4'>
+    <div *ngIf='activeRoom' class='col-4'>
       <div class='row justify-content-center'>
-        <strong>Active Users</strong>
+        <strong>{{ activeUsers.length }} {{ activeUsers.length > 1 ? 'Users' : 'User' }} in Room</strong>
       </div>
       <div *ngFor='let activeUser of activeUsers' class='row justify-content-center'>
         {{activeUser.username}}

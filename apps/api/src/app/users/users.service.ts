@@ -24,7 +24,6 @@ export class UsersService {
 
   async findAllUsers(): Promise<User[]> {
     const users = await this.UserModel.find();
-    console.log(users);
     if (!users) {
       throw new HttpException('Could not find users', 400);
     }
