@@ -1,8 +1,7 @@
 import { Injectable, Inject } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { API_BASE_URL } from './constants/api-base-url.constant';
-import { Observable } from 'rxjs';
-import { BROWSER_STORAGE } from './customsocket/customsocket.service';
+import { BROWSER_STORAGE } from './constants/browser-storage.constant';
 import { CustomsocketService } from './customsocket/customsocket.service';
 
 interface HttpOptions {

@@ -1,13 +1,8 @@
 import { Injectable, Inject } from '@angular/core';
 import * as io from 'socket.io-client';
 import { Observable, fromEvent } from 'rxjs';
-import { InjectionToken } from '@angular/core';
 import { BASE_URL } from './../constants/api-base-url.constant';
-
-export const BROWSER_STORAGE = new InjectionToken<Storage>('Browser Storage', {
-  providedIn: 'root',
-  factory: () => localStorage
-});
+import { BROWSER_STORAGE } from './../constants/browser-storage.constant';
 
 @Injectable({
   providedIn: 'root'
@@ -61,7 +56,6 @@ export class CustomsocketService {
   public onError(): Observable<any> {
     return fromEvent(this.socket.on(), 'err');
   }
-
 
   public closeSocket() {
     console.log('closing the socket', this.socket);
