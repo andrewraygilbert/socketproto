@@ -4,8 +4,6 @@ import { Observable, fromEvent } from 'rxjs';
 import { InjectionToken } from '@angular/core';
 import { BASE_URL } from './../constants/api-base-url.constant';
 
-type ObservableFx = () => Observable<any>;
-
 export const BROWSER_STORAGE = new InjectionToken<Storage>('Browser Storage', {
   providedIn: 'root',
   factory: () => localStorage
@@ -17,38 +15,7 @@ export const BROWSER_STORAGE = new InjectionToken<Storage>('Browser Storage', {
 export class CustomsocketService {
 
   public socket;
-  public getChats: ObservableFx;
-  public getErrors: ObservableFx;
-  public participantJoined: ObservableFx;
-  public onConnect: ObservableFx;
-  public onDisconnect: ObservableFx;
-  public roomJoined: ObservableFx;
-  public roomLeft: ObservableFx;
   private baseUrl = BASE_URL;
-
-
-  private socketEvents = [{
-    methodName: 'getChats',
-    eventName: 'chatmsg'
-  },{
-    methodName: 'getErrors',
-    eventName: 'err'
-  },{
-    methodName: 'onConnect',
-    eventName: 'connect'
-  },{
-    methodName: 'onDisconnect',
-    eventName: 'disconnect'
-  },{
-    methodName: 'participantJoined',
-    eventName: 'participant_joined'
-  },{
-    methodName: 'roomJoined',
-    eventName: 'room_joined'
-  },{
-    methodName: 'roomLeft',
-    eventName: 'left_room'
-  }];
 
   constructor(
     @Inject(BROWSER_STORAGE) private storage: Storage,
@@ -65,17 +32,36 @@ export class CustomsocketService {
         token: this.getToken()
       }
     });
-    this.createEventMethods(this.socketEvents);
   }
 
-  // generate methods that return observables for socket events
-  private createEventMethods(events) {
-    for (const event of events) {
-      this[event.methodName] = (): Observable<any> => {
-        return fromEvent(this.socket.on(), event.eventName);
-      };
-    }
+  public onConnect(): Observable<any> {
+    return fromEvent(this.socket.on(), 'connect');
   }
+
+  public onDisconnect(): Observable<any> {
+    return fromEvent(this.socket.on(), 'disconnect');
+  }
+
+  public joinedRoom(): Observable<any> {
+    return fromEvent(this.socket.on(), 'joined_room');
+  }
+
+  public otherExitedRoom(): Observable<any> {
+    return fromEvent(this.socket.on(), 'other_exited_room');
+  }
+
+  public otherJoinedRoom(): Observable<any> {
+    return fromEvent(this.socket.on(), 'other_joined_room');
+  }
+
+  public getChats(): Observable<any> {
+    return fromEvent(this.socket.on(), 'chatmsg');
+  }
+
+  public onError(): Observable<any> {
+    return fromEvent(this.socket.on(), 'err');
+  }
+
 
   public closeSocket() {
     console.log('closing the socket', this.socket);

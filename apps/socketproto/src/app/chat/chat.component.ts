@@ -49,6 +49,44 @@ export class ChatComponent implements OnInit, OnDestroy {
   }
 
   private initializeSubscriptions() {
+
+    this.customSocket.onConnect()
+      .subscribe(() => console.log('*** SOCKET CONNECTED ***'));
+
+    this.customSocket.onDisconnect()
+      .subscribe(() => console.log('~~~ SOCKET DISCONNECTED ~~~'));
+
+    this.customSocket.onError()
+      .subscribe((response) => {
+        this.displayErrors(response.err);
+        console.log(response.err);
+      });
+
+    // confirms that user successfully joined a room and updates state
+    this.customSocket.joinedRoom()
+      .subscribe((response) => {
+        console.log(response);
+        this.activeRoom = response.room;
+        this.activeUsers = response.activeUsers;
+      });
+
+    // reflect that a collaborator exited the room
+    this.customSocket.otherExitedRoom()
+      .subscribe((response) => {
+        console.log(response);
+        this.notifyLeft(response.user.username);
+        const index = this.activeUsers.findIndex(eachUser => eachUser.userId == response.user._id);
+        this.activeUsers.splice(index, 1);
+      })
+
+    // reflect that a collaborator joined the room
+    this.customSocket.otherJoinedRoom()
+      .subscribe((response) => {
+        this.notifyJoin(response.user.username);
+        this.activeUsers.push(response.user);
+      });
+
+    // display new chat messages from collaborators
     this.customSocket.getChats()
       .subscribe((msg) => {
         if (this.chatMessages.length > 3) {
@@ -56,33 +94,7 @@ export class ChatComponent implements OnInit, OnDestroy {
         }
         this.chatMessages.push(msg.message);
       });
-    this.customSocket.getErrors()
-      .subscribe((response) => {
-        console.log(response);
-        this.displayErrors(response.err);
-      });
-    this.customSocket.participantJoined()
-      .subscribe((response) => {
-        this.notifyJoin(response.user.username);
-        this.activeUsers.push(response.user);
-      });
-    this.customSocket.onConnect()
-      .subscribe(() => console.log('connected'));
-    this.customSocket.onDisconnect()
-      .subscribe(()=> console.log('disconnected'));
-    this.customSocket.roomJoined()
-      .subscribe((response) => {
-        console.log(response);
-        this.activeRoom = response.room;
-        this.activeUsers = response.activeUsers;
-      });
-    this.customSocket.roomLeft()
-      .subscribe(response => {
-        console.log(response);
-        this.notifyLeft(response.user.username);
-        const index = this.activeUsers.findIndex(eachUser => eachUser.userId == response.user._id);
-        this.activeUsers.splice(index, 1);
-      })
+
   }
 
   public closeSocket() {
@@ -151,6 +163,7 @@ export class ChatComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
+    // should this destroy the observables?
   }
 
 }

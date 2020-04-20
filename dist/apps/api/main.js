@@ -1099,7 +1099,7 @@ let ChatGateway = class ChatGateway {
                 const roomId = Object.keys(socket.rooms)[1];
                 const user = yield this.jwtServicer.verify(socket.handshake.query.token);
                 console.log(user);
-                socket.broadcast.to(roomId).emit('left_room', { 'message': 'someone left', 'user': user });
+                socket.broadcast.to(roomId).emit('other_exited_room', { 'message': 'someone left', 'user': user });
                 this.leaveRoom(user._id, roomId);
             }));
             /*
@@ -1130,7 +1130,7 @@ let ChatGateway = class ChatGateway {
             if (Object.keys(client.rooms).length > 1) {
                 console.log('in conditional');
                 const roomId = Object.keys(client.rooms)[1];
-                client.broadcast.to(roomId).emit('left_room', { 'message': 'someone left', 'user': user });
+                client.broadcast.to(roomId).emit('other_exited_room', { 'message': 'someone left', 'user': user });
                 client.leave(roomId);
                 yield this.roomsService.removeActiveUser(user._id, roomId);
             }
@@ -1152,9 +1152,9 @@ let ChatGateway = class ChatGateway {
                 yield this.doLeaveRoom(client, user);
                 client.join(requestedRoom._id);
                 yield this.roomsService.addActiveUser(user, requestedRoom._id);
-                client.broadcast.to(requestedRoom._id).emit('participant_joined', { 'message': 'Someone has joined.', 'user': user });
+                client.broadcast.to(requestedRoom._id).emit('other_joined_room', { 'message': 'Someone has joined.', 'user': user });
                 const activeUsers = yield this.roomsService.getActiveUsers(requestedRoom._id);
-                client.emit('room_joined', {
+                client.emit('joined_room', {
                     'msg': 'You joined the room.',
                     'room': requestedRoom,
                     'activeUsers': activeUsers

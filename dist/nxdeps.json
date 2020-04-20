@@ -341,7 +341,7 @@
             {
               "file": "apps/socketproto/src/app/chat/chat.component.ts",
               "ext": ".ts",
-              "mtime": 1587332794947.3198
+              "mtime": 1587408547954.206
             },
             {
               "file": "apps/socketproto/src/app/constants/api-base-url.constant.ts",
@@ -356,7 +356,7 @@
             {
               "file": "apps/socketproto/src/app/customsocket/customsocket.service.ts",
               "ext": ".ts",
-              "mtime": 1587332435976.2632
+              "mtime": 1587408714453.4363
             },
             {
               "file": "apps/socketproto/src/app/data-service.service.spec.ts",
@@ -653,7 +653,7 @@
             {
               "file": "apps/api/src/app/chat/chat.gateway.ts",
               "ext": ".ts",
-              "mtime": 1587334966007.8867
+              "mtime": 1587408424474.127
             },
             {
               "file": "apps/api/src/app/chat/chat.module.ts",
@@ -749,6 +749,11 @@
               "file": "apps/api/tsconfig.json",
               "ext": ".json",
               "mtime": 1586538981722.1628
+            },
+            {
+              "file": "apps/api/tsconfig.nx-tmp",
+              "ext": ".nx-tmp",
+              "mtime": 1587386947837.7131
             },
             {
               "file": "apps/api/tsconfig.spec.json",
@@ -1588,7 +1593,7 @@
       {
         "file": "apps/socketproto/src/app/chat/chat.component.ts",
         "ext": ".ts",
-        "mtime": 1587332794947.3198
+        "mtime": 1587408547954.206
       },
       {
         "file": "apps/socketproto/src/app/constants/api-base-url.constant.ts",
@@ -1603,7 +1608,7 @@
       {
         "file": "apps/socketproto/src/app/customsocket/customsocket.service.ts",
         "ext": ".ts",
-        "mtime": 1587332435976.2632
+        "mtime": 1587408714453.4363
       },
       {
         "file": "apps/socketproto/src/app/data-service.service.spec.ts",
@@ -1835,7 +1840,7 @@
       {
         "file": "apps/api/src/app/chat/chat.gateway.ts",
         "ext": ".ts",
-        "mtime": 1587334966007.8867
+        "mtime": 1587408424474.127
       },
       {
         "file": "apps/api/src/app/chat/chat.module.ts",
@@ -1931,6 +1936,11 @@
         "file": "apps/api/tsconfig.json",
         "ext": ".json",
         "mtime": 1586538981722.1628
+      },
+      {
+        "file": "apps/api/tsconfig.nx-tmp",
+        "ext": ".nx-tmp",
+        "mtime": 1587386947837.7131
       },
       {
         "file": "apps/api/tsconfig.spec.json",
