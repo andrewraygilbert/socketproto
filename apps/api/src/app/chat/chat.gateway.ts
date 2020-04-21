@@ -1,35 +1,40 @@
 import { UseGuards, UseFilters } from '@nestjs/common';
 import { SubscribeMessage, WebSocketGateway, WsResponse, WebSocketServer, OnGatewayConnection, OnGatewayDisconnect, WsException, MessageBody, ConnectedSocket, BaseWsExceptionFilter } from '@nestjs/websockets';
-import { User } from '@sockets/api-interfaces';
+import { User, Room } from '@sockets/api-interfaces';
 import { RoomsService } from './../rooms/rooms.service';
 import { JwtServicer } from './../auth/jwt/jwt.service';
-import { Socket } from 'net';
+import { Socket, Server } from 'socket.io';
+
+interface BroadcastInfo {
+  room: string;
+  event: string;
+  response: any;
+}
 
 @WebSocketGateway({ pingTimeout: 30000})
 export class ChatGateway implements OnGatewayConnection, OnGatewayDisconnect {
 
   @WebSocketServer()
-  server;
+  server: Server;
 
   constructor(
     private roomsService: RoomsService,
     private jwtServicer: JwtServicer
   ) {}
 
-
-  private broadcastToRoom(socket, data) {
+  private broadcastToRoom(socket: Socket, data: BroadcastInfo) {
     socket.broadcast.to(data.room).emit(data.event, data.response);
   }
 
-  private getRoomFromSocket(socket): string {
+  private getRoomFromSocket(socket: Socket): string {
     return Object.keys(socket.rooms)[1];
   }
 
-  private async getUserFromSocket(socket): Promise<User> {
+  private async getUserFromSocket(socket: Socket): Promise<User> {
     return this.jwtServicer.verify(socket.handshake.query.token);
   }
 
-  private async leaveRoom(socket) {
+  private async leaveRoom(socket: Socket) {
     const room = this.getRoomFromSocket(socket);
     const user = await this.getUserFromSocket(socket);
     this.broadcastToRoom(socket, {
@@ -44,55 +49,82 @@ export class ChatGateway implements OnGatewayConnection, OnGatewayDisconnect {
     this.roomsService.removeActiveUser(user._id, room);
   }
 
-  async handleConnection(socket) {
+  async handleConnection(socket: Socket) {
     console.log('*** SOCKET CONNECTED ***');
-    socket.on('disconnecting', async (reason) => {
+    socket.on('disconnecting', (reason) => {
       this.leaveRoom(socket);
     });
   }
 
-  async handleDisconnect(client: any) {
+  async handleDisconnect(socket: Socket) {
     console.log('~~~ SOCKET DISCONNECTED ~~~');
   }
 
   @SubscribeMessage('chatmsg')
-  handleMessage(@MessageBody() body: any, @ConnectedSocket() client: any): any {
-    for (const room of Object.keys(client.rooms)) {
-      client.broadcast.to(room).emit('chatmsg', { 'message' : body });
-    }
+  handleMessage(@MessageBody() body: any, @ConnectedSocket() socket: Socket): void {
+    const room = this.getRoomFromSocket(socket);
+    this.broadcastToRoom(socket, {
+      'room' : room,
+      'event' : 'chatmsg',
+      'response' : {
+        'message' : body
+      }
+    });
   }
 
-  checkForToken(client: any): boolean {
-    if (client.handshake.query.token) {
+  checkForToken(socket: Socket): boolean {
+    if (socket.handshake.query.token) {
       return true;
     }
     throw new WsException('no token set');
   }
 
-  @SubscribeMessage('joinroom')
-  async joinRoom(@MessageBody() data: any, @ConnectedSocket() client: any): Promise<any> {
-    this.checkForToken(client);
-    const user = await this.jwtServicer.verify(client.handshake.query.token);
-    const requestedRoom = await this.roomsService.getRoomById(data._id);
-    const isCollaborator = requestedRoom.collaborators.find(person => person.userId == user._id);
-    if (isCollaborator) {
-      if (this.getRoomFromSocket(client)) {
-        this.leaveRoom(client);
-      }
-      client.join(requestedRoom._id);
-      await this.roomsService.addActiveUser(user, requestedRoom._id);
-      client.broadcast.to(requestedRoom._id).emit('other_joined_room', { 'message' : 'Someone has joined.', 'user' : user });
-      const activeUsers = await this.roomsService.getActiveUsers(requestedRoom._id);
-      client.emit('joined_room', {
-        'msg' : 'You joined the room.',
-        'room' : requestedRoom,
-        'activeUsers' : activeUsers
-      });
-    } else {
-      console.log('user is not allowed to access room');
-      client.emit('err', {'err' : 'You cannot join this room.'});
-    }
+  private verifyCollaborator(user: User, room: Room) {
+    return room.collaborators.find((collaborator) => collaborator.userId == user._id);
+  }
 
+  private async doJoinRoom(socket: Socket, room: Room, user: User) {
+    socket.join(room._id);
+    this.broadcastToRoom(socket, {
+      'room' : room._id,
+      'event' : 'other_joined_room',
+      'response' : {
+        'message' : 'Someone has joined.',
+        'user' : user
+      }
+    });
+    await this.roomsService.addActiveUser(user, room._id);
+    const activeUsers = await this.roomsService.getActiveUsers(room._id);
+    socket.emit('joined_room', {
+      'msg' : 'You joined the room.',
+      'room' : room,
+      'activeUsers' : activeUsers
+    });
+  }
+
+  @SubscribeMessage('joinroom')
+  async joinRoom(@MessageBody() data: any, @ConnectedSocket() socket: Socket): Promise<any> {
+    this.checkForToken(socket);
+    const user = await this.jwtServicer.verify(socket.handshake.query.token);
+    const requestedRoom = await this.roomsService.getRoomById(data._id);
+    if (this.verifyCollaborator(user, requestedRoom)) {
+      if (this.getRoomFromSocket(socket)) {
+        this.leaveRoom(socket);
+      }
+      this.doJoinRoom(socket, requestedRoom, user);
+      // socket.join(requestedRoom._id);
+      // await this.roomsService.addActiveUser(user, requestedRoom._id);
+      // socket.broadcast.to(requestedRoom._id).emit('other_joined_room', { 'message' : 'Someone has joined.', 'user' : user });
+      // const activeUsers = await this.roomsService.getActiveUsers(requestedRoom._id);
+      // socket.emit('joined_room', {
+        // 'msg' : 'You joined the room.',
+       //  'room' : requestedRoom,
+        // 'activeUsers' : activeUsers
+     // });
+      return;
+    }
+    socket.emit('err', {'err' : 'You cannot join this room.'});
+    return;
   }
 
 }
