@@ -658,7 +658,7 @@
             {
               "file": "apps/api/src/app/chat/chat.gateway.ts",
               "ext": ".ts",
-              "mtime": 1587408424474.127
+              "mtime": 1587488987224.609
             },
             {
               "file": "apps/api/src/app/chat/chat.module.ts",
@@ -754,11 +754,6 @@
               "file": "apps/api/tsconfig.json",
               "ext": ".json",
               "mtime": 1586538981722.1628
-            },
-            {
-              "file": "apps/api/tsconfig.nx-tmp",
-              "ext": ".nx-tmp",
-              "mtime": 1587481741506.2825
             },
             {
               "file": "apps/api/tsconfig.spec.json",
@@ -1845,7 +1840,7 @@
       {
         "file": "apps/api/src/app/chat/chat.gateway.ts",
         "ext": ".ts",
-        "mtime": 1587408424474.127
+        "mtime": 1587488987224.609
       },
       {
         "file": "apps/api/src/app/chat/chat.module.ts",
@@ -1941,11 +1936,6 @@
         "file": "apps/api/tsconfig.json",
         "ext": ".json",
         "mtime": 1586538981722.1628
-      },
-      {
-        "file": "apps/api/tsconfig.nx-tmp",
-        "ext": ".nx-tmp",
-        "mtime": 1587481741506.2825
       },
       {
         "file": "apps/api/tsconfig.spec.json",

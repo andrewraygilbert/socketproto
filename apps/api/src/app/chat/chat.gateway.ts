@@ -3,6 +3,7 @@ import { SubscribeMessage, WebSocketGateway, WsResponse, WebSocketServer, OnGate
 import { User } from '@sockets/api-interfaces';
 import { RoomsService } from './../rooms/rooms.service';
 import { JwtServicer } from './../auth/jwt/jwt.service';
+import { Socket } from 'net';
 
 @WebSocketGateway({ pingTimeout: 30000})
 export class ChatGateway implements OnGatewayConnection, OnGatewayDisconnect {
@@ -16,24 +17,38 @@ export class ChatGateway implements OnGatewayConnection, OnGatewayDisconnect {
   ) {}
 
 
+  private broadcastToRoom(socket, data) {
+    socket.broadcast.to(data.room).emit(data.event, data.response);
+  }
+
+  private getRoomFromSocket(socket): string {
+    return Object.keys(socket.rooms)[1];
+  }
+
+  private async getUserFromSocket(socket): Promise<User> {
+    return this.jwtServicer.verify(socket.handshake.query.token);
+  }
+
+  private async leaveRoom(socket) {
+    const room = this.getRoomFromSocket(socket);
+    const user = await this.getUserFromSocket(socket);
+    this.broadcastToRoom(socket, {
+      room: room,
+      event: 'other_exited_room',
+      response: {
+        message: 'someone left',
+        user: user
+      }
+    });
+    socket.leave(room);
+    this.roomsService.removeActiveUser(user._id, room);
+  }
+
   async handleConnection(socket) {
     console.log('*** SOCKET CONNECTED ***');
     socket.on('disconnecting', async (reason) => {
-      const roomId = Object.keys(socket.rooms)[1];
-      const user = await this.jwtServicer.verify(socket.handshake.query.token);
-      console.log(user);
-      socket.broadcast.to(roomId).emit('other_exited_room', { 'message' : 'someone left', 'user' : user });
-      this.leaveRoom(user._id, roomId);
+      this.leaveRoom(socket);
     });
-    /*
-    socket.on('error', (err) => {
-      socket.emit('err', {'message' : err});
-    });
-    */
-  }
-
-  async leaveRoom(userId: string, roomId: string) {
-    await this.roomsService.removeActiveUser(userId, roomId);
   }
 
   async handleDisconnect(client: any) {
@@ -44,17 +59,6 @@ export class ChatGateway implements OnGatewayConnection, OnGatewayDisconnect {
   handleMessage(@MessageBody() body: any, @ConnectedSocket() client: any): any {
     for (const room of Object.keys(client.rooms)) {
       client.broadcast.to(room).emit('chatmsg', { 'message' : body });
-    }
-  }
-
-  private async doLeaveRoom(client: any, user?: User) {
-    console.log('in do leave room');
-    if (Object.keys(client.rooms).length > 1) {
-      console.log('in conditional');
-      const roomId = Object.keys(client.rooms)[1];
-      client.broadcast.to(roomId).emit('other_exited_room', { 'message' : 'someone left', 'user' : user });
-      client.leave(roomId);
-      await this.roomsService.removeActiveUser(user._id, roomId);
     }
   }
 
@@ -72,7 +76,9 @@ export class ChatGateway implements OnGatewayConnection, OnGatewayDisconnect {
     const requestedRoom = await this.roomsService.getRoomById(data._id);
     const isCollaborator = requestedRoom.collaborators.find(person => person.userId == user._id);
     if (isCollaborator) {
-      await this.doLeaveRoom(client, user);
+      if (this.getRoomFromSocket(client)) {
+        this.leaveRoom(client);
+      }
       client.join(requestedRoom._id);
       await this.roomsService.addActiveUser(user, requestedRoom._id);
       client.broadcast.to(requestedRoom._id).emit('other_joined_room', { 'message' : 'Someone has joined.', 'user' : user });

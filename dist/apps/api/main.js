@@ -1092,26 +1092,39 @@ let ChatGateway = class ChatGateway {
         this.roomsService = roomsService;
         this.jwtServicer = jwtServicer;
     }
+    broadcastToRoom(socket, data) {
+        socket.broadcast.to(data.room).emit(data.event, data.response);
+    }
+    getRoomFromSocket(socket) {
+        return Object.keys(socket.rooms)[1];
+    }
+    getUserFromSocket(socket) {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+            return this.jwtServicer.verify(socket.handshake.query.token);
+        });
+    }
+    leaveRoom(socket) {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+            const room = this.getRoomFromSocket(socket);
+            const user = yield this.getUserFromSocket(socket);
+            this.broadcastToRoom(socket, {
+                room: room,
+                event: 'other_exited_room',
+                response: {
+                    message: 'someone left',
+                    user: user
+                }
+            });
+            socket.leave(room);
+            this.roomsService.removeActiveUser(user._id, room);
+        });
+    }
     handleConnection(socket) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
             console.log('*** SOCKET CONNECTED ***');
             socket.on('disconnecting', (reason) => Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
-                const roomId = Object.keys(socket.rooms)[1];
-                const user = yield this.jwtServicer.verify(socket.handshake.query.token);
-                console.log(user);
-                socket.broadcast.to(roomId).emit('other_exited_room', { 'message': 'someone left', 'user': user });
-                this.leaveRoom(user._id, roomId);
+                this.leaveRoom(socket);
             }));
-            /*
-            socket.on('error', (err) => {
-              socket.emit('err', {'message' : err});
-            });
-            */
-        });
-    }
-    leaveRoom(userId, roomId) {
-        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
-            yield this.roomsService.removeActiveUser(userId, roomId);
         });
     }
     handleDisconnect(client) {
@@ -1123,18 +1136,6 @@ let ChatGateway = class ChatGateway {
         for (const room of Object.keys(client.rooms)) {
             client.broadcast.to(room).emit('chatmsg', { 'message': body });
         }
-    }
-    doLeaveRoom(client, user) {
-        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
-            console.log('in do leave room');
-            if (Object.keys(client.rooms).length > 1) {
-                console.log('in conditional');
-                const roomId = Object.keys(client.rooms)[1];
-                client.broadcast.to(roomId).emit('other_exited_room', { 'message': 'someone left', 'user': user });
-                client.leave(roomId);
-                yield this.roomsService.removeActiveUser(user._id, roomId);
-            }
-        });
     }
     checkForToken(client) {
         if (client.handshake.query.token) {
@@ -1149,7 +1150,9 @@ let ChatGateway = class ChatGateway {
             const requestedRoom = yield this.roomsService.getRoomById(data._id);
             const isCollaborator = requestedRoom.collaborators.find(person => person.userId == user._id);
             if (isCollaborator) {
-                yield this.doLeaveRoom(client, user);
+                if (this.getRoomFromSocket(client)) {
+                    this.leaveRoom(client);
+                }
                 client.join(requestedRoom._id);
                 yield this.roomsService.addActiveUser(user, requestedRoom._id);
                 client.broadcast.to(requestedRoom._id).emit('other_joined_room', { 'message': 'Someone has joined.', 'user': user });
