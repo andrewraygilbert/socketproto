@@ -341,7 +341,7 @@
             {
               "file": "apps/socketproto/src/app/chat/chat.component.ts",
               "ext": ".ts",
-              "mtime": 1587481685843.5764
+              "mtime": 1587482751465.6426
             },
             {
               "file": "apps/socketproto/src/app/constants/api-base-url.constant.ts",
@@ -391,7 +391,7 @@
             {
               "file": "apps/socketproto/src/app/services/chat.service.ts",
               "ext": ".ts",
-              "mtime": 1587481100229.377
+              "mtime": 1587482645875.4878
             },
             {
               "file": "apps/socketproto/src/app/socket/socket.service.spec.ts",
@@ -401,7 +401,7 @@
             {
               "file": "apps/socketproto/src/app/socket/socket.service.ts",
               "ext": ".ts",
-              "mtime": 1587481624082.829
+              "mtime": 1587482802203.5964
             },
             {
               "file": "apps/socketproto/src/assets/.gitkeep",
@@ -758,7 +758,7 @@
             {
               "file": "apps/api/tsconfig.nx-tmp",
               "ext": ".nx-tmp",
-              "mtime": 1587386947837.7131
+              "mtime": 1587481741506.2825
             },
             {
               "file": "apps/api/tsconfig.spec.json",
@@ -1271,12 +1271,12 @@
         {
           "type": "static",
           "source": "socketproto",
-          "target": "socket.io-client"
+          "target": "rxjs"
         },
         {
           "type": "static",
           "source": "socketproto",
-          "target": "rxjs"
+          "target": "socket.io-client"
         },
         {
           "type": "static",
@@ -1593,7 +1593,7 @@
       {
         "file": "apps/socketproto/src/app/chat/chat.component.ts",
         "ext": ".ts",
-        "mtime": 1587481685843.5764
+        "mtime": 1587482751465.6426
       },
       {
         "file": "apps/socketproto/src/app/constants/api-base-url.constant.ts",
@@ -1643,7 +1643,7 @@
       {
         "file": "apps/socketproto/src/app/services/chat.service.ts",
         "ext": ".ts",
-        "mtime": 1587481100229.377
+        "mtime": 1587482645875.4878
       },
       {
         "file": "apps/socketproto/src/app/socket/socket.service.spec.ts",
@@ -1653,7 +1653,7 @@
       {
         "file": "apps/socketproto/src/app/socket/socket.service.ts",
         "ext": ".ts",
-        "mtime": 1587481624082.829
+        "mtime": 1587482802203.5964
       },
       {
         "file": "apps/socketproto/src/assets/.gitkeep",
@@ -1941,6 +1941,11 @@
         "file": "apps/api/tsconfig.json",
         "ext": ".json",
         "mtime": 1586538981722.1628
+      },
+      {
+        "file": "apps/api/tsconfig.nx-tmp",
+        "ext": ".nx-tmp",
+        "mtime": 1587481741506.2825
       },
       {
         "file": "apps/api/tsconfig.spec.json",
