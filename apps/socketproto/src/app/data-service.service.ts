@@ -2,7 +2,6 @@ import { Injectable, Inject } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { API_BASE_URL } from './constants/api-base-url.constant';
 import { BROWSER_STORAGE } from './constants/browser-storage.constant';
-import { CustomsocketService } from './customsocket/customsocket.service';
 
 interface HttpOptions {
   headers: HttpHeaders;
@@ -17,7 +16,6 @@ interface AuthResponse {
   access_token: string;
 }
 
-
 @Injectable({
   providedIn: 'root'
 })
@@ -29,7 +27,6 @@ export class DataService {
 
   constructor(
     private http: HttpClient,
-    private customSocket: CustomsocketService,
     @Inject(BROWSER_STORAGE) private storage: Storage,
   ) { }
 

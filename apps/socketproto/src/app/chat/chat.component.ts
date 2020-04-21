@@ -1,8 +1,9 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { DataService } from './../data-service.service';
-import { CustomsocketService } from '../customsocket/customsocket.service';
+import { SocketService } from './../socket/socket.service';
 import { Router } from '@angular/router';
+import { ChatService } from '../services/chat.service';
 
 @Component({
   selector: 'sockets-chat',
@@ -15,7 +16,8 @@ export class ChatComponent implements OnInit, OnDestroy {
     private router: Router,
     private fb: FormBuilder,
     private dataService: DataService,
-    private customSocket: CustomsocketService
+    private socketService: SocketService,
+    private chatService: ChatService
   ) { }
 
   public rooms = [];
@@ -30,13 +32,13 @@ export class ChatComponent implements OnInit, OnDestroy {
   public joiner = '';
   public activeUsers = [];
 
-
   chatForm = this.fb.group({
     newMsg: ['', Validators.required]
   });
 
+  // creates a socket connection to the server
   public initializeSocket() {
-    this.customSocket.initializeSocket();
+    this.socketService.initializeSocket();
     this.initializeSubscriptions();
   }
 
@@ -48,22 +50,23 @@ export class ChatComponent implements OnInit, OnDestroy {
     }, 5000);
   }
 
+  // subscribes to socket events
   private initializeSubscriptions() {
 
-    this.customSocket.onConnect()
+    this.socketService.onConnect()
       .subscribe(() => console.log('*** SOCKET CONNECTED ***'));
 
-    this.customSocket.onDisconnect()
+    this.socketService.onDisconnect()
       .subscribe(() => console.log('~~~ SOCKET DISCONNECTED ~~~'));
 
-    this.customSocket.onError()
+    this.socketService.onError()
       .subscribe((response) => {
         this.displayErrors(response.err);
         console.log(response.err);
       });
 
     // confirms that user successfully joined a room and updates state
-    this.customSocket.joinedRoom()
+    this.chatService.joinedRoom()
       .subscribe((response) => {
         console.log(response);
         this.activeRoom = response.room;
@@ -71,7 +74,7 @@ export class ChatComponent implements OnInit, OnDestroy {
       });
 
     // reflect that a collaborator exited the room
-    this.customSocket.otherExitedRoom()
+    this.chatService.otherExitedRoom()
       .subscribe((response) => {
         console.log(response);
         this.notifyLeft(response.user.username);
@@ -80,14 +83,14 @@ export class ChatComponent implements OnInit, OnDestroy {
       })
 
     // reflect that a collaborator joined the room
-    this.customSocket.otherJoinedRoom()
+    this.chatService.otherJoinedRoom()
       .subscribe((response) => {
         this.notifyJoin(response.user.username);
         this.activeUsers.push(response.user);
       });
 
     // display new chat messages from collaborators
-    this.customSocket.getChats()
+    this.chatService.getChats()
       .subscribe((msg) => {
         if (this.chatMessages.length > 3) {
           this.chatMessages.shift();
@@ -98,16 +101,16 @@ export class ChatComponent implements OnInit, OnDestroy {
   }
 
   public closeSocket() {
-    this.customSocket.closeSocket();
+    this.socketService.closeSocket();
   }
 
   public openSocket() {
-    this.customSocket.openSocket();
+    this.socketService.openSocket();
   }
 
   public submitMsg() {
     const newMsg = this.chatForm.get('newMsg').value;
-    this.customSocket.sendMsg(newMsg);
+    this.chatService.sendMsg(newMsg);
     if (this.chatMessages.length > 3) {
       this.chatMessages.shift();
     }
@@ -116,11 +119,11 @@ export class ChatComponent implements OnInit, OnDestroy {
   }
 
   public joinRoom(room) {
-    this.customSocket.joinRoom(room);
+    this.chatService.joinRoom(room);
   }
 
   public leaveRoom() {
-    this.customSocket.leaveRoom(this.activeRoom);
+    this.chatService.leaveRoom(this.activeRoom);
   }
 
   public notifyJoin(username) {
