@@ -449,19 +449,15 @@ let JwtServicer = class JwtServicer {
     constructor(usersService) {
         this.usersService = usersService;
     }
-    verify(token) {
+    verify(socket) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
-            try {
-                const payload = jsonwebtoken__WEBPACK_IMPORTED_MODULE_2__["verify"](token, _constants__WEBPACK_IMPORTED_MODULE_5__[/* jwtConstants */ "a"].secret);
-                const user = yield this.usersService.findUserById(payload._id);
-                if (!user) {
-                    throw new _nestjs_websockets__WEBPACK_IMPORTED_MODULE_3__["WsException"]('Unauthorized.');
-                }
-                return user;
+            const token = (socket.handshake && socket.handshake.query) ? socket.handshake.query.token : false;
+            if (!token) {
+                throw new _nestjs_websockets__WEBPACK_IMPORTED_MODULE_3__["WsException"]('Unauthorized. No token found');
             }
-            catch (err) {
-                throw new _nestjs_websockets__WEBPACK_IMPORTED_MODULE_3__["WsException"](err.message);
-            }
+            const payload = jsonwebtoken__WEBPACK_IMPORTED_MODULE_2__["verify"](token, _constants__WEBPACK_IMPORTED_MODULE_5__[/* jwtConstants */ "a"].secret);
+            const user = yield this.usersService.findUserById(payload._id);
+            return user;
         });
     }
 };
@@ -1109,7 +1105,7 @@ let ChatGateway = class ChatGateway {
     }
     getUserFromSocket(socket) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
-            return this.jwtServicer.verify(socket.handshake.query.token);
+            return this.jwtServicer.verify(socket);
         });
     }
     leaveRoom(socket) {
@@ -1182,27 +1178,16 @@ let ChatGateway = class ChatGateway {
     }
     joinRoom(data, socket) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
-            this.checkForToken(socket);
-            const user = yield this.jwtServicer.verify(socket.handshake.query.token);
+            const user = yield this.jwtServicer.verify(socket);
             const requestedRoom = yield this.roomsService.getRoomById(data._id);
-            if (this.verifyCollaborator(user, requestedRoom)) {
-                if (this.getRoomFromSocket(socket)) {
-                    this.leaveRoom(socket);
-                }
-                this.doJoinRoom(socket, requestedRoom, user);
-                // socket.join(requestedRoom._id);
-                // await this.roomsService.addActiveUser(user, requestedRoom._id);
-                // socket.broadcast.to(requestedRoom._id).emit('other_joined_room', { 'message' : 'Someone has joined.', 'user' : user });
-                // const activeUsers = await this.roomsService.getActiveUsers(requestedRoom._id);
-                // socket.emit('joined_room', {
-                // 'msg' : 'You joined the room.',
-                //  'room' : requestedRoom,
-                // 'activeUsers' : activeUsers
-                // });
+            if (!this.verifyCollaborator(user, requestedRoom)) {
+                socket.emit('err', { 'err': 'You cannot join this room' });
                 return;
             }
-            socket.emit('err', { 'err': 'You cannot join this room.' });
-            return;
+            if (this.getRoomFromSocket(socket)) {
+                this.leaveRoom(socket);
+            }
+            this.doJoinRoom(socket, requestedRoom, user);
         });
     }
 };

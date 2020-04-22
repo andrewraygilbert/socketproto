@@ -1,5 +1,13 @@
 import { UseGuards, UseFilters } from '@nestjs/common';
-import { SubscribeMessage, WebSocketGateway, WsResponse, WebSocketServer, OnGatewayConnection, OnGatewayDisconnect, WsException, MessageBody, ConnectedSocket, BaseWsExceptionFilter } from '@nestjs/websockets';
+import {
+  SubscribeMessage,
+  WebSocketGateway,
+  WebSocketServer,
+  OnGatewayConnection,
+  OnGatewayDisconnect,
+  WsException,
+  MessageBody,
+  ConnectedSocket } from '@nestjs/websockets';
 import { User, Room } from '@sockets/api-interfaces';
 import { RoomsService } from './../rooms/rooms.service';
 import { JwtServicer } from './../auth/jwt/jwt.service';
@@ -31,7 +39,7 @@ export class ChatGateway implements OnGatewayConnection, OnGatewayDisconnect {
   }
 
   private async getUserFromSocket(socket: Socket): Promise<User> {
-    return this.jwtServicer.verify(socket.handshake.query.token);
+    return this.jwtServicer.verify(socket);
   }
 
   private async leaveRoom(socket: Socket) {
@@ -104,27 +112,16 @@ export class ChatGateway implements OnGatewayConnection, OnGatewayDisconnect {
 
   @SubscribeMessage('joinroom')
   async joinRoom(@MessageBody() data: any, @ConnectedSocket() socket: Socket): Promise<any> {
-    this.checkForToken(socket);
-    const user = await this.jwtServicer.verify(socket.handshake.query.token);
+    const user = await this.jwtServicer.verify(socket);
     const requestedRoom = await this.roomsService.getRoomById(data._id);
-    if (this.verifyCollaborator(user, requestedRoom)) {
-      if (this.getRoomFromSocket(socket)) {
-        this.leaveRoom(socket);
-      }
-      this.doJoinRoom(socket, requestedRoom, user);
-      // socket.join(requestedRoom._id);
-      // await this.roomsService.addActiveUser(user, requestedRoom._id);
-      // socket.broadcast.to(requestedRoom._id).emit('other_joined_room', { 'message' : 'Someone has joined.', 'user' : user });
-      // const activeUsers = await this.roomsService.getActiveUsers(requestedRoom._id);
-      // socket.emit('joined_room', {
-        // 'msg' : 'You joined the room.',
-       //  'room' : requestedRoom,
-        // 'activeUsers' : activeUsers
-     // });
+    if (!this.verifyCollaborator(user, requestedRoom)) {
+      socket.emit('err', {'err' : 'You cannot join this room'});
       return;
     }
-    socket.emit('err', {'err' : 'You cannot join this room.'});
-    return;
+    if (this.getRoomFromSocket(socket)) {
+      this.leaveRoom(socket);
+    }
+    this.doJoinRoom(socket, requestedRoom, user);
   }
 
 }

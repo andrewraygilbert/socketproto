@@ -5,6 +5,7 @@ import { Model } from 'mongoose';
 import { WsException } from '@nestjs/websockets';
 import { UsersService } from './../../users/users.service';
 import { jwtConstants } from './../constants';
+import { Socket } from 'socket.io';
 
 @Injectable()
 export class JwtServicer {
@@ -13,18 +14,14 @@ export class JwtServicer {
     private readonly usersService: UsersService,
   ) {}
 
-  async verify(token: string): Promise<User | null> {
-    try {
-      const payload = <any>jwt.verify(token, jwtConstants.secret);
-      const user = await this.usersService.findUserById(payload._id);
-      if (!user) {
-        throw new WsException('Unauthorized.');
-      }
-      return user;
-    } catch (err) {
-      throw new WsException(err.message);
+  async verify(socket: Socket): Promise<User | null> {
+    const token = (socket.handshake && socket.handshake.query) ? socket.handshake.query.token : false;
+    if (!token) {
+      throw new WsException('Unauthorized. No token found');
     }
-
+    const payload = <any>jwt.verify(token, jwtConstants.secret);
+    const user = await this.usersService.findUserById(payload._id);
+    return user;
   }
 
 }
