@@ -1,7 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import * as jwt from 'jsonwebtoken';
 import { User } from '@sockets/api-interfaces';
-import { Model } from 'mongoose';
 import { WsException } from '@nestjs/websockets';
 import { UsersService } from './../../users/users.service';
 import { jwtConstants } from './../constants';
@@ -14,6 +13,7 @@ export class JwtServicer {
     private readonly usersService: UsersService,
   ) {}
 
+  // authenticates token; retrieves and returns user
   async verify(socket: Socket): Promise<User | null> {
     const token = (socket.handshake && socket.handshake.query) ? socket.handshake.query.token : false;
     if (!token) {

@@ -628,7 +628,7 @@
             {
               "file": "apps/api/src/app/auth/jwt/jwt.service.ts",
               "ext": ".ts",
-              "mtime": 1587567860684.7227
+              "mtime": 1587569159573.1118
             },
             {
               "file": "apps/api/src/app/auth/jwt-auth.guard.ts",
@@ -658,7 +658,7 @@
             {
               "file": "apps/api/src/app/chat/chat.gateway.ts",
               "ext": ".ts",
-              "mtime": 1587567105805.3477
+              "mtime": 1587569093841.9146
             },
             {
               "file": "apps/api/src/app/chat/chat.module.ts",
@@ -754,11 +754,6 @@
               "file": "apps/api/tsconfig.json",
               "ext": ".json",
               "mtime": 1586538981722.1628
-            },
-            {
-              "file": "apps/api/tsconfig.nx-tmp",
-              "ext": ".nx-tmp",
-              "mtime": 1587567031271.321
             },
             {
               "file": "apps/api/tsconfig.spec.json",
@@ -1343,11 +1338,6 @@
         {
           "type": "static",
           "source": "api",
-          "target": "mongoose"
-        },
-        {
-          "type": "static",
-          "source": "api",
           "target": "@nestjs/websockets"
         },
         {
@@ -1359,6 +1349,11 @@
           "type": "static",
           "source": "api",
           "target": "passport-local"
+        },
+        {
+          "type": "static",
+          "source": "api",
+          "target": "mongoose"
         },
         {
           "type": "static",
@@ -1815,7 +1810,7 @@
       {
         "file": "apps/api/src/app/auth/jwt/jwt.service.ts",
         "ext": ".ts",
-        "mtime": 1587567860684.7227
+        "mtime": 1587569159573.1118
       },
       {
         "file": "apps/api/src/app/auth/jwt-auth.guard.ts",
@@ -1845,7 +1840,7 @@
       {
         "file": "apps/api/src/app/chat/chat.gateway.ts",
         "ext": ".ts",
-        "mtime": 1587567105805.3477
+        "mtime": 1587569093841.9146
       },
       {
         "file": "apps/api/src/app/chat/chat.module.ts",
@@ -1941,11 +1936,6 @@
         "file": "apps/api/tsconfig.json",
         "ext": ".json",
         "mtime": 1586538981722.1628
-      },
-      {
-        "file": "apps/api/tsconfig.nx-tmp",
-        "ext": ".nx-tmp",
-        "mtime": 1587567031271.321
       },
       {
         "file": "apps/api/tsconfig.spec.json",

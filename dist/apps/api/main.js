@@ -98,12 +98,6 @@ module.exports = require("@nestjs/common");
 
 /***/ }),
 /* 2 */
-/***/ (function(module, exports) {
-
-module.exports = require("@nestjs/websockets");
-
-/***/ }),
-/* 3 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -168,6 +162,12 @@ UsersService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
 
 
 /***/ }),
+/* 3 */
+/***/ (function(module, exports) {
+
+module.exports = require("@nestjs/websockets");
+
+/***/ }),
 /* 4 */
 /***/ (function(module, exports) {
 
@@ -199,8 +199,8 @@ module.exports = require("@nestjs/passport");
 /* harmony import */ var _nestjs_mongoose__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_nestjs_mongoose__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var mongoose__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(4);
 /* harmony import */ var mongoose__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(mongoose__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _users_users_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(3);
-/* harmony import */ var _nestjs_websockets__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(2);
+/* harmony import */ var _users_users_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(2);
+/* harmony import */ var _nestjs_websockets__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(3);
 /* harmony import */ var _nestjs_websockets__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_nestjs_websockets__WEBPACK_IMPORTED_MODULE_5__);
 var _a, _b, _c;
 
@@ -319,7 +319,7 @@ RoomsService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(tslib__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(1);
 /* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _users_users_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(3);
+/* harmony import */ var _users_users_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(2);
 /* harmony import */ var _nestjs_jwt__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(14);
 /* harmony import */ var _nestjs_jwt__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_nestjs_jwt__WEBPACK_IMPORTED_MODULE_3__);
 var _a, _b;
@@ -383,7 +383,7 @@ module.exports = require("socket.io");
 /* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(1);
 /* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _users_controller__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(33);
-/* harmony import */ var _users_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(3);
+/* harmony import */ var _users_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(2);
 /* harmony import */ var _nestjs_mongoose__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(5);
 /* harmony import */ var _nestjs_mongoose__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_nestjs_mongoose__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var _schemas_user_schema__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(34);
@@ -434,9 +434,9 @@ const jwtConstants = {
 /* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var jsonwebtoken__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(36);
 /* harmony import */ var jsonwebtoken__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(jsonwebtoken__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _nestjs_websockets__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(2);
+/* harmony import */ var _nestjs_websockets__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(3);
 /* harmony import */ var _nestjs_websockets__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_nestjs_websockets__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _users_users_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(3);
+/* harmony import */ var _users_users_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(2);
 /* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(11);
 var _a;
 
@@ -449,6 +449,7 @@ let JwtServicer = class JwtServicer {
     constructor(usersService) {
         this.usersService = usersService;
     }
+    // authenticates token; retrieves and returns user
     verify(socket) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
             const token = (socket.handshake && socket.handshake.query) ? socket.handshake.query.token : false;
@@ -911,7 +912,7 @@ module.exports = require("passport-local");
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(tslib__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(1);
 /* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _users_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(3);
+/* harmony import */ var _users_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(2);
 /* harmony import */ var _auth_jwt_auth_guard__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(18);
 var _a;
 
@@ -1080,7 +1081,7 @@ ChatModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ChatGateway; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(0);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(tslib__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _nestjs_websockets__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(2);
+/* harmony import */ var _nestjs_websockets__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(3);
 /* harmony import */ var _nestjs_websockets__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_nestjs_websockets__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _rooms_rooms_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(7);
 /* harmony import */ var _auth_jwt_jwt_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(12);
@@ -1097,46 +1098,30 @@ let ChatGateway = class ChatGateway {
         this.roomsService = roomsService;
         this.jwtServicer = jwtServicer;
     }
-    broadcastToRoom(socket, data) {
-        socket.broadcast.to(data.room).emit(data.event, data.response);
-    }
-    getRoomFromSocket(socket) {
-        return Object.keys(socket.rooms)[1];
-    }
-    getUserFromSocket(socket) {
-        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
-            return this.jwtServicer.verify(socket);
-        });
-    }
-    leaveRoom(socket) {
-        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
-            const room = this.getRoomFromSocket(socket);
-            const user = yield this.getUserFromSocket(socket);
-            this.broadcastToRoom(socket, {
-                room: room,
-                event: 'other_exited_room',
-                response: {
-                    message: 'someone left',
-                    user: user
-                }
-            });
-            socket.leave(room);
-            this.roomsService.removeActiveUser(user._id, room);
-        });
-    }
+    /**
+     * HANDLE SOCKET CONNECTION
+     */
     handleConnection(socket) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
             console.log('*** SOCKET CONNECTED ***');
+            // hook onto the disconnecting even to notify rooms
+            // that a socket has disconnected
             socket.on('disconnecting', (reason) => {
                 this.leaveRoom(socket);
             });
         });
     }
+    /**
+     * HANDLE SOCKET DISCONNECTION
+     */
     handleDisconnect(socket) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
             console.log('~~~ SOCKET DISCONNECTED ~~~');
         });
     }
+    /**
+     * RECEIVING/BROADCASTING CHAT MESSAGES
+     */
     handleMessage(body, socket) {
         const room = this.getRoomFromSocket(socket);
         this.broadcastToRoom(socket, {
@@ -1147,15 +1132,31 @@ let ChatGateway = class ChatGateway {
             }
         });
     }
-    checkForToken(socket) {
-        if (socket.handshake.query.token) {
-            return true;
-        }
-        throw new _nestjs_websockets__WEBPACK_IMPORTED_MODULE_1__["WsException"]('no token set');
+    /**
+     * JOINING/LEAVING ROOMS
+     */
+    // authenticates and retrieves user; retrieves requested room;
+    // removes user from current room; joins new room
+    joinRoom(data, socket) {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+            const user = yield this.jwtServicer.verify(socket);
+            const requestedRoom = yield this.roomsService.getRoomById(data._id);
+            if (!this.verifyCollaborator(user, requestedRoom)) {
+                socket.emit('err', { 'err': 'You cannot join this room' });
+                return;
+            }
+            if (this.getRoomFromSocket(socket)) {
+                this.leaveRoom(socket);
+            }
+            this.doJoinRoom(socket, requestedRoom, user);
+        });
     }
+    // verify user is authorized collaborator in room
     verifyCollaborator(user, room) {
         return room.collaborators.find((collaborator) => collaborator.userId == user._id);
     }
+    // joins room; broadcasts join event to other sockets in room;
+    // retrieves list of users in room; confirms room join to socket
     doJoinRoom(socket, room, user) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
             socket.join(room._id);
@@ -1176,18 +1177,36 @@ let ChatGateway = class ChatGateway {
             });
         });
     }
-    joinRoom(data, socket) {
+    // notify room that socket is leaving; socket leaves room;
+    // remove user from list of active users in room
+    leaveRoom(socket) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
-            const user = yield this.jwtServicer.verify(socket);
-            const requestedRoom = yield this.roomsService.getRoomById(data._id);
-            if (!this.verifyCollaborator(user, requestedRoom)) {
-                socket.emit('err', { 'err': 'You cannot join this room' });
-                return;
-            }
-            if (this.getRoomFromSocket(socket)) {
-                this.leaveRoom(socket);
-            }
-            this.doJoinRoom(socket, requestedRoom, user);
+            const room = this.getRoomFromSocket(socket);
+            const user = yield this.getUserFromSocket(socket);
+            this.broadcastToRoom(socket, {
+                room: room,
+                event: 'other_exited_room',
+                response: {
+                    message: 'someone left',
+                    user: user
+                }
+            });
+            socket.leave(room);
+            this.roomsService.removeActiveUser(user._id, room);
+        });
+    }
+    /**
+     * GENERIC HELPER FUNCTIONS
+     */
+    broadcastToRoom(socket, data) {
+        socket.broadcast.to(data.room).emit(data.event, data.response);
+    }
+    getRoomFromSocket(socket) {
+        return Object.keys(socket.rooms)[1];
+    }
+    getUserFromSocket(socket) {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+            return this.jwtServicer.verify(socket);
         });
     }
 };
