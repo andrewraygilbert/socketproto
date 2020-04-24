@@ -1,11 +1,9 @@
-import { UseGuards, UseFilters } from '@nestjs/common';
 import {
   SubscribeMessage,
   WebSocketGateway,
   WebSocketServer,
   OnGatewayConnection,
   OnGatewayDisconnect,
-  WsException,
   MessageBody,
   ConnectedSocket } from '@nestjs/websockets';
 import { User, Room } from '@sockets/api-interfaces';

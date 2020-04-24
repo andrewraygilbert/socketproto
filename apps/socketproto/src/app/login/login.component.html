@@ -26,12 +26,12 @@
   <form [formGroup]='loginForm' (ngSubmit)='onSubmitLogin()' style='margin-top: 32px;'>
     <div class='form-group'>
       <label for='username'>Username</label>
-      <input type='text' class='form-control' id='username' name='username' formControlName='username' required>
+      <input type='text' class='form-control' id='username' name='username' formControlName='username' data-cy='username-input' required>
     </div>
     <div class='form-group'>
       <label for='password'>Password</label>
-      <input type='password' class='form-control' id='password' name='password' formControlName='password' required>
+      <input type='password' class='form-control' id='password' name='password' formControlName='password' data-cy='password-input' required>
     </div>
-    <button type='submit' class='btn btn-primary'>Submit</button>
+    <button type='submit' class='btn btn-primary' data-cy='login-btn'>Submit</button>
   </form>
 </div>

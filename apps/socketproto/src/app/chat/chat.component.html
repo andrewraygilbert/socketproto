@@ -2,7 +2,7 @@
   <div style='position: absolute; top: 16px; z-index: 100;'>
     <div *ngIf='displayError' class='alert alert-danger'>{{ errorMessage }}</div>
   </div>
-  <div class='row' style='margin-bottom: 12px; font-size: 18px;'>
+  <div class='row' style='margin-bottom: 12px; font-size: 18px;' data-cy='show-username'>
     Hi, {{ getActiveUsername() }}
   </div>
   <div class='row'>

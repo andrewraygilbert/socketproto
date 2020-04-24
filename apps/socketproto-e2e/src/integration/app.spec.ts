@@ -1,13 +1,19 @@
-import { getGreeting } from '../support/app.po';
+import { getUsernameInput,
+getPasswordInput,
+getLoginBtn,
+getShowUsername, } from '../support/app.po';
 
 describe('socketproto', () => {
   beforeEach(() => cy.visit('/'));
 
-  it('should display welcome message', () => {
-    // Custom command example, see `../support/commands.ts` file
-    cy.login('my-email@something.com', 'myPassword');
-
+  it('should change to chat after login', () => {
     // Function helper example, see `../support/app.po.ts` file
-    getGreeting().contains('Welcome to socketproto!');
+    getUsernameInput().type('Bilbo')
+    getPasswordInput().type('secret')
+    getLoginBtn().click()
+    cy.url()
+      .should('include', '/chat')
+    getShowUsername()
+      .should('contain', 'Bilbo')
   });
 });

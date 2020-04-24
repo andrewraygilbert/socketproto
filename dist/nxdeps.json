@@ -50,7 +50,7 @@
             {
               "file": "apps/socketproto-e2e/src/integration/app.spec.ts",
               "ext": ".ts",
-              "mtime": 1586538981720.1836
+              "mtime": 1587746255145.3545
             },
             {
               "file": "apps/socketproto-e2e/src/plugins/index.js",
@@ -60,7 +60,7 @@
             {
               "file": "apps/socketproto-e2e/src/support/app.po.ts",
               "ext": ".ts",
-              "mtime": 1586538981720.9463
+              "mtime": 1587746057473.3994
             },
             {
               "file": "apps/socketproto-e2e/src/support/commands.ts",
@@ -371,7 +371,7 @@
             {
               "file": "apps/socketproto/src/app/login/login.component.html",
               "ext": ".html",
-              "mtime": 1587225149986.749
+              "mtime": 1587747053913.0405
             },
             {
               "file": "apps/socketproto/src/app/login/login.component.spec.ts",
@@ -429,6 +429,11 @@
               "mtime": 1532396262000
             },
             {
+              "file": "apps/socketproto/src/assets/jquery-3.5.0.min.js",
+              "ext": ".js",
+              "mtime": 1587746685122.9526
+            },
+            {
               "file": "apps/socketproto/src/environments/environment.prod.ts",
               "ext": ".ts",
               "mtime": 1586538981716.139
@@ -446,7 +451,7 @@
             {
               "file": "apps/socketproto/src/index.html",
               "ext": ".html",
-              "mtime": 1586873574767.375
+              "mtime": 1587746946769.7654
             },
             {
               "file": "apps/socketproto/src/main.ts",
@@ -658,7 +663,7 @@
             {
               "file": "apps/api/src/app/chat/chat.gateway.ts",
               "ext": ".ts",
-              "mtime": 1587569093841.9146
+              "mtime": 1587734281922.3667
             },
             {
               "file": "apps/api/src/app/chat/chat.module.ts",
@@ -754,6 +759,11 @@
               "file": "apps/api/tsconfig.json",
               "ext": ".json",
               "mtime": 1586538981722.1628
+            },
+            {
+              "file": "apps/api/tsconfig.nx-tmp",
+              "ext": ".nx-tmp",
+              "mtime": 1587746755175.3408
             },
             {
               "file": "apps/api/tsconfig.spec.json",
@@ -1434,7 +1444,7 @@
       {
         "file": "apps/socketproto-e2e/src/integration/app.spec.ts",
         "ext": ".ts",
-        "mtime": 1586538981720.1836
+        "mtime": 1587746255145.3545
       },
       {
         "file": "apps/socketproto-e2e/src/plugins/index.js",
@@ -1444,7 +1454,7 @@
       {
         "file": "apps/socketproto-e2e/src/support/app.po.ts",
         "ext": ".ts",
-        "mtime": 1586538981720.9463
+        "mtime": 1587746057473.3994
       },
       {
         "file": "apps/socketproto-e2e/src/support/commands.ts",
@@ -1618,7 +1628,7 @@
       {
         "file": "apps/socketproto/src/app/login/login.component.html",
         "ext": ".html",
-        "mtime": 1587225149986.749
+        "mtime": 1587747053913.0405
       },
       {
         "file": "apps/socketproto/src/app/login/login.component.spec.ts",
@@ -1676,6 +1686,11 @@
         "mtime": 1532396262000
       },
       {
+        "file": "apps/socketproto/src/assets/jquery-3.5.0.min.js",
+        "ext": ".js",
+        "mtime": 1587746685122.9526
+      },
+      {
         "file": "apps/socketproto/src/environments/environment.prod.ts",
         "ext": ".ts",
         "mtime": 1586538981716.139
@@ -1693,7 +1708,7 @@
       {
         "file": "apps/socketproto/src/index.html",
         "ext": ".html",
-        "mtime": 1586873574767.375
+        "mtime": 1587746946769.7654
       },
       {
         "file": "apps/socketproto/src/main.ts",
@@ -1840,7 +1855,7 @@
       {
         "file": "apps/api/src/app/chat/chat.gateway.ts",
         "ext": ".ts",
-        "mtime": 1587569093841.9146
+        "mtime": 1587734281922.3667
       },
       {
         "file": "apps/api/src/app/chat/chat.module.ts",
