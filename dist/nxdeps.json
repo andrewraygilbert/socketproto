@@ -50,7 +50,7 @@
             {
               "file": "apps/socketproto-e2e/src/integration/app.spec.ts",
               "ext": ".ts",
-              "mtime": 1587746255145.3545
+              "mtime": 1587763402018.9233
             },
             {
               "file": "apps/socketproto-e2e/src/plugins/index.js",
@@ -60,7 +60,7 @@
             {
               "file": "apps/socketproto-e2e/src/support/app.po.ts",
               "ext": ".ts",
-              "mtime": 1587746057473.3994
+              "mtime": 1587763308479.4946
             },
             {
               "file": "apps/socketproto-e2e/src/support/commands.ts",
@@ -331,7 +331,7 @@
             {
               "file": "apps/socketproto/src/app/chat/chat.component.html",
               "ext": ".html",
-              "mtime": 1587311860319.2512
+              "mtime": 1587747542190.709
             },
             {
               "file": "apps/socketproto/src/app/chat/chat.component.spec.ts",
@@ -371,7 +371,7 @@
             {
               "file": "apps/socketproto/src/app/login/login.component.html",
               "ext": ".html",
-              "mtime": 1587747053913.0405
+              "mtime": 1587763274450.488
             },
             {
               "file": "apps/socketproto/src/app/login/login.component.spec.ts",
@@ -571,29 +571,9 @@
               "mtime": 1586538981722.9265
             },
             {
-              "file": "apps/api/src/app/app.controller.spec.ts",
-              "ext": ".ts",
-              "mtime": 1586538981724.6445
-            },
-            {
-              "file": "apps/api/src/app/app.controller.ts",
-              "ext": ".ts",
-              "mtime": 1586538981724.852
-            },
-            {
               "file": "apps/api/src/app/app.module.ts",
               "ext": ".ts",
-              "mtime": 1586900447984.133
-            },
-            {
-              "file": "apps/api/src/app/app.service.spec.ts",
-              "ext": ".ts",
-              "mtime": 1586538981725.2588
-            },
-            {
-              "file": "apps/api/src/app/app.service.ts",
-              "ext": ".ts",
-              "mtime": 1586538981725.7468
+              "mtime": 1587759264524.075
             },
             {
               "file": "apps/api/src/app/auth/auth.controller.spec.ts",
@@ -708,7 +688,7 @@
             {
               "file": "apps/api/src/app/users/users.controller.spec.ts",
               "ext": ".ts",
-              "mtime": 1586559735976.0203
+              "mtime": 1587760326105.495
             },
             {
               "file": "apps/api/src/app/users/users.controller.ts",
@@ -763,7 +743,7 @@
             {
               "file": "apps/api/tsconfig.nx-tmp",
               "ext": ".nx-tmp",
-              "mtime": 1587746755175.3408
+              "mtime": 1587762715620.3687
             },
             {
               "file": "apps/api/tsconfig.spec.json",
@@ -1308,11 +1288,6 @@
         {
           "type": "static",
           "source": "api",
-          "target": "@nestjs/testing"
-        },
-        {
-          "type": "static",
-          "source": "api",
           "target": "@nestjs/common"
         },
         {
@@ -1329,6 +1304,11 @@
           "type": "static",
           "source": "api",
           "target": "@angular/forms"
+        },
+        {
+          "type": "static",
+          "source": "api",
+          "target": "@nestjs/testing"
         },
         {
           "type": "static",
@@ -1444,7 +1424,7 @@
       {
         "file": "apps/socketproto-e2e/src/integration/app.spec.ts",
         "ext": ".ts",
-        "mtime": 1587746255145.3545
+        "mtime": 1587763402018.9233
       },
       {
         "file": "apps/socketproto-e2e/src/plugins/index.js",
@@ -1454,7 +1434,7 @@
       {
         "file": "apps/socketproto-e2e/src/support/app.po.ts",
         "ext": ".ts",
-        "mtime": 1587746057473.3994
+        "mtime": 1587763308479.4946
       },
       {
         "file": "apps/socketproto-e2e/src/support/commands.ts",
@@ -1588,7 +1568,7 @@
       {
         "file": "apps/socketproto/src/app/chat/chat.component.html",
         "ext": ".html",
-        "mtime": 1587311860319.2512
+        "mtime": 1587747542190.709
       },
       {
         "file": "apps/socketproto/src/app/chat/chat.component.spec.ts",
@@ -1628,7 +1608,7 @@
       {
         "file": "apps/socketproto/src/app/login/login.component.html",
         "ext": ".html",
-        "mtime": 1587747053913.0405
+        "mtime": 1587763274450.488
       },
       {
         "file": "apps/socketproto/src/app/login/login.component.spec.ts",
@@ -1763,29 +1743,9 @@
         "mtime": 1586538981722.9265
       },
       {
-        "file": "apps/api/src/app/app.controller.spec.ts",
-        "ext": ".ts",
-        "mtime": 1586538981724.6445
-      },
-      {
-        "file": "apps/api/src/app/app.controller.ts",
-        "ext": ".ts",
-        "mtime": 1586538981724.852
-      },
-      {
         "file": "apps/api/src/app/app.module.ts",
         "ext": ".ts",
-        "mtime": 1586900447984.133
-      },
-      {
-        "file": "apps/api/src/app/app.service.spec.ts",
-        "ext": ".ts",
-        "mtime": 1586538981725.2588
-      },
-      {
-        "file": "apps/api/src/app/app.service.ts",
-        "ext": ".ts",
-        "mtime": 1586538981725.7468
+        "mtime": 1587759264524.075
       },
       {
         "file": "apps/api/src/app/auth/auth.controller.spec.ts",
@@ -1900,7 +1860,7 @@
       {
         "file": "apps/api/src/app/users/users.controller.spec.ts",
         "ext": ".ts",
-        "mtime": 1586559735976.0203
+        "mtime": 1587760326105.495
       },
       {
         "file": "apps/api/src/app/users/users.controller.ts",
@@ -1951,6 +1911,11 @@
         "file": "apps/api/tsconfig.json",
         "ext": ".json",
         "mtime": 1586538981722.1628
+      },
+      {
+        "file": "apps/api/tsconfig.nx-tmp",
+        "ext": ".nx-tmp",
+        "mtime": 1587762715620.3687
       },
       {
         "file": "apps/api/tsconfig.spec.json",

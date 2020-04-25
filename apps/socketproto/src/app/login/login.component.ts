@@ -11,6 +11,8 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
 
   public userArray;
+  public displayError = false;
+  public errorMsg: string;
 
   constructor(
     private fb: FormBuilder,
@@ -22,6 +24,15 @@ export class LoginComponent implements OnInit {
     username: ['', Validators.required],
     password: ['', Validators.required]
   });
+
+  private displayErrorMsg(msg) {
+    this.errorMsg = msg;
+    this.displayError = true;
+    setTimeout(() => {
+      this.displayError = false;
+      this.errorMsg = '';
+    }, 5000);
+  }
 
   onSubmitLogin() {
     const credentials = {
@@ -36,6 +47,7 @@ export class LoginComponent implements OnInit {
       })
       .catch(err => {
         console.log(err);
+        this.displayErrorMsg(err.error.message);
       });
   }
 

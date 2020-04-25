@@ -1,4 +1,9 @@
 <div class='container-fluid'>
+  <div class='row justify-content-center' style='height: 50px;'>
+    <div *ngIf='displayError' class='alert alert-danger' data-cy='error-msg'>
+      {{errorMsg}}
+    </div>
+  </div>
   <div class='row' style='font-weight: bolder;'>
     <div class='col-6'>
       <div class='row justify-content-center'>
@@ -11,14 +16,14 @@
       </div>
     </div>
   </div>
-  <div *ngFor='let user of userArray' class='row'>
+  <div *ngFor='let user of userArray; let i = index;' class='row'>
     <div class='col-6'>
-      <div class='row justify-content-center'>
+      <div class='row justify-content-center' [attr.data-cy]='"username-list"+i'>
         {{ user.username }}
       </div>
     </div>
     <div class='col-6'>
-      <div class='row justify-content-center'>
+      <div class='row justify-content-center' [attr.data-cy]='"password-list"+i'>
         {{ user.password }}
       </div>
     </div>
